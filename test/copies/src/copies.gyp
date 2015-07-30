@@ -28,6 +28,19 @@
         },
       ],
     },
+    # Copy file to BUILT FRAMEWORKS directory.
+    {
+      'target_name': 'copies_framework',
+      'type': 'none',
+      'copies': [
+        {
+          'destination': '$(BUILT_FRAMEWORKS_DIR)/copies-out/framework',
+          'files': [
+            'file1',
+          ],
+        },
+      ],
+    },
     # Copy a directory tree.
     {
       'target_name': 'copies_recursive',
@@ -41,8 +54,9 @@
         },
       ],
     },
-    # Copy a directory from deeper in the tree (this should not reproduce the
-    # entire directory path in the destination, only the final directory).
+    # Copy a directory from deeper in the tree (this should not
+    # reproduce the entire directory path in the destination,
+    # only the final directory).
     {
       'target_name': 'copies_recursive_depth',
       'type': 'none',
