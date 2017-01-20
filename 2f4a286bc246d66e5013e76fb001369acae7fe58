@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4851d61e_a1eed3ff",
+        "filename": "project.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1141499
+      },
+      "writtenOn": "2017-01-20T23:30:07Z",
+      "side": 1,
+      "message": "wait, is this how we do now? Not CR?",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "2f4a286bc246d66e5013e76fb001369acae7fe58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
