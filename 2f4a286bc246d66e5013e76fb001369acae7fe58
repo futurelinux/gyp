@@ -40,6 +40,24 @@
       "revId": "2f4a286bc246d66e5013e76fb001369acae7fe58",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c88a26db_6aaeab44",
+        "filename": "project.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1141499
+      },
+      "writtenOn": "2017-01-23T18:15:37Z",
+      "side": 1,
+      "message": "so, let\u0027s get rid of it if we see it :)",
+      "parentUuid": "4851d61e_9e0c4d63",
+      "revId": "2f4a286bc246d66e5013e76fb001369acae7fe58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
