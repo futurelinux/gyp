@@ -648,12 +648,16 @@ def GetDefaultKeychainPath():
   path = subprocess.check_output(['security', 'default-keychain']).strip()
   return path[1:-1]
 
-def FindMSBuildInstallation(msvs_version = 'auto'):
+def FindMSBuildInstallation(msvs_version = 'auto', devenv_path = None):
   """Returns path to MSBuild for msvs_version or latest available.
 
   Looks in the registry to find install location of MSBuild.
   MSBuild before v4.0 will not build c++ projects, so only use newer versions.
   """
+
+  if msvs_version == '2017':
+    return os.path.join(devenv_path, r'..\..\..\MSBuild\15.0\Bin\MSBuild.exe' )
+
   import TestWin
   registry = TestWin.Registry()
 
@@ -707,6 +711,7 @@ def FindVisualStudioInstallation():
                     for drive in range(ord('C'), ord('Z') + 1)
                     for suffix in ['', ' (x86)']]
   possible_paths = {
+      '2017': r'Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.com',
       '2015': r'Microsoft Visual Studio 14.0\Common7\IDE\devenv.com',
       '2013': r'Microsoft Visual Studio 12.0\Common7\IDE\devenv.com',
       '2012': r'Microsoft Visual Studio 11.0\Common7\IDE\devenv.com',
@@ -728,7 +733,7 @@ def FindVisualStudioInstallation():
       build_tool = os.path.join(r, path)
       if os.path.exists(build_tool):
         uses_msbuild = msvs_version >= '2010'
-        msbuild_path = FindMSBuildInstallation(msvs_version)
+        msbuild_path = FindMSBuildInstallation(msvs_version, build_tool)
         return build_tool, uses_msbuild, msbuild_path
     else:
       print ('Warning: Environment variable GYP_MSVS_VERSION specifies "%s" '
@@ -754,7 +759,10 @@ class TestGypOnMSToolchain(TestGypBase):
   @staticmethod
   def _ComputeVsvarsPath(devenv_path):
     devenv_dir = os.path.split(devenv_path)[0]
-    vsvars_path = os.path.join(devenv_path, '../../Tools/vsvars32.bat')
+    if devenv_dir.find(r'Microsoft Visual Studio\2017') != -1:
+      vsvars_path = os.path.join(devenv_path, '../../Tools/VsDevCmd.bat')
+    else:
+      vsvars_path = os.path.join(devenv_path, '../../Tools/vsvars32.bat')
     return vsvars_path
 
   def initialize_build_tool(self):

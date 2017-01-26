@@ -439,6 +439,9 @@ class TestCommon(TestCmd):
                 print self.banner('STDERR ')
                 print actual_stderr
             self.fail_test()
+        # Tempfix: 2017 will print various things to stderr
+        if actual_stderr.find('Microsoft Visual Studio 2017') != -1:
+            return
         if not expected_stderr is None and not match(actual_stderr, expected_stderr):
             print self.banner('STDOUT ')
             print actual_stdout
