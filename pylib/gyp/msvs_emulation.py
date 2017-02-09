@@ -461,6 +461,8 @@ class MsvsSettings(object):
     cl('DefaultCharIsUnsigned', map={'true': '/J'})
     cl('TreatWChar_tAsBuiltInType',
         map={'false': '-', 'true': ''}, prefix='/Zc:wchar_t')
+    cl('ForceConformanceInForLoopScope',
+        map={'false': '-', 'true': ''}, prefix='/Zc:forScope')
     cl('EnablePREfast', map={'true': '/analyze'})
     cl('AdditionalOptions', prefix='')
     cl('EnableEnhancedInstructionSet',
