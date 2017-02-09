@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3240d7ce_125be18e",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1183044
+      },
+      "writtenOn": "2017-02-09T14:19:53Z",
+      "side": 1,
+      "message": "BTW, this is broken on 2017, as it gets expanded to \u0027C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\VC\\bin\\cl.exe\u0027 (for the compiler tool, for example). That is incorrect; the actual path is \u0027C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Professional\\VC\\Tools\\MSVC\\14.10.24930\\bin\\HostX64\\x64\\cl.exe\u0027, which is unfortunately quite a bit more complicated than in previous versions. I\u0027m not sure how best to fix that here, but it would be nice if worked since some MSVS-based generators depend on this.",
+      "revId": "6874bd7a0c36d35e94cd9903d4a7e7c1ac7af01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ceb8deda_6619aed9",
         "filename": "pylib/gyp/MSVSVersion.py",
         "patchSetId": 2
@@ -30,6 +47,23 @@
       "writtenOn": "2017-02-09T13:37:14Z",
       "side": 1,
       "message": "Typo: should be \u0027os.path.join\u0027",
+      "revId": "6874bd7a0c36d35e94cd9903d4a7e7c1ac7af01e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ff8ae21_bca19267",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1183044
+      },
+      "writtenOn": "2017-02-09T14:19:53Z",
+      "side": 1,
+      "message": "Should have a trailing comma here",
       "revId": "6874bd7a0c36d35e94cd9903d4a7e7c1ac7af01e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
