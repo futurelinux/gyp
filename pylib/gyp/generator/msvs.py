@@ -2150,6 +2150,9 @@ def _MapFileToMsBuildSourceType(source, rule_dependencies,
   elif ext in ['.h', '.hxx']:
     group = 'include'
     element = 'ClInclude'
+  elif ext == '.natvis':
+    group = 'none'
+    element = 'Natvis'
   elif ext == '.rc':
     group = 'resource'
     element = 'ResourceCompile'
