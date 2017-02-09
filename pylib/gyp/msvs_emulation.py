@@ -584,7 +584,6 @@ class MsvsSettings(object):
     ld('GenerateMapFile', map={'true': '/MAP:' + map_file if map_file
         else '/MAP'})
     ld('MapExports', map={'true': '/MAPINFO:EXPORTS'})
-    ld('AdditionalOptions', prefix='')
 
     minimum_required_version = self._Setting(
         ('VCLinkerTool', 'MinimumRequiredVersion'), config, default='')
@@ -649,6 +648,10 @@ class MsvsSettings(object):
     # unless it's explicitly off.
     if not filter(lambda x: 'NXCOMPAT' in x, ldflags):
       ldflags.append('/NXCOMPAT')
+
+    # Additional options should always come last, to make sure that they
+    # override any default options that may have been specified above.
+    ld('AdditionalOptions', prefix='')
 
     have_def_file = filter(lambda x: x.startswith('/DEF:'), ldflags)
     manifest_flags, intermediate_manifest, manifest_files = \
