@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20b24aa5_02839e4a",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2017-03-11T00:52:10Z",
+      "side": 1,
+      "message": "This should be 15.0, based on .vcxproj files that I have generated with VS 2017 RTM.",
+      "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84016517_3cc15fa5",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2017-03-11T00:52:10Z",
+      "side": 1,
+      "message": "This line of the comment is obsolete now - please delete.",
+      "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4728d012_6db9d9fb",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2017-03-11T00:52:10Z",
+      "side": 1,
+      "message": "Consider replacing this line with:\n\nif not version in [\u002714.0\u0027, \u002715.0\u0027]:  # No more express editions",
+      "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
