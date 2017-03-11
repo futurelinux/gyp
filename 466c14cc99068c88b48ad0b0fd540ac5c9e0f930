@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "ca167ecf_62cc126c",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1144260
+      },
+      "writtenOn": "2017-03-11T01:14:58Z",
+      "side": 1,
+      "message": "We discovered here https://codereview.chromium.org/2738993003/diff/1/build/toolchain/win/setup_toolchain.py that VsDevCmd.bat doesn\u0027t work with VSINSTALLDIR pre-set. Perhaps we could remove it somewhere for gyp too.",
+      "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1654b3f5_d96cc41b",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1144260
+      },
+      "writtenOn": "2017-03-11T01:14:58Z",
+      "side": 1,
+      "message": "Ugh at the inconsistency of adding _ in /nologo that\u0027s been used everywhere for approximately ever!",
+      "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "20b24aa5_02839e4a",
         "filename": "pylib/gyp/MSVSVersion.py",
         "patchSetId": 3
@@ -47,6 +81,23 @@
       "writtenOn": "2017-03-11T00:52:10Z",
       "side": 1,
       "message": "Consider replacing this line with:\n\nif not version in [\u002714.0\u0027, \u002715.0\u0027]:  # No more express editions",
+      "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4606507_1a9381c3",
+        "filename": "test/lib/TestCommon.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1144260
+      },
+      "writtenOn": "2017-03-11T01:14:58Z",
+      "side": 1,
+      "message": "Sorry, what\u0027s this for?",
       "revId": "466c14cc99068c88b48ad0b0fd540ac5c9e0f930",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
