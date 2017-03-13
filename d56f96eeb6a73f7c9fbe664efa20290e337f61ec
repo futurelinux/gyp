@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87989e45_ee522b5a",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2017-03-13T20:53:31Z",
+      "side": 1,
+      "message": "Using \u0027i\u0027 for something that is expected to be a string seems odd. I think of i,j,k as being conanical generic integer types.",
+      "revId": "d56f96eeb6a73f7c9fbe664efa20290e337f61ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dacd1e1_ce70fd74",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2017-03-13T20:53:31Z",
+      "side": 1,
+      "message": "where-\u003e were",
+      "revId": "d56f96eeb6a73f7c9fbe664efa20290e337f61ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
