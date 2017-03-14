@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5be9ba13_a1f96b9c",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-03-14T17:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87989e45_ee522b5a",
+      "revId": "d56f96eeb6a73f7c9fbe664efa20290e337f61ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1dacd1e1_ce70fd74",
         "filename": "pylib/gyp/generator/msvs.py",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "d56f96eeb6a73f7c9fbe664efa20290e337f61ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc8a9684_0b90751e",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2725,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-03-14T17:02:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dacd1e1_ce70fd74",
+      "revId": "d56f96eeb6a73f7c9fbe664efa20290e337f61ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
