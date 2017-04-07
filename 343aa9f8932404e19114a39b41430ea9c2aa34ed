@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0ad44d3_a07eeef0",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-07T01:25:43Z",
+      "side": 1,
+      "message": "Nit: Don\u0027t use list() here, that has weird issues in python. Use `compatible_sdks\u003dNone` and then before line 31 add `compatible_sdks \u003d [] if compatible_sdks \u003d\u003d None`",
+      "revId": "343aa9f8932404e19114a39b41430ea9c2aa34ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
