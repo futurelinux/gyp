@@ -8,6 +8,8 @@
 Verifies that stripping works.
 """
 
+from __future__ import print_function
+
 import TestGyp
 import TestMac
 
@@ -37,7 +39,7 @@ if sys.platform == 'darwin':
     m = r.search(o)
     n = int(m.group(1))
     if n != n_expected:
-      print 'Stripping: Expected %d symbols, got %d' % (n_expected, n)
+      print('Stripping: Expected %d symbols, got %d' % (n_expected, n))
       test.fail_test()
 
   # Starting with Xcode 5.0, clang adds an additional symbols to the compiled

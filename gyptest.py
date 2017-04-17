@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 # Copyright (c) 2012 Google Inc. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -75,7 +74,7 @@ def main(argv=None):
       tests.extend(find_all_gyptest_files(os.path.normpath(arg)))
     else:
       if not is_test_name(os.path.basename(arg)):
-        print >>sys.stderr, arg, 'is not a valid gyp test name.'
+        print(arg, 'is not a valid gyp test name.', file=sys.stderr)
         sys.exit(1)
       tests.append(arg)
 
@@ -120,6 +119,7 @@ def main(argv=None):
       'openbsd5': ['make'],
       'cygwin':   ['msvs'],
       'win32':    ['msvs', 'ninja'],
+      'linux':    ['make', 'ninja'],
       'linux2':   ['make', 'ninja'],
       'linux3':   ['make', 'ninja'],
       'darwin':   ['make', 'ninja', 'xcode', 'xcode-ninja'],
@@ -151,7 +151,7 @@ def main(argv=None):
       proc.wait()
       took = time.time() - start
 
-      stdout = proc.stdout.read()
+      stdout = proc.stdout.read().decode('utf8')
 
       if proc.returncode == 2:
         res = 'skipped'
