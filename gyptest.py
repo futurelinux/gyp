@@ -96,12 +96,12 @@ def main(argv=None):
       print('Mac %s %s' % (platform.mac_ver()[0], platform.mac_ver()[2]))
       subprocess.call(['xcodebuild', '-version'])
     elif sys.platform == 'win32':
-      print('Win %s %s\n' % platform.win_ver()[0:1])
+      print('Win %s %s\n' % platform.win32_ver()[0:1])
       sys.path.append(os.path.abspath('pylib/gyp'))
       import MSVSVersion
       print(MSVSVersion.VisualStudioVersion().Description())
     elif sys.platform == 'linux2':
-      print('Linux %s %s' % platform.linux_version()[0:1])
+      print('Linux %s %s' % platform.linux_distribution()[0:1])
     print()
 
   if args.gyp_option and not args.quiet:
