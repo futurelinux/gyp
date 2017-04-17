@@ -4,131 +4,14 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-__doc__ = """
-gyptest.py -- test runner for GYP tests.
-"""
+"""gyptest.py -- test runner for GYP tests."""
 
+import argparse
+import math
 import os
-import optparse
-import shlex
 import subprocess
 import sys
-
-class CommandRunner(object):
-  """
-  Executor class for commands, including "commands" implemented by
-  Python functions.
-  """
-  verbose = True
-  active = True
-
-  def __init__(self, dictionary={}):
-    self.subst_dictionary(dictionary)
-
-  def subst_dictionary(self, dictionary):
-    self._subst_dictionary = dictionary
-
-  def subst(self, string, dictionary=None):
-    """
-    Substitutes (via the format operator) the values in the specified
-    dictionary into the specified command.
-
-    The command can be an (action, string) tuple.  In all cases, we
-    perform substitution on strings and don't worry if something isn't
-    a string.  (It's probably a Python function to be executed.)
-    """
-    if dictionary is None:
-      dictionary = self._subst_dictionary
-    if dictionary:
-      try:
-        string = string % dictionary
-      except TypeError:
-        pass
-    return string
-
-  def display(self, command, stdout=None, stderr=None):
-    if not self.verbose:
-      return
-    if type(command) == type(()):
-      func = command[0]
-      args = command[1:]
-      s = '%s(%s)' % (func.__name__, ', '.join(map(repr, args)))
-    if type(command) == type([]):
-      # TODO:  quote arguments containing spaces
-      # TODO:  handle meta characters?
-      s = ' '.join(command)
-    else:
-      s = self.subst(command)
-    if not s.endswith('\n'):
-      s += '\n'
-    sys.stdout.write(s)
-    sys.stdout.flush()
-
-  def execute(self, command, stdout=None, stderr=None):
-    """
-    Executes a single command.
-    """
-    if not self.active:
-      return 0
-    if type(command) == type(''):
-      command = self.subst(command)
-      cmdargs = shlex.split(command)
-      if cmdargs[0] == 'cd':
-         command = (os.chdir,) + tuple(cmdargs[1:])
-    if type(command) == type(()):
-      func = command[0]
-      args = command[1:]
-      return func(*args)
-    else:
-      if stdout is sys.stdout:
-        # Same as passing sys.stdout, except python2.4 doesn't fail on it.
-        subout = None
-      else:
-        # Open pipe for anything else so Popen works on python2.4.
-        subout = subprocess.PIPE
-      if stderr is sys.stderr:
-        # Same as passing sys.stderr, except python2.4 doesn't fail on it.
-        suberr = None
-      elif stderr is None:
-        # Merge with stdout if stderr isn't specified.
-        suberr = subprocess.STDOUT
-      else:
-        # Open pipe for anything else so Popen works on python2.4.
-        suberr = subprocess.PIPE
-      p = subprocess.Popen(command,
-                           shell=(sys.platform == 'win32'),
-                           stdout=subout,
-                           stderr=suberr)
-      p.wait()
-      if stdout is None:
-        self.stdout = p.stdout.read()
-      elif stdout is not sys.stdout:
-        stdout.write(p.stdout.read())
-      if stderr not in (None, sys.stderr):
-        stderr.write(p.stderr.read())
-      return p.returncode
-
-  def run(self, command, display=None, stdout=None, stderr=None):
-    """
-    Runs a single command, displaying it first.
-    """
-    if display is None:
-      display = command
-    self.display(display)
-    return self.execute(command, stdout, stderr)
-
-
-class Unbuffered(object):
-  def __init__(self, fp):
-    self.fp = fp
-  def write(self, arg):
-    self.fp.write(arg)
-    self.fp.flush()
-  def __getattr__(self, attr):
-    return getattr(self.fp, attr)
-
-sys.stdout = Unbuffered(sys.stdout)
-sys.stderr = Unbuffered(sys.stderr)
+import time
 
 
 def is_test_name(f):
@@ -149,44 +32,42 @@ def main(argv=None):
   if argv is None:
     argv = sys.argv
 
-  usage = "gyptest.py [-ahlnq] [-f formats] [test ...]"
-  parser = optparse.OptionParser(usage=usage)
-  parser.add_option("-a", "--all", action="store_true",
-            help="run all tests")
-  parser.add_option("-C", "--chdir", action="store", default=None,
-            help="chdir to the specified directory")
-  parser.add_option("-f", "--format", action="store", default='',
-            help="run tests with the specified formats")
-  parser.add_option("-G", '--gyp_option', action="append", default=[],
-            help="Add -G options to the gyp command line")
-  parser.add_option("-l", "--list", action="store_true",
-            help="list available tests and exit")
-  parser.add_option("-n", "--no-exec", action="store_true",
-            help="no execute, just print the command line")
-  parser.add_option("--passed", action="store_true",
-            help="report passed tests")
-  parser.add_option("--path", action="append", default=[],
-            help="additional $PATH directory")
-  parser.add_option("-q", "--quiet", action="store_true",
-            help="quiet, don't print test command lines")
-  opts, args = parser.parse_args(argv[1:])
+  parser = argparse.ArgumentParser()
+  parser.add_argument("-a", "--all", action="store_true",
+      help="run all tests")
+  parser.add_argument("-C", "--chdir", action="store",
+      help="change to directory")
+  parser.add_argument("-f", "--format", action="store", default='',
+      help="run tests with the specified formats")
+  parser.add_argument("-G", '--gyp_option', action="append", default=[],
+      help="Add -G options to the gyp command line")
+  parser.add_argument("-l", "--list", action="store_true",
+      help="list available tests and exit")
+  parser.add_argument("-n", "--no-exec", action="store_true",
+      help="no execute, just print the command line")
+  parser.add_argument("--path", action="append", default=[],
+      help="additional $PATH directory")
+  parser.add_argument("-q", "--quiet", action="store_true",
+      help="quiet, don't print test command lines")
+  parser.add_argument('tests', nargs='*')
+  args = parser.parse_args(argv[1:])
 
-  if opts.chdir:
-    os.chdir(opts.chdir)
+  if args.chdir:
+    os.chdir(args.chdir)
 
-  if opts.path:
+  if args.path:
     extra_path = [os.path.abspath(p) for p in opts.path]
     extra_path = os.pathsep.join(extra_path)
     os.environ['PATH'] = extra_path + os.pathsep + os.environ['PATH']
 
-  if not args:
-    if not opts.all:
+  if not args.tests:
+    if not args.all:
       sys.stderr.write('Specify -a to get all tests.\n')
       return 1
-    args = ['test']
+    args.tests = ['test']
 
   tests = []
-  for arg in args:
+  for arg in args.tests:
     if os.path.isdir(arg):
       tests.extend(find_all_gyptest_files(os.path.normpath(arg)))
     else:
@@ -195,25 +76,22 @@ def main(argv=None):
         sys.exit(1)
       tests.append(arg)
 
-  if opts.list:
+  if args.list:
     for test in tests:
       print test
     sys.exit(0)
 
-  CommandRunner.verbose = not opts.quiet
-  CommandRunner.active = not opts.no_exec
-  cr = CommandRunner()
-
   os.environ['PYTHONPATH'] = os.path.abspath('test/lib')
-  if not opts.quiet:
+  if not args.quiet:
     sys.stdout.write('PYTHONPATH=%s\n' % os.environ['PYTHONPATH'])
 
-  passed = []
-  failed = []
-  no_result = []
+  if args.gyp_option and not args.quiet:
+    sys.stdout.write('Extra Gyp options: %s\n' % args.gyp_option)
 
-  if opts.format:
-    format_list = opts.format.split(',')
+  failed = []
+
+  if args.format:
+    format_list = args.format.split(',')
   else:
     # TODO:  not duplicate this mapping from pylib/gyp/__init__.py
     format_list = {
@@ -228,29 +106,53 @@ def main(argv=None):
       'darwin':   ['make', 'ninja', 'xcode', 'xcode-ninja'],
     }[sys.platform]
 
-  for format in format_list:
-    os.environ['TESTGYP_FORMAT'] = format
-    if not opts.quiet:
-      sys.stdout.write('TESTGYP_FORMAT=%s\n' % format)
+  i = 1
+  num_tests = len(tests) * len(format_list)
+  num_test_digits = math.ceil(math.log(num_tests, 10))
+  fmt_str = '[%%%dd/%%%dd] (%%s) %%s' % (
+      num_test_digits, num_test_digits)
+  run_start = time.time()
+
+  env = os.environ.copy()
+  for format_ in format_list:
+    env['TESTGYP_FORMAT'] = format_
 
     gyp_options = []
-    for option in opts.gyp_option:
+    for option in args.gyp_option:
       gyp_options += ['-G', option]
-    if gyp_options and not opts.quiet:
-      sys.stdout.write('Extra Gyp options: %s\n' % gyp_options)
 
     for test in tests:
-      status = cr.run([sys.executable, test] + gyp_options,
-                      stdout=sys.stdout,
-                      stderr=sys.stderr)
-      if status == 2:
-        no_result.append(test)
-      elif status:
-        failed.append(test)
-      else:
-        passed.append(test)
+      cmd = [sys.executable, test] + gyp_options
+      sys.stdout.write(fmt_str % (i, num_tests, format_, ' '.join(cmd[1:])))
+      sys.stdout.flush()
 
-  if not opts.quiet:
+      start = time.time()
+      proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                              stderr=subprocess.STDOUT, env=env)
+      proc.wait()
+      took = time.time() - start
+
+      stdout = proc.stdout.read()
+
+      if proc.returncode == 2:
+        res = 'skipped'
+      elif proc.returncode:
+        res = 'failed'
+        failed.append('(%s) %s' % (format_, test))
+      else:
+        res = 'passed'
+
+      sys.stdout.write(' %s %.3fs\n' % (res, took))
+      sys.stdout.flush()
+
+      if not stdout.endswith('PASSED\n') and not stdout.endswith('NO RESULT\n'):
+        for l in stdout.splitlines():
+          sys.stdout.write('    %s\n' % l)
+        sys.stdout.flush()
+
+      i += 1
+
+  if not args.quiet:
     def report(description, tests):
       if tests:
         if len(tests) == 1:
@@ -260,10 +162,12 @@ def main(argv=None):
           sys.stdout.write(fmt % (description, len(tests)))
         sys.stdout.write("\t" + "\n\t".join(tests) + "\n")
 
-    if opts.passed:
-      report("Passed", passed)
     report("Failed", failed)
-    report("No result from", no_result)
+
+    sys.stdout.write('\nRan %d tests, %d failed in %.3fs.\n' % (
+                     num_tests, len(failed), time.time() - run_start))
+    sys.stdout.write('\n')
+    sys.stdout.flush()
 
   if failed:
     return 1
