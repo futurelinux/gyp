@@ -97,9 +97,9 @@ def main(argv=None):
       subprocess.call(['xcodebuild', '-version'])
     elif sys.platform == 'win32':
       print('Win %s %s\n' % platform.win32_ver()[0:2])
-      sys.path.append(os.path.abspath('pylib/gyp'))
-      import MSVSVersion
-      print(MSVSVersion.VisualStudioVersion().Description())
+      sys.path.append(os.path.abspath('pylib'))
+      import gyp.MSVSVersion
+      print(gyp.MSVSVersion.SelectVisualStudioVersion().Description())
     elif sys.platform == 'linux2':
       print('Linux %s %s' % platform.linux_distribution()[0:2])
     print()
@@ -143,6 +143,7 @@ def main(argv=None):
     for test in tests:
       cmd = [sys.executable, test] + gyp_options
       print(fmt_str % (i, num_tests, format_, ' '.join(cmd[1:])), end='')
+      sys.stdout.flush()
 
       start = time.time()
       proc = subprocess.Popen(cmd, stdout=subprocess.PIPE,
