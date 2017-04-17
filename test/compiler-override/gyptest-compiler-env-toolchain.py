@@ -35,6 +35,11 @@ def CheckCompiler(test, gypfile, check_for, run_gyp):
 
 
 test = TestGyp.TestGyp(formats=['ninja'])
+
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
 # Must set the test format to something with a flavor (the part after the '-')
 # in order to test the desired behavior. Since we want to run a non-host
 # toolchain, we have to set the flavor to something that the ninja generator

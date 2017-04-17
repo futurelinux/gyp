@@ -21,6 +21,11 @@ if sys.platform == 'darwin':
     sys.exit(0)
 
   test = TestGyp.TestGyp(formats=['make', 'ninja', 'xcode'])
+
+  if test.format == 'make':
+      print 'Disabled temporarily. gyp:527'
+      sys.exit(2)
+
   test.run_gyp('clang-cxx-library.gyp', chdir='clang-cxx-library')
   test.build('clang-cxx-library.gyp', test.ALL, chdir='clang-cxx-library')
 
