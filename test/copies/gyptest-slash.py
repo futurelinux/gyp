@@ -11,6 +11,11 @@ Verifies file copies with a trailing slash in the destination directory.
 import TestGyp
 
 test = TestGyp.TestGyp()
+
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
 test.run_gyp('copies-slash.gyp', chdir='src')
 
 test.relocate('src', 'relocate/src')

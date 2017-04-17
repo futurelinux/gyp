@@ -15,6 +15,10 @@ import sys
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+  if test.format == 'xcode':
+    print "Disabled temporarily. gyp:527."
+    import sys; sys.exit(2)
+
   test.run_gyp('test.gyp',
                '-G', 'xcode_ninja_target_pattern=^(?!nonbundle_none).*$',
                chdir='type_envvars')
