@@ -16,6 +16,10 @@ if sys.platform == 'win32':
   print "This test is currently disabled: https://crbug.com/483696."
   sys.exit(0)
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  sys.exit(2)
+
 test = TestGyp.TestGyp()
 
 test.run_gyp('multiple-outputs.gyp', chdir='src')

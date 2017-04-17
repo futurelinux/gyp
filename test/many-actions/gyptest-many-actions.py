@@ -18,6 +18,11 @@ if sys.platform == 'win32':
 
 import TestGyp
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
+
 test = TestGyp.TestGyp()
 
 test.run_gyp('many-actions.gyp')

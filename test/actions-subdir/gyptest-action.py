@@ -13,6 +13,10 @@ import TestGyp
 # TODO fix this for xcode: http://code.google.com/p/gyp/issues/detail?id=88
 test = TestGyp.TestGyp(formats=['!xcode'])
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
 test.run_gyp('none.gyp', chdir='src')
 
 test.build('none.gyp', test.ALL, chdir='src')
