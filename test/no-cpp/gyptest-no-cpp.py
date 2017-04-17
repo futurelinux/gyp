@@ -14,6 +14,10 @@ import re
 import subprocess
 import sys
 
+print ("This test is currently disabled. "
+       "https://bugs.chromium.org/p/gyp/issues/detail?id=526.")
+sys.exit(2)
+
 # set |match| to ignore build stderr output.
 test = TestGyp.TestGyp(match = lambda a, b: True)
 if sys.platform != 'win32' and test.format != 'make':
