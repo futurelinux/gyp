@@ -15,6 +15,10 @@ import sys
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['make', 'ninja', 'xcode'])
 
+  if test.format == 'make':
+      print 'Disabled temporarily. gyp:527'
+      sys.exit(2)
+
   test.run_gyp('deployment-target.gyp', chdir='deployment-target')
 
   test.build('deployment-target.gyp', test.ALL, chdir='deployment-target')

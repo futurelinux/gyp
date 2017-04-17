@@ -18,6 +18,10 @@ if sys.platform == 'win32':
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  sys.exit(2)
+
 test.run_gyp('multiple-outputs.gyp', chdir='src')
 
 chdir = 'relocate/src'

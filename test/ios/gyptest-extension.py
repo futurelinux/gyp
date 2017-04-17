@@ -27,6 +27,10 @@ if sys.platform == 'darwin' and TestMac.Xcode.Version()>="0600":
 
   test = TestGyp.TestGyp(formats=['ninja', 'xcode'])
 
+  if test.format in ('ninja', 'xcode-ninja'):
+      print 'Disabled temporarily. gyp:527'
+      sys.exit(2)
+
   test.run_gyp('extension.gyp', chdir='extension')
 
   test.build('extension.gyp', 'ExtensionContainer', chdir='extension')

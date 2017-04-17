@@ -15,6 +15,11 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
+
 CHDIR = 'src'
 test.run_gyp('filelist2.gyp', chdir=CHDIR)
 
