@@ -12,6 +12,10 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
 test.run_gyp('all_dependent_settings_order.gyp', chdir='adso')
 test.build('all_dependent_settings_order.gyp', chdir='adso')
 test.built_file_must_match('out.txt', 'd.cc a.cc b.cc c.cc',

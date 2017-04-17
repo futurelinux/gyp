@@ -14,6 +14,11 @@ import os
 
 test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
+
 test.run_gyp('restat.gyp', chdir='src')
 
 chdir = 'relocate/src'
