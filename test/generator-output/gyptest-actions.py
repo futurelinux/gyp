@@ -12,6 +12,11 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
 # All the generated files should go under 'gypfiles'. The source directory
 # ('actions') should be untouched.
 test.writable(test.workpath('actions'), False)

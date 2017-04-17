@@ -19,6 +19,11 @@ if sys.platform == 'win32':
 
 test = TestGyp.TestGyp(formats=['make', 'ninja', 'xcode', 'msvs'])
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
+
 test.run_gyp('actions.gyp', chdir='src')
 
 test.relocate('src', 'relocate/src')
