@@ -16,6 +16,11 @@ import TestGyp
 # work with cmake.
 test = TestGyp.TestGyp(formats=['!cmake'])
 
+if test.format == 'xcode-ninja':
+  print "Disabled temporarily. gyp:527."
+  import sys; sys.exit(2)
+
+
 test.run_gyp('test.gyp')
 test.build('test.gyp', 'main')
 

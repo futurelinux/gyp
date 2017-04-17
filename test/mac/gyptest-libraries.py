@@ -21,6 +21,10 @@ if sys.platform == 'darwin':
   if test.format == 'xcode-ninja':
     test.skip_test()
 
+  if test.format in ('make', 'ninja', 'xcode'):
+    print 'Disabled temporarily. gyp:527'
+    sys.exit(2)
+
   test.run_gyp('subdir/test.gyp', chdir='libraries')
 
   test.build('subdir/test.gyp', test.ALL, chdir='libraries')
