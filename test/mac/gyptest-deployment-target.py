@@ -15,6 +15,9 @@ import sys
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['make', 'ninja', 'xcode'])
 
+  if test.format == 'make':
+    test.skip(bug=527)
+
   test.run_gyp('deployment-target.gyp', chdir='deployment-target')
 
   test.build('deployment-target.gyp', test.ALL, chdir='deployment-target')

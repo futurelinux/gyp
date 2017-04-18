@@ -8,16 +8,19 @@
 Verifies make_global_settings works with the full toolchain.
 """
 
-import os
 import sys
 import TestGyp
 
-if sys.platform == 'win32':
+test = TestGyp.TestGyp(formats=['ninja'])
+
+if test.platform == 'win32':
   # cross compiling not supported by ninja on windows
   # and make not supported on windows at all.
-  sys.exit(0)
+  test.skip()
 
-test = TestGyp.TestGyp(formats=['ninja'])
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 # Must set the test format to something with a flavor (the part after the '-')
 # in order to test the desired behavior. Since we want to run a non-host
 # toolchain, we have to set the flavor to something that the ninja generator

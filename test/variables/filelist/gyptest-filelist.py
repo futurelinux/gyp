@@ -8,12 +8,14 @@
 Test variable expansion of '<|(list.txt ...)' syntax commands.
 """
 
-import os
-import sys
+from __future__ import print_function
 
 import TestGyp
 
 test = TestGyp.TestGyp()
+
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
 
 CHDIR = 'src'
 test.run_gyp('filelist2.gyp', chdir=CHDIR)
@@ -22,7 +24,7 @@ test.build('filelist2.gyp', 'foo', chdir=CHDIR)
 contents = test.read('src/dummy_foo').replace('\r', '')
 expect = 'John\nJacob\nJingleheimer\nSchmidt\n'
 if not test.match(contents, expect):
-  print "Unexpected contents of `src/dummy_foo'"
+  print("Unexpected contents of `src/dummy_foo'")
   test.diff(expect, contents, 'src/dummy_foo')
   test.fail_test()
 

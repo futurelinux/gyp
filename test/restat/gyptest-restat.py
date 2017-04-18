@@ -10,9 +10,11 @@ outputs.
 """
 
 import TestGyp
-import os
 
 test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
+
+if test.format in('xcode-ninja', 'ninja', 'make'):
+  test.skip(bug=527)
 
 test.run_gyp('restat.gyp', chdir='src')
 
