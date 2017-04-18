@@ -12,12 +12,10 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
-test.run_gyp('use-built-dependencies-rule.gyp', chdir='src')
-
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
+  test.skip(bug=527)
 
+test.run_gyp('use-built-dependencies-rule.gyp', chdir='src')
 
 test.relocate('src', 'relocate/src')
 test.build('use-built-dependencies-rule.gyp', chdir='relocate/src')

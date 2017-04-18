@@ -27,8 +27,7 @@ def check_attribs(path, expected_exec_bit):
 test = TestGyp.TestGyp()
 
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
+  test.skip(bug=527)
 
 test.run_gyp('copies-attribs.gyp', chdir='src')
 

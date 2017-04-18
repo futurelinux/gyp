@@ -19,9 +19,7 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
   if test.format == 'xcode-ninja':
-    print "Disabled temporarily. gyp:527."
-    import sys; sys.exit(2)
-
+    test.skip(bug=527)
 
   test.run_gyp('test-no-archs.gyp', chdir='archs')
   test.build('test-no-archs.gyp', test.ALL, chdir='archs')

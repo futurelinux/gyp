@@ -14,8 +14,7 @@ import TestGyp
 test = TestGyp.TestGyp(formats=['!xcode'])
 
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
+  test.skip(bug=527)
 
 test.run_gyp('none.gyp', chdir='src')
 

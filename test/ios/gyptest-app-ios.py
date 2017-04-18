@@ -17,13 +17,13 @@ def CheckFileXMLPropertyList(file):
   output = subprocess.check_output(['file', file])
   # The double space after XML is intentional.
   if not 'XML  document text' in output:
-    print 'File: Expected XML  document text, got %s' % output
+    print('File: Expected XML  document text, got %s' % output)
     test.fail_test()
 
 def CheckFileBinaryPropertyList(file):
   output = subprocess.check_output(['file', file])
   if not 'Apple binary property list' in output:
-    print 'File: Expected Apple binary property list, got %s' % output
+    print('File: Expected Apple binary property list, got %s' % output)
     test.fail_test()
 
 if sys.platform == 'darwin':
@@ -32,8 +32,7 @@ if sys.platform == 'darwin':
   test.run_gyp('test.gyp', chdir='app-bundle')
 
   if test.format in ('ninja', 'xcode', 'xcode-ninja'):
-      print 'Disabled temporarily. gyp:527'
-      sys.exit(2)
+    test.skip(bug=527)
 
   test.build('test.gyp', test.ALL, chdir='app-bundle')
 

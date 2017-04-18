@@ -20,9 +20,7 @@ import TestGyp
 test = TestGyp.TestGyp(formats=['ninja'])
 
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
-
+  test.skip(bug=527)
 
 if sys.platform == 'win32' or sys.platform == 'win64':
   # This test is about clang/gcc vs. depfiles; VS gets a pass.

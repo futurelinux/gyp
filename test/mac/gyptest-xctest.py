@@ -16,9 +16,7 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['xcode'])
 
   if test.format == 'xcode':
-    print "Disabled temporarily. gyp:527."
-    import sys; sys.exit(2)
-
+    test.skip(bug=527)
 
   # Ignore this test if Xcode 5 is not installed
   import subprocess

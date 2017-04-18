@@ -17,9 +17,7 @@ import TestGyp
 test = TestGyp.TestGyp()
 
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
-
+  test.skip(bug=527)
 
 # Fails by default for the compatibility with legacy generators such as
 # VCProj generator for Visual C++ 2008 and Makefile generator on Mac.

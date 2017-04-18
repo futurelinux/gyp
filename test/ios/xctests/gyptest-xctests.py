@@ -23,10 +23,10 @@ def HasCerts():
 
 if sys.platform == "darwin":
 
-  print "Disabled temporarily. gyp:527."
-  sys.exit(2)
-
   test = TestGyp.TestGyp(formats=['xcode', 'ninja'])
+
+  test.skip(bug=527)
+
   test.run_gyp('xctests.gyp')
   test_configs = ['Default']
   # TODO(crbug.com/557418): Enable this once xcodebuild works for iOS devices.

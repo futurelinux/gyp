@@ -19,8 +19,7 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'xcode'])
 
   if test.format == 'xcode':
-    print "Disabled temporarily. gyp:527."
-    import sys; sys.exit(2)
+    test.skip(bug=527)
 
   test_cases = [
     ('Default', 'TestArch32Bits', ['i386']),

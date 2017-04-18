@@ -16,8 +16,7 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
   if test.format == 'xcode-ninja':
-    print "Disabled temporarily. gyp:527."
-    import sys; sys.exit(2)
+    test.skip(bug=527)
 
   CHDIR = 'cflags'
   test.run_gyp('test.gyp', chdir=CHDIR)

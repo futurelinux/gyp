@@ -11,7 +11,6 @@ Verifies that CLANG_CXX_LIBRARY works.
 import TestGyp
 import TestMac
 
-import os
 import sys
 
 if sys.platform == 'darwin':
@@ -23,8 +22,7 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['make', 'ninja', 'xcode'])
 
   if test.format == 'make':
-      print 'Disabled temporarily. gyp:527'
-      sys.exit(2)
+    test.skip(bug=527)
 
   test.run_gyp('clang-cxx-library.gyp', chdir='clang-cxx-library')
   test.build('clang-cxx-library.gyp', test.ALL, chdir='clang-cxx-library')

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 # Copyright (c) 2012 Google Inc. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -75,7 +74,7 @@ def main(argv=None):
       tests.extend(find_all_gyptest_files(os.path.normpath(arg)))
     else:
       if not is_test_name(os.path.basename(arg)):
-        print >>sys.stderr, arg, 'is not a valid gyp test name.'
+        print(arg, 'is not a valid gyp test name.', file=sys.stderr)
         sys.exit(1)
       tests.append(arg)
 
@@ -89,19 +88,21 @@ def main(argv=None):
 
   # Log some system configuration info.
   if not args.quiet:
-    print('Python %s' % platform.python_version())
-    print('PYTHONPATH=%s' % os.environ['PYTHONPATH'])
-
+    print('Test configuration:')
     if sys.platform == 'darwin':
-      print('Mac %s %s' % (platform.mac_ver()[0], platform.mac_ver()[2]))
-      subprocess.call(['xcodebuild', '-version'])
+      import TestMac
+      print('  Mac %s %s' % (platform.mac_ver()[0], platform.mac_ver()[2]))
+      print('  Xcode %s' % TestMac.Xcode.Version())
     elif sys.platform == 'win32':
-      print('Win %s %s\n' % platform.win32_ver()[0:2])
       sys.path.append(os.path.abspath('pylib'))
       import gyp.MSVSVersion
-      print(gyp.MSVSVersion.SelectVisualStudioVersion().Description())
-    elif sys.platform == 'linux2':
-      print('Linux %s %s' % platform.linux_distribution()[0:2])
+      print('  Win %s %s\n' % platform.win32_ver()[0:2])
+      print('  MSVS %s' %
+            gyp.MSVSVersion.SelectVisualStudioVersion().Description())
+    elif sys.platform in ('linux', 'linux2'):
+      print('  Linux %s' % ' '.join(platform.linux_distribution())
+    print('  Python %s' % platform.python_version())
+    print('  PYTHONPATH=%s' % os.environ['PYTHONPATH'])
     print()
 
   if args.gyp_option and not args.quiet:
@@ -120,6 +121,7 @@ def main(argv=None):
       'openbsd5': ['make'],
       'cygwin':   ['msvs'],
       'win32':    ['msvs', 'ninja'],
+      'linux':    ['make', 'ninja'],
       'linux2':   ['make', 'ninja'],
       'linux3':   ['make', 'ninja'],
       'darwin':   ['make', 'ninja', 'xcode', 'xcode-ninja'],
@@ -151,7 +153,7 @@ def main(argv=None):
       proc.wait()
       took = time.time() - start
 
-      stdout = proc.stdout.read()
+      stdout = proc.stdout.read().decode('utf8')
 
       if proc.returncode == 2:
         res = 'skipped'

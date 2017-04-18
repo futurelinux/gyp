@@ -17,13 +17,11 @@ if sys.platform == 'darwin':
 
   # The xcode-ninja generator handles gypfiles which are not at the
   # project root incorrectly.
-  # cf. https://code.google.com/p/gyp/issues/detail?id=460
   if test.format == 'xcode-ninja':
-    test.skip_test()
+    test.skip(bug=460)
 
   if test.format in ('make', 'ninja', 'xcode'):
-    print 'Disabled temporarily. gyp:527'
-    sys.exit(2)
+    test.skip(bug=527)
 
   test.run_gyp('subdir/test.gyp', chdir='libraries')
 

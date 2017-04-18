@@ -19,8 +19,7 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
   if test.format in ('make', 'ninja', 'xcode', 'xcode-ninja'):
-    print "Disabled temporarily. gyp:527."
-    import sys; sys.exit(2)
+    test.skip(bug=527)
 
   CHDIR = 'lto'
   test.run_gyp('test.gyp', chdir=CHDIR)
@@ -49,7 +48,7 @@ if sys.platform == 'darwin':
     elif ': LLVM bit-code ' in o:
       objtype = 'llvm'
     if objtype != t_expected:
-      print 'Expected %s, got %s' % (t_expected, objtype)
+      print('Expected %s, got %s' % (t_expected, objtype))
       test.fail_test()
 
   ObjType(ObjPath('cfile', 'lto'), 'llvm')

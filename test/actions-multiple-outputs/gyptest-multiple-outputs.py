@@ -10,17 +10,15 @@ Verifies actions with multiple outputs will correctly rebuild.
 
 import TestGyp
 import os
-import sys
 
-if sys.platform == 'win32':
-  print "This test is currently disabled: https://crbug.com/483696."
-  sys.exit(0)
 
 test = TestGyp.TestGyp()
 
+if test.platform == 'win32':
+  test.skip(bug='https://crbug.com/483696')
+
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  sys.exit(2)
+  test.skip(bug=527)
 
 test.run_gyp('multiple-outputs.gyp', chdir='src')
 

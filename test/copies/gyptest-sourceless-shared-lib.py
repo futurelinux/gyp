@@ -13,8 +13,7 @@ import TestGyp
 test = TestGyp.TestGyp()
 
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
+  test.skip(bug=527)
 
 test.run_gyp('copies-sourceless-shared-lib.gyp', chdir='src')
 test.relocate('src', 'relocate/src')

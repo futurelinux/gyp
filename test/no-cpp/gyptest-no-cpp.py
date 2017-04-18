@@ -14,12 +14,11 @@ import re
 import subprocess
 import sys
 
-print ("This test is currently disabled. "
-       "https://bugs.chromium.org/p/gyp/issues/detail?id=526.")
-sys.exit(2)
-
 # set |match| to ignore build stderr output.
 test = TestGyp.TestGyp(match = lambda a, b: True)
+
+test.skip(bug=527)
+
 if sys.platform != 'win32' and test.format != 'make':
   # TODO: This doesn't pass with make.
   # TODO: Does a test like this make sense with Windows?
@@ -31,9 +30,11 @@ if sys.platform != 'win32' and test.format != 'make':
   def LinksLibStdCpp(path):
     path = test.built_file_path(path, chdir=CHDIR)
     if sys.platform == 'darwin':
-      proc = subprocess.Popen(['otool', '-L', path], stdout=subprocess.PIPE)
+      proc = subprocess.Popen(['otool', '-L', path], stdout=subprocess.PIPE,
+          universal_newlines=True)
     else:
-      proc = subprocess.Popen(['ldd', path], stdout=subprocess.PIPE)
+      proc = subprocess.Popen(['ldd', path], stdout=subprocess.PIPE,
+          universal_newlines=True)
     output = proc.communicate()[0]
     assert not proc.returncode
     return 'libstdc++' in output or 'libc++' in output

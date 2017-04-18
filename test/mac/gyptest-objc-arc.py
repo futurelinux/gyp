@@ -18,9 +18,7 @@ if sys.platform == 'darwin':
                          match = lambda a, b: True)
 
   if test.format == 'xcode-ninja':
-    print "Disabled temporarily. gyp:527."
-    import sys; sys.exit(2)
-
+    test.skip(bug=527)
 
   CHDIR = 'objc-arc'
   test.run_gyp('test.gyp', chdir=CHDIR)

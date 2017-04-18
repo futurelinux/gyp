@@ -15,9 +15,7 @@ import TestGyp
 test = TestGyp.TestGyp()
 
 if test.format == 'xcode-ninja':
-  print "Disabled temporarily. gyp:527."
-  import sys; sys.exit(2)
-
+  test.skip(bug=527)
 
 lib_dir = test.tempdir('secret_location')
 
