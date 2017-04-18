@@ -31,6 +31,10 @@ if sys.platform == 'darwin':
 
   test.run_gyp('test.gyp', chdir='app-bundle')
 
+  if test.format in ('ninja', 'xcode', 'xcode-ninja'):
+      print 'Disabled temporarily. gyp:527'
+      sys.exit(2)
+
   test.build('test.gyp', test.ALL, chdir='app-bundle')
 
   # Test that the extension is .bundle

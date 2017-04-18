@@ -19,6 +19,10 @@ import time
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+  if test.format in ('make', 'ninja', 'xcode', 'xcode-ninja'):
+    print "Disabled temporarily. gyp:527."
+    import sys; sys.exit(2)
+
   test.run_gyp('test.gyp', chdir='strip')
 
   test.build('test.gyp', test.ALL, chdir='strip')
