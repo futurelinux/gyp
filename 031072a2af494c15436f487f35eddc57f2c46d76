@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b031e0d1_80c4dd61",
+        "filename": "test/generator-output/gyptest-rules.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-20T18:22:03Z",
+      "side": 1,
+      "message": "No, it\u0027s just all of the other code has too few.\n\nFine. Will fix :)",
+      "parentUuid": "ad67c0a1_59fa044e",
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c72d115b_718792a2",
         "filename": "test/lib/TestGyp.py",
         "patchSetId": 15
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "8949a024_2e30d4a1",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-20T18:22:03Z",
+      "side": 1,
+      "message": "I don\u0027t understand. Why would it be confused?",
+      "parentUuid": "c72d115b_718792a2",
+      "range": {
+        "startLine": 431,
+        "startChar": 5,
+        "endLine": 431,
+        "endChar": 16
+      },
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "663cf32c_18e3df95",
         "filename": "test/mac/gyptest-libraries.py",
         "patchSetId": 15
@@ -53,6 +95,30 @@
       "writtenOn": "2017-04-20T18:19:09Z",
       "side": 1,
       "message": "skip() doesn\u0027t work here?",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d207f5c_aeb90d42",
+        "filename": "test/mac/gyptest-libraries.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-20T18:22:03Z",
+      "side": 1,
+      "message": "Whoops, missed one. Will fix.",
+      "parentUuid": "663cf32c_18e3df95",
       "range": {
         "startLine": 26,
         "startChar": 6,
