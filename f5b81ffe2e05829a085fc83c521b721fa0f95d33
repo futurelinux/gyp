@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "74420402_cbe9239d",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "For later shorter lines",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edb805b6_90b3687c",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "select an arbitrary value so the `exists` will fail in the next line\nSave an \"if\"",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdcea780_3316d69f",
+        "filename": "pylib/gyp/generator/ninja.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "Instead of failing we can \"relativize\" the paths, and support more cases.",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c039fb4_627d75b7",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "this is a heuristic to normalize as much as reasonable action arguments.\nThis is handled more strictly in the MSVS generator, by just `replace(\u0027/\u0027, \u0027\\\\\u0027)` which kills the ability to pass `/A` `/B` arguments as is common in Windows.",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82de5adb_eb5edeb8",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "if the input is\n\u0027libraries\u0027: [ \u0027-lAdvAPI32.Lib\u0027, \u0027-lUser32.Lib\u0027 ],\nthe output would have been\n[AdvAPI32.Lib.lib, User32.Lib.lib]\nhttps://github.com/nodejs/node/blob/master/tools/icu/icu-generic.gyp#L467",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec5e7313_e7612a9e",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "Compilation bread if Target names are appended with \"_x64\" in newer MSVS",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e803390_9c19b048",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:51:04Z",
+      "side": 1,
+      "message": "I don\u0027t have real examples, but since Windows is case insensitive, why risk it.",
+      "revId": "f5b81ffe2e05829a085fc83c521b721fa0f95d33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
