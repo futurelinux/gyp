@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4cc03ea_a6a9d08b",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T11:48:22Z",
+      "side": 1,
+      "message": "True, but the probe also sets the `arg`.",
+      "parentUuid": "41274742_106048c8",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a43a4162_a1c3b862",
         "filename": "pylib/gyp/MSVSVersion.py",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-20T02:26:42Z",
       "side": 1,
       "message": "Is this path really ever valid for 2015?",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1b4b573_e2a198ef",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T11:48:22Z",
+      "side": 1,
+      "message": "Nope, sorry, changed.",
+      "parentUuid": "a43a4162_a1c3b862",
       "revId": "4af89f90948c4354af111215713f3f93c2df5126",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "729d67e6_f76ccd0a",
+        "filename": "pylib/gyp/generator/ninja.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T11:48:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fecbfe3f_e50c66f1",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d899c1e_04368122",
         "filename": "pylib/gyp/msvs_emulation.py",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2017-04-20T02:26:42Z",
       "side": 1,
       "message": "I’m not certain that this is correct. At the very least, it’s probably unrelated and should be addressed in its own change.\n\nIf it is appropriate, it should follow at least the docstring, if not the longer comment too.",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e67991a_fada68da",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T11:48:22Z",
+      "side": 1,
+      "message": "It\u0027s correct, and related, otherwise GYP will choke:\n```\n  File \"D:/code/3party/gyp\\pylib\\gyp\\msvs_emulation.py\", line 328, in _Setting\n    self.msvs_settings[config], path, default, prefix, append, map)\nKeyError: \u0027Debug_x64\u0027\n```\nBut moved, and explained in comment",
+      "parentUuid": "2d899c1e_04368122",
       "revId": "4af89f90948c4354af111215713f3f93c2df5126",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
