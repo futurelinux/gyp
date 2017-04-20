@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad67c0a1_59fa044e",
+        "filename": "test/generator-output/gyptest-rules.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001629
+      },
+      "writtenOn": "2017-04-20T18:19:09Z",
+      "side": 1,
+      "message": "TOO MANY NEWLINES",
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c72d115b_718792a2",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1001629
+      },
+      "writtenOn": "2017-04-20T18:19:09Z",
+      "side": 1,
+      "message": "And the test runner doesn\u0027t end up surprised that we call all the test stuff after this function? This surprised me (but if it works...)",
+      "range": {
+        "startLine": 431,
+        "startChar": 5,
+        "endLine": 431,
+        "endChar": 16
+      },
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "663cf32c_18e3df95",
+        "filename": "test/mac/gyptest-libraries.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1001629
+      },
+      "writtenOn": "2017-04-20T18:19:09Z",
+      "side": 1,
+      "message": "skip() doesn\u0027t work here?",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
