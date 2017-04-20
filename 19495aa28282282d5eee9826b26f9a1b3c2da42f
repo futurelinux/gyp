@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99416501_dfc3828c",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1128439
+      },
+      "writtenOn": "2017-04-20T00:32:14Z",
+      "side": 0,
+      "message": "Why is this assert gone?",
+      "revId": "19495aa28282282d5eee9826b26f9a1b3c2da42f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
