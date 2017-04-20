@@ -16,6 +16,24 @@
       "revId": "19495aa28282282d5eee9826b26f9a1b3c2da42f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6878ec34_7aebc985",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:35:52Z",
+      "side": 0,
+      "message": "Assert throws a generic error. I replaced it with the `else` case in new line 115, with explaination",
+      "parentUuid": "99416501_dfc3828c",
+      "revId": "19495aa28282282d5eee9826b26f9a1b3c2da42f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

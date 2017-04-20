@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b3872e7d_46ece00d",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:35:52Z",
+      "side": 1,
+      "message": "In anycase next line will do an `exists` check, so the default value if just for fall trough arbitrary value",
+      "parentUuid": "3a93d5d5_a594b96a",
+      "revId": "0f2560063c6e54186411bc729e3da4db2212d2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8dc6b44d_12d77dd9",
         "filename": "pylib/gyp/MSVSVersion.py",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-20T00:32:14Z",
       "side": 1,
       "message": "What\u0027s the rationale between using normpath instead of os.path.normpath? I\u0027m not sure that that \"from os.path import\" trick helps readability, although it obviously helps with line lengths. But, it does appear to be style compliant so I guess I\u0027m mostly just surprised I haven\u0027t seen it more.",
+      "revId": "0f2560063c6e54186411bc729e3da4db2212d2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95d99005_068bba4b",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:35:52Z",
+      "side": 1,
+      "message": "line length. I hate overflowing lines. especially just for repetative os.path.os.path.os.path",
+      "parentUuid": "8dc6b44d_12d77dd9",
       "revId": "0f2560063c6e54186411bc729e3da4db2212d2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "9382dc69_ca3d5432",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:35:52Z",
+      "side": 1,
+      "message": "`.gyp` files made by silly writers e.g. https://github.com/nodejs/node/blob/master/tools/icu/icu-generic.gyp#L467",
+      "parentUuid": "fa7fe412_b7c7fe2f",
+      "revId": "0f2560063c6e54186411bc729e3da4db2212d2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f803d01d_a13243dc",
         "filename": "pylib/gyp/msvs_emulation.py",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2017-04-20T00:32:14Z",
       "side": 1,
       "message": "Maybe add to the comment to explain what /FS does (force to use MSPDBSRV.EXE)",
+      "revId": "0f2560063c6e54186411bc729e3da4db2212d2d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cda1495b_7f9928dd",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T01:35:52Z",
+      "side": 1,
+      "message": "Ok. (even though it was here before)",
+      "parentUuid": "f803d01d_a13243dc",
       "revId": "0f2560063c6e54186411bc729e3da4db2212d2d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
