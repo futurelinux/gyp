@@ -11,7 +11,7 @@ import subprocess
 import sys
 import gyp
 import glob
-
+from os.path import join, normpath, exists
 
 class VisualStudioVersion(object):
   """Information regarding a version of Visual Studio."""
@@ -72,49 +72,61 @@ class VisualStudioVersion(object):
     return self.default_toolset
 
   def _SetupScriptInternal(self, target_arch):
-    """Returns a command (with arguments) to be used to set up the
-    environment."""
+    """Returns a command to be used to set up the environment."""
     # If WindowsSDKDir is set and SetEnv.Cmd exists then we are using the
     # depot_tools build tools and should run SetEnv.Cmd to set up the
     # environment. The check for WindowsSDKDir alone is not sufficient because
     # this is set by running vcvarsall.bat.
-    assert target_arch in ('x86', 'x64')
-    sdk_dir = os.environ.get('WindowsSDKDir')
-    if sdk_dir:
-      setup_path = os.path.normpath(os.path.join(sdk_dir, 'Bin/SetEnv.Cmd'))
-    if self.sdk_based and sdk_dir and os.path.exists(setup_path):
+    sdk_dir = os.environ.get('WindowsSDKDir', '')
+    setup_path = normpath(join(sdk_dir, 'Bin', 'SetEnv.Cmd'))
+    if self.sdk_based and sdk_dir and exists(setup_path):
       return [setup_path, '/' + target_arch]
-    else:
-      # We don't use VC/vcvarsall.bat for x86 because vcvarsall calls
-      # vcvars32, which it can only find if VS??COMNTOOLS is set, which it
-      # isn't always.
-      if target_arch == 'x86':
-        if self.short_name >= '2013' and self.short_name[-1] != 'e' and (
-            os.environ.get('PROCESSOR_ARCHITECTURE') == 'AMD64' or
-            os.environ.get('PROCESSOR_ARCHITEW6432') == 'AMD64'):
-          # VS2013 and later, non-Express have a x64-x86 cross that we want
-          # to prefer.
-          return [os.path.normpath(
-             os.path.join(self.path, 'VC/vcvarsall.bat')), 'amd64_x86']
-        # Otherwise, the standard x86 compiler.
-        return [os.path.normpath(
-          os.path.join(self.path, 'Common7/Tools/vsvars32.bat'))]
+
+    # We try to find the best version of the env setup batch:
+    # 1. don't use VC/vcvarsall.bat for x86 because vcvarsall calls vcvars32,
+    # which it can only find if VS??COMNTOOLS is set, which isn't guaranteed.
+    # 2. On newer VS versions it's in a different place and takes arguments
+    vcvars1 = normpath(join(self.path, 'VC', 'vcvarsall.bat'))
+    vcvars2 = normpath(join(self.path, 'Common7', 'Tools', 'vsvars32.bat'))
+    vcvars3 = normpath(join(self.path,
+                            'VC', 'Auxiliary', 'Build', 'vcvarsall.bat'))
+    arg = ''
+    if target_arch == 'x86':
+      if self.short_name >= '2013' and self.short_name[-1] != 'e' and (
+          os.environ.get('PROCESSOR_ARCHITECTURE') == 'AMD64' or
+          os.environ.get('PROCESSOR_ARCHITEW6432') == 'AMD64'):
+        # VS2013 and later, non-Express have a x64-x86 cross that we want
+        # to prefer.
+        arg = 'amd64_x86'
+        script_path = vcvars1
       else:
-        assert target_arch == 'x64'
-        arg = 'x86_amd64'
-        # Use the 64-on-64 compiler if we're not using an express
-        # edition and we're running on a 64bit OS.
-        if self.short_name[-1] != 'e' and (
-            os.environ.get('PROCESSOR_ARCHITECTURE') == 'AMD64' or
-            os.environ.get('PROCESSOR_ARCHITEW6432') == 'AMD64'):
-          arg = 'amd64'
-        return [os.path.normpath(
-            os.path.join(self.path, 'VC/vcvarsall.bat')), arg]
+        # Otherwise, the standard x86 compiler.
+        script_path = vcvars2
+    elif target_arch == 'x64':
+      arg = 'x86_amd64'
+      # Use the 64-on-64 compiler if we're not using an express
+      # edition and we're running on a 64bit OS.
+      if self.short_name[-1] != 'e' and (
+          os.environ.get('PROCESSOR_ARCHITECTURE') == 'AMD64' or
+          os.environ.get('PROCESSOR_ARCHITEW6432') == 'AMD64'):
+        arg = 'amd64'
+        script_path = vcvars1
+    else:
+      raise ValueError('target_arch value invalid ' + target_arch)
+
+    if not exists(script_path):
+      if self.short_name >= '2015':
+        script_path = vcvars3
+        if not exists(script_path):
+          raise ValueError('Could not find environment setup script')
+
+    return [script_path, arg]
+
 
   def SetupScript(self, target_arch):
     script_data = self._SetupScriptInternal(target_arch)
     script_path = script_data[0]
-    if not os.path.exists(script_path):
+    if not exists(script_path):
       raise Exception('%s is missing - make sure VC++ tools are installed.' %
                       script_path)
     return script_data
