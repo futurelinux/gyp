@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5742bc65_e2adbffc",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-20T13:28:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "be8d0616_08e73d8a",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a43a4162_a1c3b862",
         "filename": "pylib/gyp/MSVSVersion.py",
         "patchSetId": 4
