@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "be8d0616_08e73d8a",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T13:20:26Z",
+      "side": 1,
+      "message": "\u003e True, but the probe also sets the `arg`.\n\nNailing the path down to known values for known configurations has documentary value and eases future maintenance. It\u0027s impossible for someone to look at the code now and know where to expect vcvarsall.bat to be in VS 2015 for troubleshooting purposes, for example. It\u0027ll be impossible for a future maintainer to tell, from this code alone, which codepaths are dead when support for older VS versions is dropped.\n\nIt\u0027s possible that it\u0027d be better to separate setting script_path from arg.",
+      "parentUuid": "e4cc03ea_a6a9d08b",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a43a4162_a1c3b862",
         "filename": "pylib/gyp/MSVSVersion.py",
         "patchSetId": 4

@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ead962f8_b7b22637",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T13:20:26Z",
+      "side": 1,
+      "message": "This is a sentence, use a capital U and a period like all of the comments in the vicinity.",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1d7062b_54df5ade",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T13:20:26Z",
+      "side": 1,
+      "message": "The concerning aspect here is that we\u0027ve happily been using VS 2015 for some time without this. I don\u0027t doubt that you found it necessary, but I can get by with both VS 2015 and VS 2017 without this. Primarily, I don\u0027t want this change to break something else that was relying on the previous behavior.\n\nI don\u0027t know where your error snippet came from. Was it a GYP test? If not, this may need a test to help define the behavior.",
+      "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88c60f32_84558d2a",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T13:20:26Z",
+      "side": 1,
+      "message": "Extra space on this line.",
+      "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
