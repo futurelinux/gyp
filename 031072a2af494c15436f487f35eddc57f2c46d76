@@ -84,6 +84,30 @@
     },
     {
       "key": {
+        "uuid": "615d638c_50db26f6",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1001629
+      },
+      "writtenOn": "2017-04-20T18:29:42Z",
+      "side": 1,
+      "message": "The tests go\n\ntest.skip(bug\u003d123)\ntest.gyp(..bla..)\ntest.run(...blah...)\ntest.check_that(...bla...)\n\ngyp() and run() and check_that() all continue to be called after skip() (since this function doesn\u0027t end in sys.exit()), right?",
+      "parentUuid": "8949a024_2e30d4a1",
+      "range": {
+        "startLine": 431,
+        "startChar": 5,
+        "endLine": 431,
+        "endChar": 16
+      },
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "663cf32c_18e3df95",
         "filename": "test/mac/gyptest-libraries.py",
         "patchSetId": 15
