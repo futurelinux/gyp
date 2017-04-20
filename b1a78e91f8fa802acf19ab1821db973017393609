@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ccc8f53_5b0c6da6",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T02:26:42Z",
+      "side": 1,
+      "message": "Looks like this moved a condition deeper than it used to be.",
+      "revId": "b1a78e91f8fa802acf19ab1821db973017393609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}

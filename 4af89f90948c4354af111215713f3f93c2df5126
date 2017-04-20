@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41274742_106048c8",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T02:26:42Z",
+      "side": 1,
+      "message": "It’s a bit weird that this \u003e\u003d2013 check is used to choose between vcvars1 and vcvars2, but a probe is used to find vcvars3. Given the version, can’t we just know where to expect to find vcvarsall.bat or equivalent?",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a43a4162_a1c3b862",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T02:26:42Z",
+      "side": 1,
+      "message": "Is this path really ever valid for 2015?",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fecbfe3f_e50c66f1",
+        "filename": "pylib/gyp/generator/ninja.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T02:26:42Z",
+      "side": 1,
+      "message": "I think that this should be broken out and discussed separately.\n\nI’m not sure that this change is correct. After this, path_dir will effectively never be absolute, although it can contain an absurd number of dots to avoid being absolute. I’m not sure if that’s smart or if it’ll cause problems for any users of this function.",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d899c1e_04368122",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-20T02:26:42Z",
+      "side": 1,
+      "message": "I’m not certain that this is correct. At the very least, it’s probably unrelated and should be addressed in its own change.\n\nIf it is appropriate, it should follow at least the docstring, if not the longer comment too.",
+      "revId": "4af89f90948c4354af111215713f3f93c2df5126",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
