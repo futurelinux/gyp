@@ -108,6 +108,30 @@
     },
     {
       "key": {
+        "uuid": "de215161_11ffb9c4",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T00:36:36Z",
+      "side": 1,
+      "message": "self.no_result() calls no_result(), which calls sys.exit().",
+      "parentUuid": "615d638c_50db26f6",
+      "range": {
+        "startLine": 431,
+        "startChar": 5,
+        "endLine": 431,
+        "endChar": 16
+      },
+      "revId": "031072a2af494c15436f487f35eddc57f2c46d76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "663cf32c_18e3df95",
         "filename": "test/mac/gyptest-libraries.py",
         "patchSetId": 15
