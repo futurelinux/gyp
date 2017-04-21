@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "9c5d423e_7e0d84d8",
+        "filename": "test/ios/gyptest-archs.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001629
+      },
+      "writtenOn": "2017-04-21T14:24:56Z",
+      "side": 1,
+      "message": "This one\u0027s xcode, not xcode-ninja",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8cfcb282_9d690fdf",
         "filename": "test/ios/gyptest-extension.py",
         "patchSetId": 18
