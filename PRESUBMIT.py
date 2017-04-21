@@ -90,10 +90,24 @@ def _LicenseHeader(input_api):
       'year': years_re,
   }
 
+def _SgkHeader(input_api):
+  return r'# Copyright 2000-2010 Steven Knight'
+
 def CheckChangeOnUpload(input_api, output_api):
   report = []
+
+  # //test/lib/TestCommon.py has a weird license, but it's grandfathered in.
   report.extend(input_api.canned_checks.PanProjectChecks(
-      input_api, output_api, license_header=_LicenseHeader(input_api)))
+      input_api, output_api, license_header=_LicenseHeader(input_api),
+      excluded_paths=['test/lib/TestCommon.py']))
+
+  excluded_paths = [p.LocalPath()
+                    for p in input_api.AffectedFiles(include_deletes=False)
+                    if p.LocalPath() != 'test/lib/TestCommon.py']
+  if excluded_paths:
+    report.extend(input_api.canned_checks.PanProjectChecks(
+        input_api, output_api, license_header=_SgkHeader(input_api),
+        excluded_paths=excluded_paths))
   return report
 
 

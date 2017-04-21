@@ -19,6 +19,9 @@ import time
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+  if test.format == 'xcode-ninja':
+    test.skip_test(bug=527)
+
   test.run_gyp('test.gyp', chdir='strip')
 
   test.build('test.gyp', test.ALL, chdir='strip')

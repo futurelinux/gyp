@@ -8,11 +8,14 @@
 Verify that dependent rules are executed iff a dependency action modifies its
 outputs.
 """
-
-import TestGyp
 import os
 
+import TestGyp
+
 test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
+
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
 
 test.run_gyp('restat.gyp', chdir='src')
 

@@ -24,8 +24,7 @@ if sys.platform in ('darwin', 'win32'):
 
 def CheckFileXMLPropertyList(file):
   output = subprocess.check_output(['file', file])
-  # The double space after XML is intentional.
-  if not 'XML  document text' in output:
+  if not 'XML 1.0 document text' in output:
     print 'File: Expected XML  document text, got %s' % output
     test.fail_test()
 

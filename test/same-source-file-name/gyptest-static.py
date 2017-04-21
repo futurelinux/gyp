@@ -16,6 +16,9 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 # Fails by default for the compatibility with legacy generators such as
 # VCProj generator for Visual C++ 2008 and Makefile generator on Mac.
 # TODO: Update expected behavior when these legacy generators are deprecated.

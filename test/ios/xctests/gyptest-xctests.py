@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright 2015 The Chromium Authors. All rights reserved.
+# Copyright 2015 Google Inc. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
@@ -23,6 +23,10 @@ def HasCerts():
 
 if sys.platform == "darwin":
   test = TestGyp.TestGyp(formats=['xcode', 'ninja'])
+
+  if test.format == 'xcode-ninja':
+    test.skip_test(bug=527)
+
   test.run_gyp('xctests.gyp')
   test_configs = ['Default']
   # TODO(crbug.com/557418): Enable this once xcodebuild works for iOS devices.

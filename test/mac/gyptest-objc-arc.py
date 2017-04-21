@@ -17,6 +17,9 @@ if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'],
                          match = lambda a, b: True)
 
+  if test.format == 'xcode-ninja':
+    test.skip_test(bug=527)
+
   CHDIR = 'objc-arc'
   test.run_gyp('test.gyp', chdir=CHDIR)
 
