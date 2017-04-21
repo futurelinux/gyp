@@ -12,6 +12,9 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 test.run_gyp('none_with_source_files.gyp', chdir='src')
 
 test.relocate('src', 'relocate/src')

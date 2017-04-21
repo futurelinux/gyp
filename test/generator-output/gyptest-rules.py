@@ -12,6 +12,9 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 test.writable(test.workpath('rules'), False)
 
 test.run_gyp('rules.gyp',

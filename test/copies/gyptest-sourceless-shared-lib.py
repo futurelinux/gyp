@@ -11,6 +11,10 @@ Verifies copies in sourceless shared_library targets are executed.
 import TestGyp
 
 test = TestGyp.TestGyp()
+
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 test.run_gyp('copies-sourceless-shared-lib.gyp', chdir='src')
 test.relocate('src', 'relocate/src')
 test.build('copies-sourceless-shared-lib.gyp', chdir='relocate/src')

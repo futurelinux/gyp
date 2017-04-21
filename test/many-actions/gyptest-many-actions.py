@@ -9,16 +9,14 @@ Make sure lots of actions in the same target don't cause exceeding command
 line length.
 """
 
-import sys
-
-if sys.platform == 'win32':
-  print "This test is currently disabled: https://crbug.com/483696."
-  sys.exit(0)
-
-
 import TestGyp
 
 test = TestGyp.TestGyp()
+
+if test.platform == 'win32':
+  test.skip_test(bug='https://crbug.com/483696')
+
+test.skip_test(bug=527)
 
 test.run_gyp('many-actions.gyp')
 test.build('many-actions.gyp', test.ALL)

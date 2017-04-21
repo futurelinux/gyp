@@ -31,6 +31,9 @@ if sys.platform == 'darwin':
 
   test.run_gyp('test.gyp', chdir='app-bundle')
 
+  if test.format in ('ninja', 'xcode', 'xcode-ninja'):
+    test.skip_test(bug=527)
+
   test.build('test.gyp', test.ALL, chdir='app-bundle')
 
   # Test that the extension is .bundle

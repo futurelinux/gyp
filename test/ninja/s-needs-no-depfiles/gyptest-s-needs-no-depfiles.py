@@ -19,6 +19,9 @@ import TestGyp
 # a ninja-specific test.
 test = TestGyp.TestGyp(formats=['ninja'])
 
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 if sys.platform == 'win32' or sys.platform == 'win64':
   # This test is about clang/gcc vs. depfiles; VS gets a pass.
   test.pass_test()

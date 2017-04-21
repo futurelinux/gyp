@@ -12,6 +12,10 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 # All the generated files should go under 'gypfiles'. The source directory
 # ('actions') should be untouched.
 test.writable(test.workpath('actions'), False)

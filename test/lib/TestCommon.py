@@ -543,7 +543,7 @@ class TestCommon(TestCmd):
         self._complete(self.stdout(), stdout,
                        self.stderr(), stderr, status, match)
 
-    def skip_test(self, message="Skipping test.\n"):
+    def skip_test(self, message="Skipping test.\n", bug=None):
         """Skips a test.
 
         Proper test-skipping behavior is dependent on the external
@@ -560,6 +560,14 @@ class TestCommon(TestCmd):
         would actually report to Aegis that a skipped test has PASSED
         so that the workflow isn't held up.)
         """
+        if bug and message == 'Skipping test.\n':
+          if isinstance(bug, str):
+            bug_str = bug
+          else:
+            bug_str = ('https://bugs.chromium.org/p/gyp/issues/detail?id=%s' %
+                       str(bug))
+          message = 'Skipping test due to %s.\n' % bug_str
+
         if message:
             sys.stdout.write(message)
             sys.stdout.flush()

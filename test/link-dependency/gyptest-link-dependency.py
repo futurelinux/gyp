@@ -16,6 +16,9 @@ import TestGyp
 # work with cmake.
 test = TestGyp.TestGyp(formats=['!cmake'])
 
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 test.run_gyp('test.gyp')
 test.build('test.gyp', 'main')
 
