@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "50ab7241_23eb0584",
+        "filename": "test/ios/gyptest-archs.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T16:01:23Z",
+      "side": 1,
+      "message": "I will double-check if xcode is right (it might be).",
+      "parentUuid": "9c5d423e_7e0d84d8",
+      "range": {
+        "startLine": 21,
+        "startChar": 17,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8cfcb282_9d690fdf",
         "filename": "test/ios/gyptest-extension.py",
         "patchSetId": 18
