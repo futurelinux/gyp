@@ -27,6 +27,9 @@ if sys.platform == 'darwin' and TestMac.Xcode.Version()>="0600":
 
   test = TestGyp.TestGyp(formats=['ninja', 'xcode'])
 
+  if test.format in ('ninja', 'xcode-ninja'):
+    test.skip_test()  # https://bugs.chromium.org/p/gyp/issues/detail?id=527
+
   test.run_gyp('extension.gyp', chdir='extension')
 
   test.build('extension.gyp', 'ExtensionContainer', chdir='extension')
