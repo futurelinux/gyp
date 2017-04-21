@@ -14,6 +14,9 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
+
 lib_dir = test.tempdir('secret_location')
 
 test.run_gyp('test.gyp',

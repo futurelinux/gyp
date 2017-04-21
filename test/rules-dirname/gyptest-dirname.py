@@ -10,14 +10,14 @@ Verifies simple rules when using an explicit build target of 'all'.
 
 import TestGyp
 import os
-import sys
-
-if sys.platform == 'win32':
-  print "This test is currently disabled: https://crbug.com/483696."
-  sys.exit(0)
-
 
 test = TestGyp.TestGyp(formats=['make', 'ninja', 'xcode', 'msvs'])
+
+if test.platform == 'win32':
+  test.skip_test(bug='https://crbug.com/483696')
+
+if test.format == 'xcode-ninja':
+  test.skip_test(bug=527)
 
 test.run_gyp('actions.gyp', chdir='src')
 

@@ -158,6 +158,8 @@ class TestGypBase(TestCommon.TestCommon):
     # otherwise make the output vary from what is expected.
     os.environ['LC_ALL'] = 'C'
 
+    self.platform = sys.platform
+
   def built_file_must_exist(self, name, type=None, **kw):
     """
     Fails the test if the specified built file name does not exist.
