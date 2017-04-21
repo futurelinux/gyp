@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e4dc98d_76b2a189",
+        "filename": "test/ios/gyptest-app-ios.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T02:59:03Z",
+      "side": 1,
+      "message": "Looks like Apple changed this in some version of MacOS \u003e 10.9, I\u0027m guessing.",
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8cfcb282_9d690fdf",
+        "filename": "test/ios/gyptest-extension.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T02:59:03Z",
+      "side": 1,
+      "message": "This should be a distinct bug, I\u0027m not sure what\u0027s wrong here but it\u0027s not just the xcode-ninja brokenness.",
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46f3f01_9822bd32",
+        "filename": "test/mac/gyptest-clang-cxx-library.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T02:59:03Z",
+      "side": 1,
+      "message": "Whoops, this needs to be uncommented, but this is failing because of a deprecation warning for libstdc++.",
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "424eec0a_8fc43a05",
+        "filename": "test/mac/gyptest-deployment-target.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T02:59:03Z",
+      "side": 1,
+      "message": "This is also failing because of a deprecation warning for libstdc++.",
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8644874d_b6a1dd29",
+        "filename": "test/mac/gyptest-libraries.py",
+        "patchSetId": 18
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-04-21T02:59:03Z",
+      "side": 1,
+      "message": "This seems to be failing because libcrypto.dylib can\u0027t be found.",
+      "revId": "f12b8826ec8369cd373d20be0c0c724c133d3386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
