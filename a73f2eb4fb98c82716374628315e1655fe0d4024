@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1373c072_d59b5ef3",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-23T20:31:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a8a09457_0dfd5071",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 5
+      },
+      "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c1d7062b_54df5ade",
         "filename": "pylib/gyp/msvs_emulation.py",
         "patchSetId": 7
@@ -84,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "403d2190_5243f779",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-23T20:31:54Z",
+      "side": 1,
+      "message": "I tested on VS2015 and VS2017.\n\nOriginal code:\nnever worked for `target_arch\u003dx64`\nalways worked for `target_arch\u003dx86`\n\nNew Code:\nAlways works",
+      "parentUuid": "8a5d91f9_0dbaa851",
+      "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "88c60f32_84558d2a",
         "filename": "pylib/gyp/msvs_emulation.py",
         "patchSetId": 7
@@ -113,6 +155,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "88c60f32_84558d2a",
+      "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab6a6fe1_a82160b5",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-23T20:31:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "463640dc_008070d7",
       "revId": "a73f2eb4fb98c82716374628315e1655fe0d4024",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
