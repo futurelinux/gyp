@@ -16,6 +16,29 @@
       "revId": "baed9b0b739c190d75ae552636fa57529b2189c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b462fb71_88cfd35f",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-24T17:37:55Z",
+      "side": 1,
+      "message": "Update the comment too.",
+      "range": {
+        "startLine": 314,
+        "startChar": 18,
+        "endLine": 314,
+        "endChar": 24
+      },
+      "revId": "baed9b0b739c190d75ae552636fa57529b2189c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
