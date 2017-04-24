@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5e8867e2_bc469e70",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-24T16:37:29Z",
+      "side": 1,
+      "message": "I defer to your style...",
+      "parentUuid": "45641cf0_5ff976c3",
+      "revId": "59935dc7e44b6a6e365130ab65cf21c71c543378",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1d28c028_a477b993",
         "filename": "pylib/gyp/msvs_emulation.py",
         "patchSetId": 9
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-24T14:52:32Z",
       "side": 1,
       "message": "You said that you tested on 2015 and 2017 and implied that they both needed this, so why have you backed this off to be 2017-only now? Or is it really only necessary for 2017?",
+      "revId": "59935dc7e44b6a6e365130ab65cf21c71c543378",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eac8e712_047e14fd",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-24T16:37:29Z",
+      "side": 1,
+      "message": "It good stuck at 2015 during testing. Fixed.\n\nApart from testing I tried to code-grok this, and it seems like it only makes sense when running GYP with -f msvs-ninja (MSVS ninja flavor). -f msvs-ninja has it\u0027s own problems as is, and IMHO are out of scope for this CL",
+      "parentUuid": "1d28c028_a477b993",
       "revId": "59935dc7e44b6a6e365130ab65cf21c71c543378",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true

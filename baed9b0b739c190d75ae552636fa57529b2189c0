@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0dcf92b_57727aa2",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-24T16:37:29Z",
+      "side": 1,
+      "message": "I made a shortcut method just to keep line 88, 94, and 101 short",
+      "revId": "baed9b0b739c190d75ae552636fa57529b2189c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
