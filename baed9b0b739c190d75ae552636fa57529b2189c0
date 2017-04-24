@@ -39,6 +39,30 @@
       "revId": "baed9b0b739c190d75ae552636fa57529b2189c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5099f845_24ce1783",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 11
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-04-24T17:40:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b462fb71_88cfd35f",
+      "range": {
+        "startLine": 314,
+        "startChar": 18,
+        "endLine": 314,
+        "endChar": 24
+      },
+      "revId": "baed9b0b739c190d75ae552636fa57529b2189c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
