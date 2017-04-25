@@ -13,6 +13,10 @@ import sys
 import TestGyp
 
 test = TestGyp.TestGyp()
+
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 test.run_gyp('empty-target.gyp')
 test.build('empty-target.gyp', target='empty_target')
 test.pass_test()

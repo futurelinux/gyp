@@ -16,7 +16,7 @@ print "This test is currently disabled: https://crbug.com/483696."
 sys.exit(0)
 
 test_format = ['ninja']
-if sys.platform in ('linux2', 'darwin'):
+if sys.platform.startswith('linux') or sys.platform == 'darwin':
   test_format += ['make']
 
 test = TestGyp.TestGyp(formats=test_format)

@@ -26,6 +26,9 @@ if sys.platform == "darwin":
   sys.exit(2)  # bug=531
 
   test = TestGyp.TestGyp(formats=['xcode', 'ninja'])
+
+  test.skip(bug=527)
+
   test.run_gyp('xctests.gyp')
   test_configs = ['Default']
   # TODO(crbug.com/557418): Enable this once xcodebuild works for iOS devices.
