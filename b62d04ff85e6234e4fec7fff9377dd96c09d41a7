@@ -16,6 +16,24 @@
       "revId": "b62d04ff85e6234e4fec7fff9377dd96c09d41a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f18ad14_997e6b09",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-04-25T02:47:59Z",
+      "side": 1,
+      "message": "\u003e This branch never sets “arg” but it’ll be used on the next line.\n\u003e \n\u003e Crashpad’s 32-on-32 try bot caught this. https://build.chromium.org/p/client.crashpad/builders/crashpad_try_win_x86_dbg/builds/135/steps/gclient%20runhooks/logs/stdio\n\u003e \n\u003e The old behavior would have just returned [script_path] here.\n\nhttps://chromium-review.googlesource.com/486380/",
+      "parentUuid": "4c59f85e_829eba2b",
+      "revId": "b62d04ff85e6234e4fec7fff9377dd96c09d41a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
