@@ -190,20 +190,20 @@ class Runner(object):
     proc.wait()
     took = time.time() - start
 
-    stdout = proc.stdout.read().decode('utf8')
+    stdout = proc.stdout.read().decode('utf8').strip()
     if proc.returncode == 2:
       res = 'skipped'
     elif proc.returncode:
       res = 'failed'
-      self.failures.append('(%s) %s' % (test, fmt))
+      self.failures.append('%s (%s)' % (test, fmt))
     else:
       res = 'passed'
     res_msg = ' %s %.3fs' % (res, took)
     self.print_(res_msg)
 
     if (stdout and
-        not stdout.endswith('PASSED\n') and
-        not (stdout.endswith('NO RESULT\n'))):
+        not stdout.endswith('PASSED') and
+        not (stdout.endswith('NO RESULT'))):
       print()
       for l in stdout.splitlines():
         print('    %s' % l)

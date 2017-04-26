@@ -119,8 +119,6 @@ class TestGypBase(TestCommon.TestCommon):
 
     self.formats = [self.format]
 
-    self.initialize_build_tool()
-
     kw.setdefault('match', TestCommon.match_exact)
 
     # Put test output in out/testworkarea by default.
@@ -135,6 +133,8 @@ class TestGypBase(TestCommon.TestCommon):
     formats = kw.pop('formats', [])
 
     super(TestGypBase, self).__init__(*args, **kw)
+
+    self.initialize_build_tool()
 
     real_format = self.format.split('-')[-1]
     excluded_formats = set([f for f in formats if f[0] == '!'])
@@ -741,13 +741,18 @@ def FindVisualStudioInstallation():
         args1 = ['reg', 'query',
                     'HKLM\Software\Microsoft\VisualStudio\SxS\VS7',
                     '/v', '15.0', '/reg:32']
-        build_tool = subprocess.check_output(args1)\
-          .strip().split('\r\n').pop().split(' ').pop()
+        proc = subprocess.Popen(args1, stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE)
+        out, _ = subprocess.communicat()
+        build_tool = out.strip().split('\r\n').pop().split(' ').pop()
       if build_tool:
         args2 = ['cmd.exe', '/d', '/c',
                 'cd', '/d', build_tool,
                 '&', 'dir', '/b', '/s', 'msbuild.exe']
-        msbuild_exes = subprocess.check_output(args2).strip().split('\r\n')
+        proc = subprocess.Popen(args1, stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE)
+        out, _ = subprocess.communicat()
+        msbuild_exes = out.strip().split('\r\n')
       if len(msbuild_exes):
         msbuild_Path = os.path.join(build_tool, msbuild_exes[0])
         if os.path.exists(msbuild_Path):
