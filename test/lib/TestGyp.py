@@ -559,6 +559,7 @@ class TestGypMake(TestGypBase):
     chdir = kw.get('chdir', '')
     if not os.path.exists(os.path.join(chdir, 'Makefile')):
       print "NO Makefile in " + os.path.join(chdir, 'Makefile')
+      sys.stdout.flush()
       arguments.insert(0, '-f')
       arguments.insert(1, os.path.splitext(gyp_file)[0] + '.Makefile')
     kw['arguments'] = arguments

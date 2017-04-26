@@ -22,10 +22,9 @@ import TestGyp
 # if this was extended to other generators).
 test = TestGyp.TestGyp(formats=['ninja'])
 
-if not os.environ.get('ProgramFiles(x86)'):
+if sys.platform == 'win32' and not os.environ.get('ProgramFiles(x86)'):
   # TODO(scottmg)
-  print 'Skipping test on x86, http://crbug.com/365833'
-  test.pass_test()
+  test.skip_test()  # crbug.com/365833
 
 test.run_gyp('solibs_avoid_relinking.gyp')
 
