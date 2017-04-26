@@ -16,12 +16,11 @@ import struct
 
 CHDIR = 'winrt-target-platform-version'
 
-print 'This test is not currently working on the bots: https://code.google.com/p/gyp/issues/detail?id=466'
-sys.exit(0)
-
 if (sys.platform == 'win32' and
     int(os.environ.get('GYP_MSVS_VERSION', 0)) == 2015):
   test = TestGyp.TestGyp(formats=['msvs'])
+
+  test.skip_test()  # bug=466
 
   test.run_gyp('winrt-target-platform-version.gyp', chdir=CHDIR)
 
