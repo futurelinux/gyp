@@ -16,6 +16,24 @@
       "revId": "52f9f07a04de927770015f985eb338f0a745bfcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeb3f356_73c94bcc",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-05-01T20:29:55Z",
+      "side": 1,
+      "message": "So this is actually the crux of the issue.\nI guess without this the process fails",
+      "parentUuid": "fd31f97c_af2a8ca8",
+      "revId": "52f9f07a04de927770015f985eb338f0a745bfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
