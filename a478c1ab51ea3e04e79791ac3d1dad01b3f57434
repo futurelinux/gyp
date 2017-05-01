@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f1be2c5_2ad5d24a",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-05-01T20:24:13Z",
+      "side": 0,
+      "message": "Why did you remove this?",
+      "revId": "a478c1ab51ea3e04e79791ac3d1dad01b3f57434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
