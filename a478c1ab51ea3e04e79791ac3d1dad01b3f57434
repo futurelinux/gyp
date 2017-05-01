@@ -34,6 +34,24 @@
       "revId": "a478c1ab51ea3e04e79791ac3d1dad01b3f57434",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "619f552e_63c19918",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-05-01T20:47:23Z",
+      "side": 0,
+      "message": "\u003e People were complaining of the noise ;)\n\u003e In the \"Only command line tools\" this errs trice, but works:\n\u003e \n\u003e xcode-select: error: tool \u0027xcodebuild\u0027 requires Xcode, but active developer directory \u0027/Library/Developer/CommandLineTools\u0027 is a command line tools instance\n\u003e xcrun: error: unable to lookup item \u0027PlatformPath\u0027 from command line tools installation\n\u003e xcrun: error: unable to lookup item \u0027PlatformPath\u0027 in SDK \u0027/\u0027\n\nYes, we should absolutely avoid showing that stuff when only Command Line Developer Tools are installed without Xcode.app. That doesn’t mean that we should get rid of the output from any failed command generally.\n\nYou’ll want a test to see whether xcode-select/xcrun are hooked up to Xcode first. Assuming that it’s not, you’ll want to proceed without asking either to do anything that requires Xcode.\n\nBut there are other reasons that a command run by this function might output something while failing, and we don’t want to lose the diagnostic value of those messages.",
+      "parentUuid": "cc39b3fd_50b7af55",
+      "revId": "a478c1ab51ea3e04e79791ac3d1dad01b3f57434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

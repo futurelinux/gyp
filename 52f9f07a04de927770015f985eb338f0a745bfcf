@@ -34,6 +34,24 @@
       "revId": "52f9f07a04de927770015f985eb338f0a745bfcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e64ffd93_bcaf2e6d",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2017-05-01T20:47:23Z",
+      "side": 1,
+      "message": "\u003e I guess\n\n“Guess:” are you developing this patch or are you upstreaming something that you didn’t write?\n\n\u003e without this the process fails\n\nWhere? I think that this should be addressed at the source of those problems. For example, |if not sdk_root|, don’t set env[\u0027SDKROOT\u0027] on the next line. This is strongly preferred compared to setting it to an empty string. Is there anywhere else that needs attention?",
+      "parentUuid": "aeb3f356_73c94bcc",
+      "revId": "52f9f07a04de927770015f985eb338f0a745bfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
