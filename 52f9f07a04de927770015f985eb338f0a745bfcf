@@ -52,6 +52,24 @@
       "revId": "52f9f07a04de927770015f985eb338f0a745bfcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4530627_f0fab235",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-05-01T21:06:21Z",
+      "side": 1,
+      "message": "These two lines I\u0027m upstreaming as someone else\u0027s proxy. He\u0027s CCed on this issue.\n\nI\u0027ll Dig deeper here as well.",
+      "parentUuid": "e64ffd93_bcaf2e6d",
+      "revId": "52f9f07a04de927770015f985eb338f0a745bfcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
