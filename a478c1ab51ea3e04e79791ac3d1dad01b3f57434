@@ -16,6 +16,24 @@
       "revId": "a478c1ab51ea3e04e79791ac3d1dad01b3f57434",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdf94ac9_9019b9fe",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-05-02T15:50:01Z",
+      "side": 0,
+      "message": "where was introduced only in Server 2003/Vista",
+      "parentUuid": "28fdf865_af04d2c0",
+      "revId": "a478c1ab51ea3e04e79791ac3d1dad01b3f57434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }

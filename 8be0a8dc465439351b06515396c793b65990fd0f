@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "f7e4095a_bc01d08a",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-05-02T15:50:01Z",
+      "side": 1,
+      "message": "So I can pickle/cache it with `env`",
+      "parentUuid": "0155d62c_9510c835",
+      "revId": "8be0a8dc465439351b06515396c793b65990fd0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4037e831_54842801",
         "filename": "pylib/gyp/msvs_emulation.py",
         "patchSetId": 4
@@ -47,6 +65,24 @@
       "writtenOn": "2017-05-02T15:35:28Z",
       "side": 1,
       "message": "I’m not fond of this.\n\nAt the very least, weirdo things like this deserve a comment. But I have a strong preference against writing stuff to disk for this kind of thing.",
+      "revId": "8be0a8dc465439351b06515396c793b65990fd0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff2f016c_fe57f8a0",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 1063,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-05-02T15:50:01Z",
+      "side": 1,
+      "message": "I had a previous implementation that kept it in memory in the module scope, but AFAIK that doesn\u0027t help parallel processing.\nI admit that writing to disk is \"extreme\" but the performance boost is extreme as well, for the ninja test suite for me it cut down time by 90%.\nWe could write it to `%TEMP%\\.gyp`, but I\u0027ve seen less worthy use of %APPDATA% by sillier programs...",
+      "parentUuid": "4037e831_54842801",
       "revId": "8be0a8dc465439351b06515396c793b65990fd0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
