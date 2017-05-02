@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02653b2a_c6ddb97e",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-05-02T15:29:59Z",
+      "side": 1,
+      "message": "This is an old artifact.\nI\u0027ll remove it.",
+      "revId": "8be0a8dc465439351b06515396c793b65990fd0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
