@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96c414cc_b0a528c7",
+        "filename": "pylib/gyp/common.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2017-09-24T02:55:06Z",
+      "side": 1,
+      "message": "I think you should add\n```\nif sys.platform.startswith(\u0027os390\u0027):\n  return \u0027zos\u0027\n```\nfor backward compatibility",
+      "revId": "30a29189f489321cf98095f444c4c68f045b8266",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
