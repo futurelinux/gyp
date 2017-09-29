@@ -202,6 +202,24 @@
     },
     {
       "key": {
+        "uuid": "c37fa022_9f9f4c9c",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-09-29T22:45:06Z",
+      "side": 1,
+      "message": "ok. should I file a bug requesting a default?",
+      "parentUuid": "e04bc1af_dfa3bdd8",
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fb36dbb9_c8828af1",
         "filename": "luci-scheduler.cfg",
         "patchSetId": 1
@@ -237,6 +255,30 @@
       "side": 1,
       "message": "i meant, https should NOT be a part of config",
       "parentUuid": "fb36dbb9_c8828af1",
+      "range": {
+        "startLine": 35,
+        "startChar": 13,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3d8a89_b8ec588d",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-09-29T22:45:06Z",
+      "side": 1,
+      "message": "I\u0027ll assume that I should leave the \"https://\" for now; should I file a bug requesting that we remove it?",
+      "parentUuid": "562fd4bc_039efbb1",
       "range": {
         "startLine": 35,
         "startChar": 13,
