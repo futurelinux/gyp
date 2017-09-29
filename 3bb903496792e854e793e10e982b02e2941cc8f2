@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "4286e457_076275b0",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-09-29T20:10:36Z",
+      "side": 1,
+      "message": "this matches the cr-buildbucket-defined default, so unnecessary",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c88a9af9_3602b941",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-09-29T20:10:36Z",
+      "side": 1,
+      "message": "please remove, this was deprecated and ignored https://chromium.googlesource.com/infra/infra/+/master/appengine/cr-buildbucket/proto/project_config.proto#221",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17901b80_94dac540",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-09-29T20:10:36Z",
+      "side": 1,
+      "message": "all these builders are missing pool dimensions. Please consider defining builder_defaults before \"builders\" and put pool dimensions and the recipe there. Then you don\u0027t have to copy `mixins: \"recipe\"` in each builder",
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c92066b1_70900a74",
         "filename": "luci-scheduler.cfg",
         "patchSetId": 1
@@ -13,6 +76,47 @@
       "writtenOn": "2017-09-29T01:33:41Z",
       "side": 1,
       "message": "missing a schedule field. See https://cs.chromium.org/chromium/infra/go/src/go.chromium.org/luci/scheduler/appengine/messages/cron.proto?q\u003dcron.proto\u0026sq\u003dpackage:chromium\u0026dr\u0026l\u003d48\n\nI think \"with 60s interval\" should be good enough.",
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22c41534_c3ce5813",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-09-29T20:10:36Z",
+      "side": 1,
+      "message": "as a user of gitiles poller, I\u0027d expect the gitiles poller to have a reasonable default.",
+      "parentUuid": "c92066b1_70900a74",
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb36dbb9_c8828af1",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-09-29T20:10:36Z",
+      "side": 1,
+      "message": "tandrii, https should be a part of config :(\nhttps is the only thing we should support, so users should not specify that.\nAndrii, Vadim, can remove this?",
+      "range": {
+        "startLine": 35,
+        "startChar": 13,
+        "endLine": 35,
+        "endChar": 21
+      },
       "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
