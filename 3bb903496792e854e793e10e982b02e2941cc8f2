@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1362fbe0_050223dd",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-09-29T21:39:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4286e457_076275b0",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c88a9af9_3602b941",
         "filename": "cr-buildbucket.cfg",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "44416eb1_56ba9b87",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-09-29T21:39:07Z",
+      "side": 1,
+      "message": "Good. It was too arcane :).",
+      "parentUuid": "c88a9af9_3602b941",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 71
+      },
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17901b80_94dac540",
         "filename": "cr-buildbucket.cfg",
         "patchSetId": 1
@@ -62,6 +110,24 @@
       "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37539419_434356ea",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-09-29T21:39:07Z",
+      "side": 1,
+      "message": "The pool dimension is specified in the \"recipe\" mixin on line 11.\n\nThat said, I can switch to builder_defaults, that\u0027s fine.",
+      "parentUuid": "17901b80_94dac540",
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -94,6 +160,24 @@
       "side": 1,
       "message": "as a user of gitiles poller, I\u0027d expect the gitiles poller to have a reasonable default.",
       "parentUuid": "c92066b1_70900a74",
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "774d6c07_0bcb5b45",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-09-29T21:39:07Z",
+      "side": 1,
+      "message": "Should I add \"with 60s interval\" for now, and have you fix it later, or do you want to fix it first?",
+      "parentUuid": "22c41534_c3ce5813",
       "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
