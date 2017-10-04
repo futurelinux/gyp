@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0e76b9db_fbf3ad6b",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-10-04T23:22:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80f4f78e_52ee102a",
+      "revId": "be5233848c8e3ab8a9f8f42d69c5409413058768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "342299c1_7e247e38",
         "filename": "luci-scheduler.cfg",
         "patchSetId": 3
@@ -39,6 +57,30 @@
       "revId": "be5233848c8e3ab8a9f8f42d69c5409413058768",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ebd21dc_ea2f5941",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2017-10-04T23:22:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "342299c1_7e247e38",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 4,
+        "endChar": 85
+      },
+      "revId": "be5233848c8e3ab8a9f8f42d69c5409413058768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
