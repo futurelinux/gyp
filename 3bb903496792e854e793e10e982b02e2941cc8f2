@@ -288,6 +288,30 @@
       "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03366e08_b5db747f",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-10-04T06:15:42Z",
+      "side": 1,
+      "message": "filed crbug.com/771503",
+      "parentUuid": "9c3d8a89_b8ec588d",
+      "range": {
+        "startLine": 35,
+        "startChar": 13,
+        "endLine": 35,
+        "endChar": 21
+      },
+      "revId": "3bb903496792e854e793e10e982b02e2941cc8f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }

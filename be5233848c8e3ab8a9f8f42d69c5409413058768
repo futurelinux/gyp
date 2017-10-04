@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80f4f78e_52ee102a",
+        "filename": "cr-buildbucket.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-10-04T06:15:42Z",
+      "side": 1,
+      "message": "builder_defaults is a field of message Swarming, not BuildbucketCfg",
+      "revId": "be5233848c8e3ab8a9f8f42d69c5409413058768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "342299c1_7e247e38",
+        "filename": "luci-scheduler.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1114299
+      },
+      "writtenOn": "2017-10-04T06:15:42Z",
+      "side": 1,
+      "message": "https://chromium.googlesource.com/infra/luci/luci-go/+/master/scheduler/appengine/messages/cron.proto\n\nwe\u0027ve moved off of github",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 4,
+        "endChar": 85
+      },
+      "revId": "be5233848c8e3ab8a9f8f42d69c5409413058768",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
