@@ -853,6 +853,7 @@ class TestCmd(object):
                        diff = None,
                        combine = 0,
                        universal_newlines = 1):
+        self._dirlist = []
         self._cwd = os.getcwd()
         self.description_set(description)
         self.program_set(program)
@@ -880,7 +881,6 @@ class TestCmd(object):
                 self.diff_function = simple_diff
                 #self.diff_function = difflib.context_diff
                 #self.diff_function = difflib.unified_diff
-        self._dirlist = []
         self._preserve = {'pass_test': 0, 'fail_test': 0, 'no_result': 0}
         if os.environ.has_key('PRESERVE') and not os.environ['PRESERVE'] is '':
             self._preserve['pass_test'] = os.environ['PRESERVE']
@@ -1160,7 +1160,7 @@ class TestCmd(object):
         if universal_newlines is None:
             universal_newlines = self.universal_newlines
 
-        # On Windows, if we make stdin a pipe when we plan to send 
+        # On Windows, if we make stdin a pipe when we plan to send
         # no input, and the test program exits before
         # Popen calls msvcrt.open_osfhandle, that call will fail.
         # So don't use a pipe for stdin if we don't need one.
