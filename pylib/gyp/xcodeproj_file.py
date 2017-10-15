@@ -1494,6 +1494,7 @@ class PBXFileReference(XCFileLikeElement, XCContainerPortal, XCRemoteObject):
         'js':          'sourcecode.javascript',
         'kext':        'wrapper.kext',
         'm':           'sourcecode.c.objc',
+        'metal':       'sourcecode.metal',
         'mm':          'sourcecode.cpp.objcpp',
         'nib':         'wrapper.nib',
         'o':           'compiled.mach-o.objfile',
