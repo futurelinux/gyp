@@ -6,6 +6,10 @@ Source code: https://chromium.googlesource.com/external/gyp
 
 Mailing list:  http://groups.google.com/group/gyp-developer
 
+Build status:
+- Windows: [![Build status](https://ci.appveyor.com/api/projects/status/rmte84ulslpimgea/branch/master?svg=true)](https://ci.appveyor.com/project/sgraham63144/gyp/branch/master)
+- Linux and Mac: [![Build Status](https://travis-ci.org/chromium/gyp.svg?branch=master)](https://travis-ci.org/chromium/gyp)
+
 GYP is intended to support large projects that need to be built on multiple
 platforms (e.g., Mac, Windows, Linux), and where it is important that 
 the project can be built using the IDEs that are popular on each platform
