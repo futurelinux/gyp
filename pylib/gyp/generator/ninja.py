@@ -2186,7 +2186,7 @@ def GenerateOutputForConfig(target_list, target_dicts, data, params,
       'alink',
       description='LIBTOOL-STATIC $out, POSTBUILDS',
       command='rm -f $out && '
-              './gyp-mac-tool filter-libtool libtool $libtool_flags '
+              './gyp-mac-tool filter-libtool xcrun libtool $libtool_flags '
               '-static -o $out $in'
               '$postbuilds')
     master_ninja.rule(
