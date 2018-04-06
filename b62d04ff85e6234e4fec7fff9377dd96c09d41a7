@@ -51,6 +51,24 @@
       "revId": "b62d04ff85e6234e4fec7fff9377dd96c09d41a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "811ab144_1ec04697",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-04-06T21:02:57Z",
+      "side": 1,
+      "message": "\u003e This is breaking for internal builds on an argument like \"--some_path\u003d../../..\"\n\u003e \n\u003e This seems like it\u0027s sort of in the wrong place in any case, wouldn\u0027t it need to apply to non-rsp too?\n\u003e \n\u003e I\u0027d like to revert this unless there\u0027s some test that it\u0027s specifically making work?\n\nI’m not sure why this was needed but I agree that it’s suspect.",
+      "parentUuid": "2775f5ad_47940d28",
+      "revId": "b62d04ff85e6234e4fec7fff9377dd96c09d41a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
