@@ -69,6 +69,24 @@
       "revId": "b62d04ff85e6234e4fec7fff9377dd96c09d41a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d857b6ca_54779605",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2018-04-06T21:36:44Z",
+      "side": 1,
+      "message": "I\u0027m still working on reverse engineering my thinking, but I think I was trying to preclude a similar scenario - https://github.com/nodejs/node/pull/11217/files",
+      "parentUuid": "811ab144_1ec04697",
+      "revId": "b62d04ff85e6234e4fec7fff9377dd96c09d41a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
