@@ -16,6 +16,24 @@
       "revId": "f8b697e0017ab164ca40f48785895ca0065243f6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f496cecd_9ae0dde4",
+        "filename": "pylib/gyp/generator/xcode.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-11-07T02:24:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2a34fa7_15a73e31",
+      "revId": "f8b697e0017ab164ca40f48785895ca0065243f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
