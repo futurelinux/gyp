@@ -18,6 +18,9 @@ import sys
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+  if test.format == 'xcode-ninja':
+    test.skip(bug=527)
+
   CHDIR = 'rpath'
   test.run_gyp('test.gyp', chdir=CHDIR)
 
@@ -27,7 +30,7 @@ if sys.platform == 'darwin':
     p = test.built_file_path(p, chdir=CHDIR)
     r = re.compile(r'cmd LC_RPATH.*?path (.*?) \(offset \d+\)', re.DOTALL)
     proc = subprocess.Popen(['otool', '-l', p], stdout=subprocess.PIPE)
-    o = proc.communicate()[0]
+    o = proc.communicate()[0].decode('utf8')
     assert not proc.returncode
     return r.findall(o)
 

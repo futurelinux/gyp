@@ -13,6 +13,9 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 test.run_gyp('product.gyp')
 test.build('product.gyp')
 
