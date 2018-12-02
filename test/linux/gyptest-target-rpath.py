@@ -13,9 +13,14 @@ import TestGyp
 import re
 import subprocess
 import sys
+import platform
 
 if sys.platform.startswith('linux'):
   test = TestGyp.TestGyp(formats=['ninja'])
+
+  # disabled only on python3.
+  if platform.python_version()[0] == '3':
+    test.skip(bug=527)
 
   CHDIR = 'target-rpath'
   test.run_gyp('test.gyp', '-G', 'target_rpath=/usr/lib/gyptest/', chdir=CHDIR)

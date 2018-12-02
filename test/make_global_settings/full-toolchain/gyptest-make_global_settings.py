@@ -8,6 +8,8 @@
 Verifies make_global_settings works with the full toolchain.
 """
 
+from __future__ import print_function
+
 import os
 import sys
 import TestGyp
@@ -17,10 +19,14 @@ if sys.platform == 'win32':
   # and make not supported on windows at all.
   sys.exit(0)
 
-print "This test is currently disabled: https://crbug.com/483696."
+print("This test is currently disabled: https://crbug.com/483696.")
 sys.exit(0)
 
 test = TestGyp.TestGyp(formats=['ninja'])
+
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 # Must set the test format to something with a flavor (the part after the '-')
 # in order to test the desired behavior. Since we want to run a non-host
 # toolchain, we have to set the flavor to something that the ninja generator
