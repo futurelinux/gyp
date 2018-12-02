@@ -10,6 +10,7 @@ Runs small tests.
 
 import imp
 import os
+import platform
 import sys
 import unittest
 
@@ -17,6 +18,9 @@ import TestGyp
 
 
 test = TestGyp.TestGyp()
+
+if platform.python_version()[0] == '3':
+  test.skip(bug=527)
 
 # Add pylib to the import path (so tests can import their dependencies).
 # This is consistant with the path.append done in the top file "gyp".

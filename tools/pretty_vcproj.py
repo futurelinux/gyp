@@ -12,6 +12,8 @@
    It outputs the resulting xml to stdout.
 """
 
+from __future__ import print_function
+
 __author__ = 'nsylvain (Nicolas Sylvain)'
 
 import os
@@ -24,44 +26,31 @@ REPLACEMENTS = dict()
 ARGUMENTS = None
 
 
-class CmpTuple(object):
-  """Compare function between 2 tuple."""
-  def __call__(self, x, y):
-    return cmp(x[0], y[0])
+def GetNodeString(x):
+  node_string = "node"
+  node_string += node.nodeName
+  if node.nodeValue:
+    node_string += node.nodeValue
 
+  if node.attributes:
+    # We first sort by name, if present.
+    node_string += node.getAttribute("Name")
 
-class CmpNode(object):
-  """Compare function between 2 xml nodes."""
+    all_nodes = []
+    for (name, value) in node.attributes.items():
+      all_nodes.append((name, value))
 
-  def __call__(self, x, y):
-    def get_string(node):
-      node_string = "node"
-      node_string += node.nodeName
-      if node.nodeValue:
-        node_string += node.nodeValue
+    all_nodes.sort(key=(lambda node: node[0]))
+    for (name, value) in all_nodes:
+      node_string += name
+      node_string += value
 
-      if node.attributes:
-        # We first sort by name, if present.
-        node_string += node.getAttribute("Name")
-
-        all_nodes = []
-        for (name, value) in node.attributes.items():
-          all_nodes.append((name, value))
-
-        all_nodes.sort(CmpTuple())
-        for (name, value) in all_nodes:
-          node_string += name
-          node_string += value
-
-      return node_string
-
-    return cmp(get_string(x), get_string(y))
-
+  return node_string
 
 def PrettyPrintNode(node, indent=0):
   if node.nodeType == Node.TEXT_NODE:
     if node.data.strip():
-      print '%s%s' % (' '*indent, node.data.strip())
+      print('%s%s' % (' '*indent, node.data.strip()))
     return
 
   if node.childNodes:
@@ -73,23 +62,23 @@ def PrettyPrintNode(node, indent=0):
 
   # Print the main tag
   if attr_count == 0:
-    print '%s<%s>' % (' '*indent, node.nodeName)
+    print('%s<%s>' % (' '*indent, node.nodeName))
   else:
-    print '%s<%s' % (' '*indent, node.nodeName)
+    print('%s<%s' % (' '*indent, node.nodeName))
 
     all_attributes = []
     for (name, value) in node.attributes.items():
       all_attributes.append((name, value))
-      all_attributes.sort(CmpTuple())
+      all_attributes.sort(key=(lambda attr: attr[0]))
     for (name, value) in all_attributes:
-      print '%s  %s="%s"' % (' '*indent, name, value)
-    print '%s>' % (' '*indent)
+      print('%s  %s="%s"' % (' '*indent, name, value))
+    print('%s>' % (' '*indent))
   if node.nodeValue:
-    print '%s  %s' % (' '*indent, node.nodeValue)
+    print('%s  %s' % (' '*indent, node.nodeValue))
 
   for sub_node in node.childNodes:
     PrettyPrintNode(sub_node, indent=indent+2)
-  print '%s</%s>' % (' '*indent, node.nodeName)
+  print('%s</%s>' % (' '*indent, node.nodeName))
 
 
 def FlattenFilter(node):
@@ -186,7 +175,7 @@ def CleanupVcproj(node):
 
 
   # Sort the list.
-  node_array.sort(CmpNode())
+  node_array.sort(key=GetNodeString)
 
   # Insert the nodes in the correct order.
   for new_node in node_array:
@@ -283,8 +272,8 @@ def main(argv):
 
   # check if we have exactly 1 parameter.
   if len(argv) < 2:
-    print ('Usage: %s "c:\\path\\to\\vcproj.vcproj" [key1=value1] '
-           '[key2=value2]' % argv[0])
+    print('Usage: %s "c:\\path\\to\\vcproj.vcproj" [key1=value1] '
+          '[key2=value2]' % argv[0])
     return 1
 
   # Parse the keys
