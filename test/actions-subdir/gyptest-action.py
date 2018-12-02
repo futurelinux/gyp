@@ -13,6 +13,9 @@ import TestGyp
 # TODO fix this for xcode: http://code.google.com/p/gyp/issues/detail?id=88
 test = TestGyp.TestGyp(formats=['!xcode'])
 
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 test.run_gyp('none.gyp', chdir='src')
 
 test.build('none.gyp', test.ALL, chdir='src')
