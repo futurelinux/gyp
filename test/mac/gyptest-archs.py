@@ -18,6 +18,9 @@ import sys
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+  if test.format == 'xcode-ninja':
+    test.skip(bug=527)
+
   test.run_gyp('test-no-archs.gyp', chdir='archs')
   test.build('test-no-archs.gyp', test.ALL, chdir='archs')
   result_file = test.built_file_path('Test', chdir='archs')
@@ -79,7 +82,8 @@ if sys.platform == 'darwin':
     TestMac.CheckFileType(test, result_file, ['i386', 'x86_64'])
     # Check that symbol "_x" made it into both versions of the binary:
     if not all(['D _x' in subprocess.check_output(
-        ['nm', '-arch', arch, result_file]) for arch in ['i386', 'x86_64']]):
+        ['nm', '-arch', arch, result_file]).decode('utf8')
+        for arch in ['i386', 'x86_64']]):
       # This can only flakily fail, due to process ordering issues. If this
       # does fail flakily, then something's broken, it's not the test at fault.
       test.fail_test()

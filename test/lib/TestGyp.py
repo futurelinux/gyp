@@ -5,10 +5,10 @@
 """
 TestGyp.py:  a testing framework for GYP integration tests.
 """
+from __future__ import print_function
 
-import errno
 import collections
-from contextlib import contextmanager
+import errno
 import itertools
 import os
 import re
@@ -16,6 +16,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
+
+from contextlib import contextmanager
 
 import TestCmd
 import TestCommon
@@ -106,6 +108,7 @@ class TestGypBase(TestCommon.TestCommon):
   def __init__(self, gyp=None, *args, **kw):
     self.origin_cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
     self.extra_args = sys.argv[1:]
+    self.platform = sys.platform
 
     if not gyp:
       gyp = os.environ.get('TESTGYP_GYP')
@@ -283,13 +286,13 @@ class TestGypBase(TestCommon.TestCommon):
     that expect exact output from the command (make) can
     just set stdout= when they call the run_build() method.
     """
-    print "Build is not up-to-date:"
-    print self.banner('STDOUT ')
-    print self.stdout()
+    print("Build is not up-to-date:")
+    print(self.banner('STDOUT '))
+    print(self.stdout())
     stderr = self.stderr()
     if stderr:
-      print self.banner('STDERR ')
-      print stderr
+      print(self.banner('STDERR '))
+      print(stderr)
 
   def run_gyp(self, gyp_file, *args, **kw):
     """
@@ -328,7 +331,7 @@ class TestGypBase(TestCommon.TestCommon):
     the tool-specific subclasses or clutter the tests themselves
     with platform-specific code.
     """
-    if kw.has_key('SYMROOT'):
+    if 'SYMROOT' in kw:
       del kw['SYMROOT']
     super(TestGypBase, self).run(*args, **kw)
 
@@ -411,6 +414,21 @@ class TestGypBase(TestCommon.TestCommon):
     failing if it isn't.
     """
     raise NotImplementedError
+
+  def skip(self, bug=None):
+    if bug:
+      if isinstance(bug, str):
+        bug_str = bug
+      else:
+        bug_str = ('https://bugs.chromium.org/p/gyp/issues/detail?id=%s' %
+                   str(bug))
+      msg = 'This test is disabled due to %s.' % bug_str
+    else:
+      msg = 'Skipping.'
+
+    sys.stdout.write('%s\n' % msg)
+    sys.stdout.flush()
+    self.no_result()
 
 
 class TestGypGypd(TestGypBase):
@@ -558,7 +576,7 @@ class TestGypMake(TestGypBase):
     # Makefile.gyp_filename), so use that if there is no Makefile.
     chdir = kw.get('chdir', '')
     if not os.path.exists(os.path.join(chdir, 'Makefile')):
-      print "NO Makefile in " + os.path.join(chdir, 'Makefile')
+      print("NO Makefile in " + os.path.join(chdir, 'Makefile'))
       arguments.insert(0, '-f')
       arguments.insert(1, os.path.splitext(gyp_file)[0] + '.Makefile')
     kw['arguments'] = arguments
@@ -665,7 +683,7 @@ def FindMSBuildInstallation(msvs_version = 'auto'):
 
   msbuild_basekey = r'HKLM\SOFTWARE\Microsoft\MSBuild\ToolsVersions'
   if not registry.KeyExists(msbuild_basekey):
-    print 'Error: could not find MSBuild base registry entry'
+    print('Error: could not find MSBuild base registry entry')
     return None
 
   msbuild_version = None
@@ -674,9 +692,9 @@ def FindMSBuildInstallation(msvs_version = 'auto'):
     if registry.KeyExists(msbuild_basekey + '\\' + msbuild_test_version):
       msbuild_version = msbuild_test_version
     else:
-      print ('Warning: Environment variable GYP_MSVS_VERSION specifies "%s" '
-             'but corresponding MSBuild "%s" was not found.' %
-             (msvs_version, msbuild_version))
+      print('Warning: Environment variable GYP_MSVS_VERSION specifies "%s" '
+            'but corresponding MSBuild "%s" was not found.' %
+            (msvs_version, msbuild_version))
   if not msbuild_version:
     for msvs_version in sorted(msvs_to_msbuild, reverse=True):
       msbuild_test_version = msvs_to_msbuild[msvs_version]
@@ -684,13 +702,13 @@ def FindMSBuildInstallation(msvs_version = 'auto'):
         msbuild_version = msbuild_test_version
         break
   if not msbuild_version:
-    print 'Error: could not find MSBuild registry entry'
+    print('Error: could not find MSBuild registry entry')
     return None
 
   msbuild_path = registry.GetValue(msbuild_basekey + '\\' + msbuild_version,
                                    'MSBuildToolsPath')
   if not msbuild_path:
-    print 'Error: could not get MSBuild registry entry value'
+    print('Error: could not get MSBuild registry entry value')
     return None
 
   return os.path.join(msbuild_path, 'MSBuild.exe')
@@ -767,8 +785,8 @@ def FindVisualStudioInstallation():
         msbuild_path = FindMSBuildInstallation(msvs_version)
         return build_tool, uses_msbuild, msbuild_path
     else:
-      print ('Warning: Environment variable GYP_MSVS_VERSION specifies "%s" '
-              'but corresponding "%s" was not found.' % (msvs_version, path))
+      print('Warning: Environment variable GYP_MSVS_VERSION specifies "%s" '
+            'but corresponding "%s" was not found.' % (msvs_version, path))
   # Neither GYP_MSVS_VERSION nor the path help us out.  Iterate through
   # the choices looking for a match.
   for version in sorted(possible_paths, reverse=True):
@@ -779,7 +797,7 @@ def FindVisualStudioInstallation():
         uses_msbuild = msvs_version >= '2010'
         msbuild_path = FindMSBuildInstallation(msvs_version)
         return build_tool, uses_msbuild, msbuild_path
-  print 'Error: could not find devenv'
+  print('Error: could not find devenv')
   sys.exit(1)
 
 class TestGypOnMSToolchain(TestGypBase):
@@ -790,6 +808,14 @@ class TestGypOnMSToolchain(TestGypBase):
   @staticmethod
   def _ComputeVsvarsPath(devenv_path):
     devenv_dir = os.path.split(devenv_path)[0]
+
+    # Check for Community install (works for at least 2017).
+    vcvars_path = os.path.abspath(os.path.join(devenv_path, '..', '..', '..',
+                                               '..', 'VC', 'Auxiliary',
+                                               'Build', 'vcvars32.bat'))
+    if os.path.exists(vcvars_path):
+        return vcvars_path
+
     vsvars_path = os.path.join(devenv_path, '../../Tools/vsvars32.bat')
     return vsvars_path
 
@@ -940,10 +966,10 @@ class TestGypMSVS(TestGypOnMSToolchain):
     Verifies that a build of the specified Visual Studio target is up to date.
 
     Beware that VS2010 will behave strangely if you build under
-    C:\USERS\yourname\AppData\Local. It will cause needless work.  The ouptut
+    C:/USERS/yourname/AppData/Local. It will cause needless work.  The ouptut
     will be "1 succeeded and 0 up to date".  MSBuild tracing reveals that:
-    "Project 'C:\Users\...\AppData\Local\...vcxproj' not up to date because
-    'C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 10.0\VC\BIN\1033\CLUI.DLL'
+    "Project 'C:/Users/.../AppData/Local/...vcxproj' not up to date because
+    'C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 10.0/VC/BIN/1033/CLUI.DLL'
     was modified at 02/21/2011 17:03:30, which is newer than '' which was
     modified at 01/01/0001 00:00:00.
 
@@ -1243,4 +1269,4 @@ def TestGyp(*args, **kw):
   for format_class in format_class_list:
     if format == format_class.format:
       return format_class(*args, **kw)
-  raise Exception, "unknown format %r" % format
+  raise Exception("unknown format %r" % format)

@@ -14,6 +14,10 @@ import sys
 
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
+
+  if test.format == 'xcode-ninja':
+    test.skip(bug=527)
+
   test.run_gyp('test.gyp', chdir='prefixheader')
 
   test.build('test.gyp', test.ALL, chdir='prefixheader')
