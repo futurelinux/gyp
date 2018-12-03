@@ -26,44 +26,31 @@ REPLACEMENTS = dict()
 ARGUMENTS = None
 
 
-class CmpTuple(object):
-  """Compare function between 2 tuple."""
-  def __call__(self, x, y):
-    return cmp(x[0], y[0])
+def GetNodeString(x):
+  node_string = "node"
+  node_string += node.nodeName
+  if node.nodeValue:
+    node_string += node.nodeValue
 
+  if node.attributes:
+    # We first sort by name, if present.
+    node_string += node.getAttribute("Name")
 
-class CmpNode(object):
-  """Compare function between 2 xml nodes."""
+    all_nodes = []
+    for (name, value) in node.attributes.items():
+      all_nodes.append((name, value))
 
-  def __call__(self, x, y):
-    def get_string(node):
-      node_string = "node"
-      node_string += node.nodeName
-      if node.nodeValue:
-        node_string += node.nodeValue
+    all_nodes.sort(key=(lambda node: node[0]))
+    for (name, value) in all_nodes:
+      node_string += name
+      node_string += value
 
-      if node.attributes:
-        # We first sort by name, if present.
-        node_string += node.getAttribute("Name")
-
-        all_nodes = []
-        for (name, value) in node.attributes.items():
-          all_nodes.append((name, value))
-
-        all_nodes.sort(CmpTuple())
-        for (name, value) in all_nodes:
-          node_string += name
-          node_string += value
-
-      return node_string
-
-    return cmp(get_string(x), get_string(y))
-
+  return node_string
 
 def PrettyPrintNode(node, indent=0):
   if node.nodeType == Node.TEXT_NODE:
     if node.data.strip():
-      print '%s%s' % (' '*indent, node.data.strip())
+      print('%s%s' % (' '*indent, node.data.strip()))
     return
 
   if node.childNodes:
@@ -188,7 +175,7 @@ def CleanupVcproj(node):
 
 
   # Sort the list.
-  node_array.sort(CmpNode())
+  node_array.sort(key=GetNodeString)
 
   # Insert the nodes in the correct order.
   for new_node in node_array:

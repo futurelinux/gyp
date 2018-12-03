@@ -584,13 +584,12 @@ except ImportError:
 
     subprocess.PIPE = 'PIPE'
     subprocess.STDOUT = 'STDOUT'
-    subprocess.mswindows = (sys.platform == 'win32')
 
     try:
         import popen2
         popen2.Popen3
     except AttributeError:
-        class Popen3:
+        class Popen3(object):
             universal_newlines = 1
             def __init__(self, command, **kw):
                 if sys.platform == 'win32' and command[0] == '"':
@@ -1454,29 +1453,29 @@ class TestCmd(object):
             # It's a directory and we're trying to turn on read
             # permission, so it's also pretty easy, just chmod the
             # directory and then chmod every entry on our walk down the
-            # tree.  Because os.path.walk() is top-down, we'll enable
+            # tree.  Because os.walk() is top-down, we'll enable
             # read permission on any directories that have it disabled
-            # before os.path.walk() tries to list their contents.
+            # before os.walk() tries to list their contents.
             do_chmod(top)
 
-            def chmod_entries(arg, dirname, names, do_chmod=do_chmod):
-                for n in names:
+            for dirname, dirnames, filenames in os.walk(top):
+                for n in dirnames:
                     do_chmod(os.path.join(dirname, n))
-
-            os.path.walk(top, chmod_entries, None)
+                for n in filenames:
+                    do_chmod(os.path.join(dirname, n))
         else:
             # It's a directory and we're trying to turn off read
             # permission, which means we have to chmod the directoreis
             # in the tree bottom-up, lest disabling read permission from
             # the top down get in the way of being able to get at lower
-            # parts of the tree.  But os.path.walk() visits things top
-            # down, so we just use an object to collect a list of all
-            # of the entries in the tree, reverse the list, and then
-            # chmod the reversed (bottom-up) list.
-            col = Collector(top)
-            os.path.walk(top, col, None)
-            col.entries.reverse()
-            for d in col.entries: do_chmod(d)
+            # parts of the tree.
+            for dirname, dirnames, filenames in os.walk(top, topdown=False):
+                for n in dirnames:
+                    do_chmod(os.path.join(dirname, n))
+                for n in filenames:
+                    do_chmod(os.path.join(dirname, n))
+
+            do_chmod(top)
 
     def writable(self, top, write=1):
         """Make the specified directory tree writable (write == 1)
@@ -1500,19 +1499,22 @@ class TestCmd(object):
                 def do_chmod(fname):
                     try: st = os.stat(fname)
                     except OSError: pass
-                    else: os.chmod(fname, stat.S_IMODE(st[stat.ST_MODE]|0200))
+                    else: os.chmod(fname, stat.S_IMODE(st[stat.ST_MODE]|0o200))
             else:
                 def do_chmod(fname):
                     try: st = os.stat(fname)
                     except OSError: pass
-                    else: os.chmod(fname, stat.S_IMODE(st[stat.ST_MODE]&~0200))
+                    else: os.chmod(fname, stat.S_IMODE(st[stat.ST_MODE]&~0o200))
 
         if os.path.isfile(top):
             do_chmod(top)
         else:
-            col = Collector(top)
-            os.path.walk(top, col, None)
-            for d in col.entries: do_chmod(d)
+            do_chmod(top)
+            for dirname, dirnames, filenames in os.walk(top):
+                for n in dirnames:
+                    do_chmod(os.path.join(dirname, n))
+                for n in filenames:
+                    do_chmod(os.path.join(dirname, n))
 
     def executable(self, top, execute=1):
         """Make the specified directory tree executable (execute == 1)
@@ -1543,42 +1545,42 @@ class TestCmd(object):
             # It's a directory and we're trying to turn on execute
             # permission, so it's also pretty easy, just chmod the
             # directory and then chmod every entry on our walk down the
-            # tree.  Because os.path.walk() is top-down, we'll enable
+            # tree.  Because os.walk() is top-down, we'll enable
             # execute permission on any directories that have it disabled
-            # before os.path.walk() tries to list their contents.
+            # before os.walk() tries to list their contents.
             do_chmod(top)
 
-            def chmod_entries(arg, dirname, names, do_chmod=do_chmod):
-                for n in names:
+            for dirname, dirnames, filenames in os.walk(top):
+                for n in dirnames:
                     do_chmod(os.path.join(dirname, n))
-
-            os.path.walk(top, chmod_entries, None)
+                for n in filenames:
+                    do_chmod(os.path.join(dirname, n))
         else:
             # It's a directory and we're trying to turn off execute
             # permission, which means we have to chmod the directories
             # in the tree bottom-up, lest disabling execute permission from
             # the top down get in the way of being able to get at lower
-            # parts of the tree.  But os.path.walk() visits things top
-            # down, so we just use an object to collect a list of all
-            # of the entries in the tree, reverse the list, and then
-            # chmod the reversed (bottom-up) list.
-            col = Collector(top)
-            os.path.walk(top, col, None)
-            col.entries.reverse()
-            for d in col.entries: do_chmod(d)
+            # parts of the tree.
+            for dirname, dirnames, filenames in os.walk(top, topdown=False):
+                for n in dirnames:
+                    do_chmod(os.path.join(dirname, n))
+                for n in filenames:
+                    do_chmod(os.path.join(dirname, n))
 
-    def write(self, file, content, mode = 'wb'):
+            do_chmod(top)
+
+    def write(self, file, content, mode = 'w'):
         """Writes the specified content text (second argument) to the
         specified file name (first argument).  The file name may be
         a list, in which case the elements are concatenated with the
         os.path.join() method.  The file is created under the temporary
         working directory.  Any subdirectories in the path must already
         exist.  The I/O mode for the file may be specified; it must
-        begin with a 'w'.  The default is 'wb' (binary write).
+        begin with a 'w'.  The default is 'w' (string write).
         """
         file = self.canonicalize(file)
         if mode[0] != 'w':
-            raise ValueError, "mode must begin with 'w'"
+            raise ValueError("mode must begin with 'w'")
         with open(file, mode) as f:
             f.write(content)
 

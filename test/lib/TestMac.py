@@ -42,9 +42,10 @@ class XcodeInfo(object):
     self._cache = {}
 
   def _XcodeVersion(self):
-    lines = subprocess.check_output(['xcodebuild', '-version']).splitlines()
-    version = ''.join(lines[0].split()[-1].split('.'))
-    version = (version + '0' * (3 - len(version))).zfill(4)
+    o = subprocess.check_output(['xcodebuild', '-version']).decode('utf8')
+    lines = o.splitlines()
+    version = lines[0].split()[-1].split('.')
+    version = ''.join('%02d' % int(x) for x in version)
     return version, lines[-1].split()[-1]
 
   def Version(self):

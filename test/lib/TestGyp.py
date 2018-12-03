@@ -108,6 +108,7 @@ class TestGypBase(TestCommon.TestCommon):
   def __init__(self, gyp=None, *args, **kw):
     self.origin_cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
     self.extra_args = sys.argv[1:]
+    self.platform = sys.platform
 
     if not gyp:
       gyp = os.environ.get('TESTGYP_GYP')
@@ -413,6 +414,21 @@ class TestGypBase(TestCommon.TestCommon):
     failing if it isn't.
     """
     raise NotImplementedError
+
+  def skip(self, bug=None):
+    if bug:
+      if isinstance(bug, str):
+        bug_str = bug
+      else:
+        bug_str = ('https://bugs.chromium.org/p/gyp/issues/detail?id=%s' %
+                   str(bug))
+      msg = 'This test is disabled due to %s.' % bug_str
+    else:
+      msg = 'Skipping.'
+
+    sys.stdout.write('%s\n' % msg)
+    sys.stdout.flush()
+    self.no_result()
 
 
 class TestGypGypd(TestGypBase):
@@ -792,6 +808,14 @@ class TestGypOnMSToolchain(TestGypBase):
   @staticmethod
   def _ComputeVsvarsPath(devenv_path):
     devenv_dir = os.path.split(devenv_path)[0]
+
+    # Check for Community path
+    vcvars_path = os.path.abspath(os.path.join(devenv_path, '..', '..', '..',
+                                               '..', 'VC', 'Auxiliary',
+                                               'Build', 'vcvars32.bat'))
+    if os.path.exists(vcvars_path):
+        return vcvars_path
+
     vsvars_path = os.path.join(devenv_path, '../../Tools/vsvars32.bat')
     return vsvars_path
 
@@ -942,10 +966,10 @@ class TestGypMSVS(TestGypOnMSToolchain):
     Verifies that a build of the specified Visual Studio target is up to date.
 
     Beware that VS2010 will behave strangely if you build under
-    C:\USERS\yourname\AppData\Local. It will cause needless work.  The ouptut
+    C:/USERS/yourname/AppData/Local. It will cause needless work.  The ouptut
     will be "1 succeeded and 0 up to date".  MSBuild tracing reveals that:
-    "Project 'C:\Users\...\AppData\Local\...vcxproj' not up to date because
-    'C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 10.0\VC\BIN\1033\CLUI.DLL'
+    "Project 'C:/Users/.../AppData/Local/...vcxproj' not up to date because
+    'C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 10.0/VC/BIN/1033/CLUI.DLL'
     was modified at 02/21/2011 17:03:30, which is newer than '' which was
     modified at 01/01/0001 00:00:00.
 
