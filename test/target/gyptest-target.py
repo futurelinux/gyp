@@ -16,6 +16,9 @@ import TestGyp
 if sys.platform in ('win32', 'cygwin'):
   test = TestGyp.TestGyp()
 
+  # TODO: This test hangs.
+  test.skip_test()
+
   test.run_gyp('target.gyp')
   test.build('target.gyp')
 
