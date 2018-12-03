@@ -15,6 +15,9 @@ import sys
 if sys.platform == 'win32':
   test = TestGyp.TestGyp()
 
+  # TODO: This test hangs.
+  test.skip_test()
+
   CHDIR = 'linker-flags'
   test.run_gyp('safeseh.gyp', chdir=CHDIR)
   test.build('safeseh.gyp', test.ALL, chdir=CHDIR)
