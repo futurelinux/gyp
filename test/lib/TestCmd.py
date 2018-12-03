@@ -218,6 +218,8 @@ version.
 # AND THERE IS NO OBLIGATION WHATSOEVER TO PROVIDE MAINTENANCE,
 # SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 
+from __future__ import print_function
+
 __author__ = "Steven Knight <knight at baldmt dot com>"
 __revision__ = "TestCmd.py 0.37.D001 2010/01/11 16:55:50 knight"
 __version__ = "0.37"
@@ -228,13 +230,14 @@ import os.path
 import re
 import shutil
 import stat
-import string
 import sys
 import tempfile
 import time
 import traceback
-import types
-import UserList
+try:
+    from UserList import UserList
+except ImportError:
+    from collections import UserList
 
 __all__ = [
     'diff_re',
@@ -254,23 +257,24 @@ except ImportError:
     __all__.append('simple_diff')
 
 def is_List(e):
-    return type(e) is types.ListType \
-        or isinstance(e, UserList.UserList)
+    return (type(e) is list) or isinstance(e, UserList)
 
 try:
     from UserString import UserString
 except ImportError:
-    class UserString:
-        pass
+    try:
+        from collections import UserString
+    except ImportError:
+        class UserString:
+            pass
 
-if hasattr(types, 'UnicodeType'):
-    def is_String(e):
-        return type(e) is types.StringType \
-            or type(e) is types.UnicodeType \
-            or isinstance(e, UserString)
-else:
-    def is_String(e):
-        return type(e) is types.StringType or isinstance(e, UserString)
+try:
+    basestring = basestring
+except NameError:
+    basestring = str
+
+def is_String(e):
+    return isinstance(e, basestring) or isinstance(e, UserString)
 
 tempfile.template = 'testcmd.'
 if os.name in ('posix', 'nt'):
@@ -286,11 +290,10 @@ _chain_to_exitfunc = None
 
 def _clean():
     global _Cleanup
-    cleanlist = filter(None, _Cleanup)
+    for test in reversed(_Cleanup):
+        if test:
+            test.cleanup()
     del _Cleanup[:]
-    cleanlist.reverse()
-    for test in cleanlist:
-        test.cleanup()
     if _chain_to_exitfunc:
         _chain_to_exitfunc()
 
@@ -311,16 +314,9 @@ try:
 except NameError:
     def zip(*lists):
         result = []
-        for i in xrange(min(map(len, lists))):
+        for i in range(min(map(len, lists))):
             result.append(tuple(map(lambda l, i=i: l[i], lists)))
         return result
-
-class Collector:
-    def __init__(self, top):
-        self.entries = [top]
-    def __call__(self, arg, dirname, names):
-        pathjoin = lambda n, d=dirname: os.path.join(d, n)
-        self.entries.extend(map(pathjoin, names))
 
 def _caller(tblist, skip):
     string = ""
@@ -414,9 +410,9 @@ def match_exact(lines = None, matches = None):
     """
     """
     if not is_List(lines):
-        lines = string.split(lines, "\n")
+        lines = lines.split("\n")
     if not is_List(matches):
-        matches = string.split(matches, "\n")
+        matches = matches.split("\n")
     if len(lines) != len(matches):
         return
     for i in range(len(lines)):
@@ -428,18 +424,18 @@ def match_re(lines = None, res = None):
     """
     """
     if not is_List(lines):
-        lines = string.split(lines, "\n")
+        lines = lines.split("\n")
     if not is_List(res):
-        res = string.split(res, "\n")
+        res = res.split("\n")
     if len(lines) != len(res):
         return
     for i in range(len(lines)):
         s = "^" + res[i] + "$"
         try:
             expr = re.compile(s)
-        except re.error, e:
+        except re.error as e:
             msg = "Regular expression error in %s: %s"
-            raise re.error, msg % (repr(s), e[0])
+            raise re.error(msg % (repr(s), e[0]))
         if not expr.search(lines[i]):
             return
     return 1
@@ -448,15 +444,15 @@ def match_re_dotall(lines = None, res = None):
     """
     """
     if not type(lines) is type(""):
-        lines = string.join(lines, "\n")
+        lines = "\n".join(lines)
     if not type(res) is type(""):
-        res = string.join(res, "\n")
+        res = "\n".join(res)
     s = "^" + res + "$"
     try:
         expr = re.compile(s, re.DOTALL)
-    except re.error, e:
+    except re.error as e:
         msg = "Regular expression error in %s: %s"
-        raise re.error, msg % (repr(s), e[0])
+        raise re.error(msg % (repr(s), e[0]))
     if expr.match(lines):
         return 1
 
@@ -510,9 +506,9 @@ def diff_re(a, b, fromfile='', tofile='',
         s = "^" + aline + "$"
         try:
             expr = re.compile(s)
-        except re.error, e:
+        except re.error as e:
             msg = "Regular expression error in %s: %s"
-            raise re.error, msg % (repr(s), e[0])
+            raise re.error(msg % (repr(s), e[0]))
         if not expr.search(bline):
             result.append("%sc%s" % (i+1, i+1))
             result.append('< ' + repr(a[i]))
@@ -537,13 +533,13 @@ if sys.platform == 'win32':
         if path is None:
             path = os.environ['PATH']
         if is_String(path):
-            path = string.split(path, os.pathsep)
+            path = path.split(os.pathsep)
         if pathext is None:
             pathext = os.environ['PATHEXT']
         if is_String(pathext):
-            pathext = string.split(pathext, os.pathsep)
+            pathext = pathext.split(os.pathsep)
         for ext in pathext:
-            if string.lower(ext) == string.lower(file[-len(ext):]):
+            if ext.lower() == file[-len(ext):].lower():
                 pathext = ['']
                 break
         for dir in path:
@@ -560,7 +556,7 @@ else:
         if path is None:
             path = os.environ['PATH']
         if is_String(path):
-            path = string.split(path, os.pathsep)
+            path = path.split(os.pathsep)
         for dir in path:
             f = os.path.join(dir, file)
             if os.path.isfile(f):
@@ -568,7 +564,7 @@ else:
                     st = os.stat(f)
                 except OSError:
                     continue
-                if stat.S_IMODE(st[stat.ST_MODE]) & 0111:
+                if stat.S_IMODE(st[stat.ST_MODE]) & 0o111:
                     return f
         return None
 
@@ -656,14 +652,14 @@ except ImportError:
             universal_newlines = 1
             def __init__(self, command, **kw):
                 if kw.get('stderr') == 'STDOUT':
-                    apply(popen2.Popen4.__init__, (self, command, 1))
+                    popen2.Popen4.__init__(self, command, 1)
                 else:
-                    apply(popen2.Popen3.__init__, (self, command, 1))
+                    popen2.Popen3.__init__(self, command, 1)
                 self.stdin = self.tochild
                 self.stdout = self.fromchild
                 self.stderr = self.childerr
             def wait(self, *args, **kw):
-                resultcode = apply(popen2.Popen3.wait, (self,)+args, kw)
+                resultcode = popen2.Popen3.wait(self, *args, **kw)
                 if os.WIFEXITED(resultcode):
                     return os.WEXITSTATUS(resultcode)
                 elif os.WIFSIGNALED(resultcode):
@@ -681,7 +677,7 @@ except ImportError:
 
 PIPE = subprocess.PIPE
 
-if subprocess.mswindows:
+if sys.platform == 'win32':
     from win32file import ReadFile, WriteFile
     from win32pipe import PeekNamedPipe
     import msvcrt
@@ -716,7 +712,7 @@ class Popen(subprocess.Popen):
         getattr(self, which).close()
         setattr(self, which, None)
 
-    if subprocess.mswindows:
+    if sys.platform == 'win32':
         def send(self, input):
             if not self.stdin:
                 return None
@@ -726,7 +722,7 @@ class Popen(subprocess.Popen):
                 (errCode, written) = WriteFile(x, input)
             except ValueError:
                 return self._close('stdin')
-            except (subprocess.pywintypes.error, Exception), why:
+            except (subprocess.pywintypes.error, Exception) as why:
                 if why[0] in (109, errno.ESHUTDOWN):
                     return self._close('stdin')
                 raise
@@ -747,7 +743,7 @@ class Popen(subprocess.Popen):
                     (errCode, read) = ReadFile(x, nAvail, None)
             except ValueError:
                 return self._close(which)
-            except (subprocess.pywintypes.error, Exception), why:
+            except (subprocess.pywintypes.error, Exception) as why:
                 if why[0] in (109, errno.ESHUTDOWN):
                     return self._close(which)
                 raise
@@ -766,7 +762,7 @@ class Popen(subprocess.Popen):
 
             try:
                 written = os.write(self.stdin.fileno(), input)
-            except OSError, why:
+            except OSError as why:
                 if why[0] == errno.EPIPE: #broken pipe
                     return self._close('stdin')
                 raise
@@ -835,14 +831,6 @@ def send_all(p, data):
 
 
 
-try:
-    object
-except NameError:
-    class object:
-        pass
-
-
-
 class TestCmd(object):
     """Class TestCmd
     """
@@ -886,7 +874,7 @@ class TestCmd(object):
                 #self.diff_function = difflib.unified_diff
         self._dirlist = []
         self._preserve = {'pass_test': 0, 'fail_test': 0, 'no_result': 0}
-        if os.environ.has_key('PRESERVE') and not os.environ['PRESERVE'] is '':
+        if 'PRESERVE' in os.environ and os.environ['PRESERVE'] is not '':
             self._preserve['pass_test'] = os.environ['PRESERVE']
             self._preserve['fail_test'] = os.environ['PRESERVE']
             self._preserve['no_result'] = os.environ['PRESERVE']
@@ -931,9 +919,9 @@ class TestCmd(object):
             slash = '\\'
             special = '"$'
 
-            arg = string.replace(arg, slash, slash+slash)
+            arg = arg.replace(slash, slash+slash)
             for c in special:
-                arg = string.replace(arg, c, slash+c)
+                arg = arg.replace(c, slash+c)
 
             if re_space.search(arg):
                 arg = '"' + arg + '"'
@@ -951,7 +939,7 @@ class TestCmd(object):
 
     def canonicalize(self, path):
         if is_List(path):
-            path = apply(os.path.join, tuple(path))
+            path = os.path.join(*path)
         if not os.path.isabs(path):
             path = os.path.join(self.workdir, path)
         return path
@@ -985,7 +973,7 @@ class TestCmd(object):
             condition = self.condition
         if self._preserve[condition]:
             for dir in self._dirlist:
-                print "Preserved directory", dir
+                print("Preserved directory", dir)
         else:
             list = self._dirlist[:]
             list.reverse()
@@ -1019,7 +1007,7 @@ class TestCmd(object):
             cmd = list(interpreter) + cmd
         if arguments:
             if type(arguments) == type(''):
-                arguments = string.split(arguments)
+                arguments = arguments.split()
             cmd.extend(arguments)
         return cmd
 
@@ -1032,17 +1020,17 @@ class TestCmd(object):
         difflib
     except NameError:
         def diff(self, a, b, name, *args, **kw):
-            print self.banner('Expected %s' % name)
-            print a
-            print self.banner('Actual %s' % name)
-            print b
+            print(self.banner('Expected %s' % name))
+            print(a)
+            print(self.banner('Actual %s' % name))
+            print(b)
     else:
         def diff(self, a, b, name, *args, **kw):
-            print self.banner(name)
+            print(self.banner(name))
             args = (a.splitlines(), b.splitlines()) + args
-            lines = apply(self.diff_function, args, kw)
+            lines = self.diff_function(*args, **kw)
             for l in lines:
-                print l
+                print(l)
 
     def fail_test(self, condition = 1, function = None, skip = 0):
         """Cause the test to fail.
@@ -1119,18 +1107,18 @@ class TestCmd(object):
             program = os.path.join(self._cwd, program)
         self.program = program
 
-    def read(self, file, mode = 'rb'):
+    def read(self, file, mode = 'r'):
         """Reads and returns the contents of the specified file name.
         The file name may be a list, in which case the elements are
         concatenated with the os.path.join() method.  The file is
         assumed to be under the temporary working directory unless it
         is an absolute path name.  The I/O mode for the file may
         be specified; it must begin with an 'r'.  The default is
-        'rb' (binary read).
+        'r' (string read).
         """
         file = self.canonicalize(file)
         if mode[0] != 'r':
-            raise ValueError, "mode must begin with 'r'"
+            raise ValueError("mode must begin with 'r'")
         with open(file, mode) as f:
             result = f.read()
         return result
@@ -1158,13 +1146,13 @@ class TestCmd(object):
         prepended unless it is enclosed in a [list].
         """
         cmd = self.command_args(program, interpreter, arguments)
-        cmd_string = string.join(map(self.escape, cmd), ' ')
+        cmd_string = ' '.join(map(self.escape, cmd))
         if self.verbose:
             sys.stderr.write(cmd_string + "\n")
         if universal_newlines is None:
             universal_newlines = self.universal_newlines
 
-        # On Windows, if we make stdin a pipe when we plan to send 
+        # On Windows, if we make stdin a pipe when we plan to send
         # no input, and the test program exits before
         # Popen calls msvcrt.open_osfhandle, that call will fail.
         # So don't use a pipe for stdin if we don't need one.
@@ -1323,7 +1311,7 @@ class TestCmd(object):
             if sub is None:
                 continue
             if is_List(sub):
-                sub = apply(os.path.join, tuple(sub))
+                sub = os.path.join(*sub)
             new = os.path.join(self.workdir, sub)
             try:
                 os.mkdir(new)
@@ -1371,7 +1359,7 @@ class TestCmd(object):
         # letters is pretty much random on win32:
         drive,rest = os.path.splitdrive(path)
         if drive:
-            path = string.upper(drive) + rest
+            path = drive.upper() + rest
 
         #
         self._dirlist.append(path)
@@ -1413,7 +1401,7 @@ class TestCmd(object):
         """Find an executable file.
         """
         if is_List(file):
-            file = apply(os.path.join, tuple(file))
+            file = os.path.join(*file)
         if not os.path.isabs(file):
             file = where_is(file, path, pathext)
         return file
@@ -1435,7 +1423,7 @@ class TestCmd(object):
         the temporary working directory name with the specified
         arguments using the os.path.join() method.
         """
-        return apply(os.path.join, (self.workdir,) + tuple(args))
+        return os.path.join(self.workdir, *args)
 
     def readable(self, top, read=1):
         """Make the specified directory tree readable (read == 1)
