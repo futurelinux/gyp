@@ -790,6 +790,14 @@ class TestGypOnMSToolchain(TestGypBase):
   @staticmethod
   def _ComputeVsvarsPath(devenv_path):
     devenv_dir = os.path.split(devenv_path)[0]
+
+    # Check for Community path
+    vcvars_path = os.path.abspath(os.path.join(devenv_path, '..', '..', '..',
+                                               '..', 'VC', 'Auxiliary',
+                                               'Build', 'vcvars32.bat'))
+    if os.path.exists(vcvars_path):
+        return vcvars_path
+
     vsvars_path = os.path.join(devenv_path, '../../Tools/vsvars32.bat')
     return vsvars_path
 
