@@ -15,6 +15,9 @@ import sys
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 test.run_gyp('lib_only.gyp')
 
 test.build('lib_only.gyp', test.ALL)

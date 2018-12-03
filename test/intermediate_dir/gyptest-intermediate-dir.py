@@ -12,6 +12,9 @@ import TestGyp
 
 test = TestGyp.TestGyp()
 
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
+
 test.run_gyp('test.gyp', chdir='src')
 
 test.build('test.gyp', 'target1', chdir='src')
