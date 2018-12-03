@@ -8,12 +8,12 @@
 Test variable expansion of '<|(list.txt ...)' syntax commands.
 """
 
-import os
-import sys
-
 import TestGyp
 
 test = TestGyp.TestGyp()
+
+if test.format == 'xcode-ninja':
+  test.skip(bug=527)
 
 CHDIR = 'src'
 test.run_gyp('filelist2.gyp', chdir=CHDIR)

@@ -20,6 +20,9 @@ import time
 if sys.platform == 'darwin':
   test = TestGyp.TestGyp(formats=['ninja', 'make', 'xcode'])
 
+  if test.format == 'xcode-ninja':
+    test.skip(bug=527)
+
   CHDIR='strip'
   test.run_gyp('test-defaults.gyp', chdir=CHDIR)
 

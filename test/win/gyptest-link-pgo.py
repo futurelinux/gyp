@@ -16,6 +16,9 @@ import sys
 if sys.platform == 'win32':
   test = TestGyp.TestGyp(formats=['msvs', 'ninja'])
 
+  # TODO:  This test hangs.
+  test.skip_test()
+
   CHDIR = 'linker-flags'
   test.run_gyp('pgo.gyp', chdir=CHDIR)
 
