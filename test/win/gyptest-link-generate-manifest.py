@@ -48,6 +48,9 @@ if sys.platform == 'win32':
 
   test = TestGyp.TestGyp(formats=['msvs', 'ninja'])
 
+  # TODO: This test hangs.
+  test.skip_test()
+
   CHDIR = 'linker-flags'
   test.run_gyp('generate-manifest.gyp', chdir=CHDIR)
   test.build('generate-manifest.gyp', test.ALL, chdir=CHDIR)
