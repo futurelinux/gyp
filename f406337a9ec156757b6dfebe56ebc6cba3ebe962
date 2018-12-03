@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "653c01d0_63673dbe",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-03T20:33:23Z",
+      "side": 1,
+      "message": "This is just a comment change.",
+      "revId": "f406337a9ec156757b6dfebe56ebc6cba3ebe962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
