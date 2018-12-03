@@ -809,7 +809,7 @@ class TestGypOnMSToolchain(TestGypBase):
   def _ComputeVsvarsPath(devenv_path):
     devenv_dir = os.path.split(devenv_path)[0]
 
-    # Check for Community path
+    # Check for Community install (works for at least 2017).
     vcvars_path = os.path.abspath(os.path.join(devenv_path, '..', '..', '..',
                                                '..', 'VC', 'Auxiliary',
                                                'Build', 'vcvars32.bat'))
