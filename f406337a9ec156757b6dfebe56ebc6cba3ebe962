@@ -16,6 +16,24 @@
       "revId": "f406337a9ec156757b6dfebe56ebc6cba3ebe962",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f5acbad_95c5f27c",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 812,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-03T22:29:50Z",
+      "side": 1,
+      "message": "Ah, the merge got confused somehow when I was breaking the big CL up. Lines 813-817 are new. I will re-merge and update.",
+      "parentUuid": "653c01d0_63673dbe",
+      "revId": "f406337a9ec156757b6dfebe56ebc6cba3ebe962",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
