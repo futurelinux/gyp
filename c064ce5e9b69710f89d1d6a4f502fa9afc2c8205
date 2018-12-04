@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3b82a327_d66ee645",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:58:01Z",
+      "side": 1,
+      "message": "Something in the CL description should say that Python 2 is still supported.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "258e5002_653a2453",
         "filename": "README.md",
         "patchSetId": 7
