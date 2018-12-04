@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "258e5002_653a2453",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "I don’t understand how you chose to wrap this file. This line wraps at 68 or less, but the next is 72 or more.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52173800_6d7aff13",
+        "filename": "pylib/gyp/MSVSSettings.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "here too.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e72518d_5faeab6f",
+        "filename": "pylib/gyp/__init__.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "This kind of thing should have a comment saying that Python 3 has no basestring like Python 2 does.\n\nI’m thinking about some future day when Python 2 is irrelevant and it becomes possible to clean up these little needless fragments.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b37b8f0_1b18bc49",
+        "filename": "pylib/gyp/common.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "Did anyone ever use this to write a binary file?",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bb9144b_f55a1cd8",
+        "filename": "pylib/gyp/easy_xml.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "The same kind of 2-to-3 compat comment should go here. In this case, the comment would also help with the spit-take I just did when I was expecting an import on one side to be matched by an import on the other. ’Course, you don’t need that here, just “reduce” is enough to raise an exception if it’s not defined, but without the comment, it looks kinda fishy.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "267012df_9a706462",
+        "filename": "pylib/gyp/generator/cmake.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "Let’s not pollute string like this. Instead, keep a local maketrans around and point it at str.maketrans or string.maketrans.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4301d61e_5e981fda",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "This is a different pattern than I’ve seen elsewhere in this change.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba1cc1c6_f68f72a6",
+        "filename": "pylib/gyp/xcodeproj_file.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:57:19Z",
+      "side": 1,
+      "message": "…here too",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
