@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e2a135f5_518b30fa",
+        "filename": "pylib/gyp/simple_copy.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-04T15:41:23Z",
+      "side": 1,
+      "message": "I’d kind of prefer doing this so that only the problem type is in the “try”:\n\n  _string_types \u003d [str]\n  try:\n    _string_types.append(unicode)\n  except NameError:\n    pass\n\nBut that’s wordier and it means you have to use a list instead of a tuple.",
+      "revId": "1fb5724e18488390b4c17356ee881a06cde44f19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
