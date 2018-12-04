@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "3179567d_0c19144b",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02617c25_642b6711",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52173800_6d7aff13",
         "filename": "pylib/gyp/MSVSSettings.py",
         "patchSetId": 7
@@ -86,6 +104,24 @@
       "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c97d787f_4def3b5e",
+        "filename": "pylib/gyp/MSVSSettings.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:43:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "52173800_6d7aff13",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -246,6 +282,24 @@
     },
     {
       "key": {
+        "uuid": "ba0adfd9_31ab5bfb",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:43:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4301d61e_5e981fda",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ba1cc1c6_f68f72a6",
         "filename": "pylib/gyp/xcodeproj_file.py",
         "patchSetId": 7
@@ -260,6 +314,24 @@
       "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b7f5f38_17186d65",
+        "filename": "pylib/gyp/xcodeproj_file.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:43:43Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba1cc1c6_f68f72a6",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
