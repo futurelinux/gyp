@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9420da1f_f867670b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:27:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b82a327_d66ee645",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "258e5002_653a2453",
         "filename": "README.md",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2018-12-04T15:57:19Z",
       "side": 1,
       "message": "I don’t understand how you chose to wrap this file. This line wraps at 68 or less, but the next is 72 or more.",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02617c25_642b6711",
+        "filename": "README.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:27:24Z",
+      "side": 1,
+      "message": "I didn\u0027t do the wrapping, the original patch did. Will adjust.",
+      "parentUuid": "258e5002_653a2453",
       "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "e9f6ec4b_9647908f",
+        "filename": "pylib/gyp/__init__.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:27:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e72518d_5faeab6f",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b37b8f0_1b18bc49",
         "filename": "pylib/gyp/common.py",
         "patchSetId": 7
@@ -84,6 +138,24 @@
       "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2c8745d_ca407e6a",
+        "filename": "pylib/gyp/common.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:27:24Z",
+      "side": 1,
+      "message": "Not that I could see.",
+      "parentUuid": "4b37b8f0_1b18bc49",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "c19c85a9_34099861",
+        "filename": "pylib/gyp/easy_xml.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:27:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4bb9144b_f55a1cd8",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "267012df_9a706462",
         "filename": "pylib/gyp/generator/cmake.py",
         "patchSetId": 7
@@ -118,6 +208,24 @@
       "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89828b4f_e095e2bd",
+        "filename": "pylib/gyp/generator/cmake.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-04T19:27:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "267012df_9a706462",
+      "revId": "c064ce5e9b69710f89d1d6a4f502fa9afc2c8205",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
