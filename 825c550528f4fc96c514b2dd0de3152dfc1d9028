@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "dff8ab94_2de23b7e",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-06T15:29:22Z",
+      "side": 1,
+      "message": "\u003e During testing I tripped over a few places (usually in dumpbin) where the output wasn\u0027t actually valid UTF-8. I didn\u0027t stare at the output enough to figure out if it was just a different character encoding, or if there was something weird going on. I figured that since we\u0027re just doing substring matching on the output, ignoring the errors was probably good\n\u003e enough, and I decided to do this everywhere to be more consistent, rather than try\n\u003e to figure out what error handling might be needed in each situation. \n\u003e \n\u003e It might be good to go back and patch the other uses of .decode() I changed in earlier patches to do the same thing.\n\nInstead of a flaky UTF-8 decode, can we deal with everything as bytes? You can strip and split bytes too… Then, if you really need a string, you could just decode what you need, build_tool. Much less likely to run into trouble with that (although it’s certainly still possible…)",
+      "parentUuid": "1b31d472_4307808e",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "861de6a8_3fb3371d",
         "filename": "test/relative/gyptest-default.py",
         "patchSetId": 2
