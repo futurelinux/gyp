@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "2fa52714_3a40d7e9",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-06T16:18:07Z",
+      "side": 1,
+      "message": "The problem is that down the road the callers end up looking for substring matches, which either need this to be turned into a string or have the callers encode the string in a byte sequence. So leaving this as a byte sequence doesn\u0027t really help anything.",
+      "parentUuid": "dff8ab94_2de23b7e",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "861de6a8_3fb3371d",
         "filename": "test/relative/gyptest-default.py",
         "patchSetId": 2
