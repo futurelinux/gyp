@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "667b7566_3bfac7d6",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-06T16:27:39Z",
+      "side": 1,
+      "message": "\u003e The problem is that down the road the callers end up looking for substring matches, which either need this to be turned into a string or have the callers encode the string in a byte sequence. So leaving this as a byte sequence doesn\u0027t really help anything.\n\nBut in cases like this, where the only downstream is build_tool and you use it right here, why not at least do the stripping and splitting in the bytes domain, and then decode the result to UTF-8 when you need it? Then you don’t have to try converting stuff that you don’t need or care about.\n\nSo instead of\n\n        build_tool \u003d subprocess.check_output(args1).decode(\n            \u0027utf-8\u0027, \u0027ignore\u0027).strip().split(\u0027\\r\\n\u0027).pop().split(\u0027 \u0027).pop()\n\nit’d be\n\n        build_tool \u003d subprocess.check_output(args1).strip().split(b\u0027\\r\\n\u0027).\\\n            pop().split(b\u0027 \u0027).pop().decode(\u0027utf-8\u0027, \u0027ignore\u0027)",
+      "parentUuid": "2fa52714_3a40d7e9",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "861de6a8_3fb3371d",
         "filename": "test/relative/gyptest-default.py",
         "patchSetId": 2
