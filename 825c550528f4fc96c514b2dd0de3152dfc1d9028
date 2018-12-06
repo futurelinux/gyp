@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "42ffbda1_cfac4596",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-06T04:49:38Z",
+      "side": 1,
+      "message": "This is a Mac-only call, but I figured I\u0027d change the output to be safe anyway.",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b31d472_4307808e",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-06T04:49:38Z",
+      "side": 1,
+      "message": "During testing I tripped over a few places (usually in dumpbin) where the output wasn\u0027t actually valid UTF-8. I didn\u0027t stare at the output enough to figure out if it was just a different character encoding, or if there was something weird going on. I figured that since we\u0027re just doing substring matching on the output, ignoring the errors was probably good\nenough, and I decided to do this everywhere to be more consistent, rather than try\nto figure out what error handling might be needed in each situation. \n\nIt might be good to go back and patch the other uses of .decode() I changed in earlier patches to do the same thing.",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "861de6a8_3fb3371d",
+        "filename": "test/relative/gyptest-default.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-06T04:49:38Z",
+      "side": 1,
+      "message": "Could probably just call open(sln, \u0027r\u0027, encoding\u003d\u0027utf-8\u0027).read() instead ...",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
