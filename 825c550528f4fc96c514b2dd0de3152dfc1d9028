@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "e30ade70_60bbc4ae",
+        "filename": "test/lib/TestGyp.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-07T23:32:47Z",
+      "side": 1,
+      "message": "Sure, I can do that. Personally, I prefer to do charset conversions as close to the source as possible, but I don\u0027t care that strongly about these cases.\n\nI\u0027ll post some revisions and you can take a look.",
+      "parentUuid": "667b7566_3bfac7d6",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "861de6a8_3fb3371d",
         "filename": "test/relative/gyptest-default.py",
         "patchSetId": 2
