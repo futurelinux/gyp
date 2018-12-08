@@ -122,6 +122,24 @@
       "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea361eac_2cab0a02",
+        "filename": "test/relative/gyptest-default.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-08T00:54:39Z",
+      "side": 1,
+      "message": "\u003e Could probably just call open(sln, \u0027r\u0027, encoding\u003d\u0027utf-8\u0027).read() instead ...\n\nIf you like that, use errors\u003d\u0027ignore\u0027 too.",
+      "parentUuid": "861de6a8_3fb3371d",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
