@@ -140,6 +140,24 @@
       "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b5d345d_04766860",
+        "filename": "test/relative/gyptest-default.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-08T01:41:01Z",
+      "side": 1,
+      "message": "bah, looks like the encoding and errors kwargs only exist in Python3.",
+      "parentUuid": "ea361eac_2cab0a02",
+      "revId": "825c550528f4fc96c514b2dd0de3152dfc1d9028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
