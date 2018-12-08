@@ -51,6 +51,24 @@
       "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "225ae636_2e28b36b",
+        "filename": "pylib/gyp/mac_tool.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-08T02:04:22Z",
+      "side": 0,
+      "message": "They must\u0027ve made it an error at some point in 2.x, because it\u0027s an error in 2.7.15.",
+      "parentUuid": "67fe3600_24e5bd18",
+      "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
