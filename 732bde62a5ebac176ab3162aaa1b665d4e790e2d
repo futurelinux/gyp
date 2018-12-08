@@ -87,6 +87,24 @@
       "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e32d2995_fa940aef",
+        "filename": "pylib/gyp/mac_tool.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-08T23:58:02Z",
+      "side": 0,
+      "message": "Huh, weird. I was actually testing `(lambda (k, v): v)((1, 2))`, but even that works now. I could swear I was getting a syntax error with it yesterday, but maybe I mistyped it, or I was mistaken and somehow using 3.\n\nAt any rate, that\u0027s somewhat relieving, I was wondering how the code was working at all if I was right :).",
+      "parentUuid": "51bc8bf4_cf982246",
+      "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
