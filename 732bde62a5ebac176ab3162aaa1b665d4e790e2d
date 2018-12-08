@@ -33,6 +33,24 @@
       "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67fe3600_24e5bd18",
+        "filename": "pylib/gyp/mac_tool.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-08T02:00:27Z",
+      "side": 0,
+      "message": "\u003e It looks like the intent of this was to take a tuple as an arg, but I\u0027m not sure when if ever this was legal syntax for a lambda.\n\nIt was valid in Python 2 but intentionally removed from Python 3. https://www.python.org/dev/peps/pep-3113/",
+      "parentUuid": "3f2e8c5d_5ff57575",
+      "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
