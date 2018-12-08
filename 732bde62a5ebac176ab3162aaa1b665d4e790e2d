@@ -69,6 +69,24 @@
       "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51bc8bf4_cf982246",
+        "filename": "pylib/gyp/mac_tool.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-08T04:00:40Z",
+      "side": 0,
+      "message": "\u003e They must\u0027ve made it an error at some point in 2.x, because it\u0027s an error in 2.7.15.\n\n?\n\nmark@ebony zsh% python\nPython 2.7.15+ (default, Oct  2 2018, 22:12:08) \n[GCC 8.2.0] on linux2\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n\u003e\u003e\u003e max({\u0027a\u0027:1,\u0027b\u0027:2,\u0027c\u0027:3}.items(), key\u003dlambda (k, v): v)\n(\u0027c\u0027, 3)\n\u003e\u003e\u003e",
+      "parentUuid": "225ae636_2e28b36b",
+      "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
