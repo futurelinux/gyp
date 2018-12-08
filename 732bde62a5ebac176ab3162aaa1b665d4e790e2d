@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "726e3dd4_4b8af5ce",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-08T01:19:03Z",
+      "side": 0,
+      "message": "Not sure why we were using sys.stdout here and below, given that it\u0027s the default ...",
+      "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f2e8c5d_5ff57575",
+        "filename": "pylib/gyp/mac_tool.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2018-12-08T01:19:03Z",
+      "side": 0,
+      "message": "It looks like the intent of this was to take a tuple as an arg, but I\u0027m not sure when if ever this was legal syntax for a lambda.",
+      "revId": "732bde62a5ebac176ab3162aaa1b665d4e790e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
