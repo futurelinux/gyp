@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2eea6a69_f6e3a2e4",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2018-12-10T19:04:38Z",
+      "side": 1,
+      "message": "I’m curious about what happened here (12 in 2012, 13 in 2013, and back to 12 in 2015 and since).",
+      "revId": "89dcf784d8db67888a2984b647914f013419866b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
