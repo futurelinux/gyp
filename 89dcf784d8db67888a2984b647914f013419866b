@@ -16,6 +16,24 @@
       "revId": "89dcf784d8db67888a2984b647914f013419866b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8926197c_ab484d53",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2018-12-10T19:35:38Z",
+      "side": 1,
+      "message": "Admittedly these values (and AFAIR for 2017 as well) were validated empirically, i.e. I created a new Solution, and checked what it\u0027s Solution version, and that of the created Project...\n\nI couldn\u0027t find an online reference for the existence of a version 13.00, I might be that it was an extrapolation that just happen to work https://codereview.chromium.org/19283003",
+      "parentUuid": "2eea6a69_f6e3a2e4",
+      "revId": "89dcf784d8db67888a2984b647914f013419866b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
