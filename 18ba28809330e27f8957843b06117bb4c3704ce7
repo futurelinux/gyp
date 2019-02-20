@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3dfb9bba_86d8ac43",
+        "filename": "pylib/gyp/MSVSNew.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-02-20T20:39:00Z",
+      "side": 1,
+      "message": "Do you need this sys.version check at all?",
+      "revId": "18ba28809330e27f8957843b06117bb4c3704ce7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43fa1555_b094e280",
+        "filename": "pylib/gyp/easy_xml.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2019-02-20T20:39:00Z",
+      "side": 1,
+      "message": "Instead of a sys.version check, wrap xml_string.decode in try/except AttributeError: pass",
+      "revId": "18ba28809330e27f8957843b06117bb4c3704ce7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
