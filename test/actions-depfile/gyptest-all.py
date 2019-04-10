@@ -7,14 +7,24 @@
 """Verifies that depfile fields are output in ninja rules."""
 
 import TestGyp
+import re
 
 test = TestGyp.TestGyp()
+
 
 if test.format == 'ninja':
   test.run_gyp('depfile.gyp')
   contents = open(test.built_file_path('obj/depfile_target.ninja')).read()
 
-  expected = 'depfile = depfile.d'
-  if expected not in contents:
-    test.fail_test()
+  expected = [
+    'depfile = depfile_action.d',
+    'depfile = obj/depfile_target.gen/depfile_action_intermediate_dir.d',
+  ]
+  test.must_contain_all_lines(contents, expected)
+
+  test.build('depfile.gyp')
+  test.built_file_must_exist('depfile_action.d')
+  test.built_file_must_exist(
+    'obj/depfile_target.gen/depfile_action_intermediate_dir.d')
+
   test.pass_test()
