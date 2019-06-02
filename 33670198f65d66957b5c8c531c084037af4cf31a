@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80a0d317_8c477f69",
+        "filename": "pylib/gyp/input.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-02T19:52:16Z",
+      "side": 1,
+      "message": "Are you sure sys.stderr.write() doesn\u0027t want a binary string?\n\nAlso, do you need to specify decode(\u0027utf-8\u0027) here (and elsewhere)?",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df8cc117_d6824031",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-02T19:52:16Z",
+      "side": 1,
+      "message": "I\u0027m not sure why removing the .decode() here is right?",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d85f01b2_1b6b439a",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-02T19:52:16Z",
+      "side": 1,
+      "message": "Or here, either?",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4860340_0bef47ab",
+        "filename": "pylib/gyp/xcodeproj_file.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-02T19:52:16Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to support \u003c 2.7, so you can probably just use cmp_to_key.",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e373a38_60315839",
+        "filename": "pylib/gyp/xcodeproj_file.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2841,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-02T19:52:16Z",
+      "side": 1,
+      "message": "Nit: remove the trailing space.",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "22ee7e89_bbabd8c5",
+        "filename": "pylib/gyp/xcodeproj_file.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2951,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-02T19:52:16Z",
+      "side": 1,
+      "message": "Nit: remove trailing spaces.",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
