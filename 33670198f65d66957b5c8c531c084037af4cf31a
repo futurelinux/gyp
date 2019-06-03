@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "9eb9163f_b289f258",
+        "filename": "pylib/gyp/input.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-03T17:17:29Z",
+      "side": 1,
+      "message": "I see, I was confused because subprocess calls return byte strings back. Okay.\n\nAlso, as far as the default for decode() goes, I\u0027m pretty sure the default in Python2 is \u0027ascii\u0027 in most builds (i.e., the default changes from 2 to 3), so I think you should normally be explicit.",
+      "parentUuid": "3072ce8f_86749846",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df8cc117_d6824031",
         "filename": "pylib/gyp/xcode_emulation.py",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "side": 1,
       "message": "I\u0027ve modified GetStdout so that it would decode the resulting bytestring so decode() is now unnecessary.\n\n_sdk_path_cache gets its value by using GetStdout.",
       "parentUuid": "df8cc117_d6824031",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0972e41_329f6b36",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-03T17:17:29Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "b47d50dd_0adcb666",
       "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -104,6 +140,24 @@
       "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d840ccb1_c9e8eb1a",
+        "filename": "pylib/gyp/xcode_emulation.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 1003232
+      },
+      "writtenOn": "2019-06-03T17:17:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "422fa458_54f72505",
+      "revId": "33670198f65d66957b5c8c531c084037af4cf31a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
