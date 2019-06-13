@@ -1,5 +1,7 @@
 # GYP
 
+[home]: /index.md
+
 * [Home][home]
 * [User documentation](/docs/UserDocumentation.md)
 * [Input Format Reference](/docs/InputFormatReference.md)
@@ -7,5 +9,3 @@
 * [Hacking](/docs/Hacking.md)
 * [Testing](/docs/Testing.md)
 * [GYP vs. CMake](/docs/GypVsCMake.md)
-
-[home]: /index.md
