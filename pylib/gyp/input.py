@@ -122,6 +122,8 @@ base_non_configuration_keys = [
   'toolset',
   'toolsets',
   'type',
+  'all_dependent_settings',
+  'direct_dependent_settings',
 
   # Sections that can be found inside targets or configurations, but that
   # should not be propagated from targets into their configurations.
