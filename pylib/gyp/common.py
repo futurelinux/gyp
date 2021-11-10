@@ -5,6 +5,7 @@
 from __future__ import with_statement
 
 import collections
+import collections.abc.MutableSet
 import errno
 import filecmp
 import os.path
@@ -492,9 +493,8 @@ def uniquer(seq, idfun=None):
         result.append(item)
     return result
 
-
 # Based on http://code.activestate.com/recipes/576694/.
-class OrderedSet(collections.MutableSet):
+class OrderedSet(MutableSet):
   def __init__(self, iterable=None):
     self.end = end = []
     end += [None, end, end]         # sentinel node for doubly linked list
