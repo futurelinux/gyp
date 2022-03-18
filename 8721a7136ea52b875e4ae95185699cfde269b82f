@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ee459f3_18d4c51a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1398101
+      },
+      "writtenOn": "2022-03-18T14:35:49Z",
+      "side": 1,
+      "message": "\u003e That enables gyp to work with Python 3.3+\n\nI think it\u0027s actually only a real problem in later versions, maybe Python \u003e7. I think collections.abc was added in one Python version and then the old API was removed in a later version.",
+      "revId": "8721a7136ea52b875e4ae95185699cfde269b82f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
