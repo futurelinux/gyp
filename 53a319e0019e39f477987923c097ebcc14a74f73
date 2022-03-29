@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3a22f34_809d04a2",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-03-29T20:10:42Z",
+      "side": 1,
+      "message": "`int(self.vs_version.short_name) \u003e\u003d 2015` is probably better than a lexicographical comparison.",
+      "revId": "53a319e0019e39f477987923c097ebcc14a74f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca820f7b_80dc222c",
+        "filename": "pylib/gyp/msvs_emulation.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-03-29T20:10:42Z",
+      "side": 1,
+      "message": "This should be some form of a version comparison, otherwise `\u002712.9\u0027 \u003e \u002712.10\u0027`—probably won’t be experienced in reality, but don’t we have an easy way to compare versions?",
+      "revId": "53a319e0019e39f477987923c097ebcc14a74f73",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
