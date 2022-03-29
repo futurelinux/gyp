@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ca24a6_9f026069",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1188132
+      },
+      "writtenOn": "2022-03-29T20:43:37Z",
+      "side": 1,
+      "message": "RE project_version - back in 2018 I was field testing a VS2019 beta and it was generating files with `ToolsVersion\u003d\"15.0\"` put in. But if I remember correctly later releases of VS2019 started putting in \"16.0\" in the files, and suggesting to auto upgrade older project files.\n\nCurrently the GYP fork used by node.js does demarcate VS2019 as version 16 so the above patchset should be good - https://github.com/nodejs/gyp-next/blob/main/pylib/gyp/MSVSVersion.py#L288",
+      "tag": "mailMessageId\u003d\u003cCAAZS7NYGP7V\u003dVOLG9iq4repVHAn-fmaPv67sbZLwd7sK1d-OwQ@mail.gmail.com\u003e",
+      "revId": "a9782a602572977469e81ffcef099610290a16d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "435d138f_45b7d769",
