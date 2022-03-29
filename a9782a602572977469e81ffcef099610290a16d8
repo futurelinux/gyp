@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf21b6a_f775b0f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-03-29T20:13:52Z",
+      "side": 1,
+      "message": "Cc refack",
+      "revId": "a9782a602572977469e81ffcef099610290a16d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "435d138f_45b7d769",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-03-29T20:13:52Z",
+      "side": 1,
+      "message": "There’s some evidence that this was deliberate. Do you have information to the contrary?\n\nhttps://chromium-review.googlesource.com/c/external/gyp/+/1369264/3#message-09cf81f59e502c3eae8ad51341a60a2b8d41ee0c",
+      "revId": "a9782a602572977469e81ffcef099610290a16d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d498cdd_ee19a03e",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-03-29T20:13:52Z",
+      "side": 1,
+      "message": "Stay within 80 columns.",
+      "revId": "a9782a602572977469e81ffcef099610290a16d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66e5a92b_c21325d1",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-03-29T20:13:52Z",
+      "side": 1,
+      "message": "Here too.",
+      "revId": "a9782a602572977469e81ffcef099610290a16d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
