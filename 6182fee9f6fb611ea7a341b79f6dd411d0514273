@@ -16,6 +16,24 @@
       "message": "I don’t think we can take any behavior-change patches at this point. Sorry, it sounds like you’ll still need to maintain a downstream diff for this one.",
       "revId": "6182fee9f6fb611ea7a341b79f6dd411d0514273",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d4490b_5ed1c3b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386083
+      },
+      "writtenOn": "2022-03-30T09:58:10Z",
+      "side": 1,
+      "message": "Understandable. Thank you for taking a look.\n\nDo you think one of those could be acceptable instead?\n\n* special-casing arguments matching /--[a-zA-Z0-9-_]+\u003d/ (i.e. anything in the form of --arg\u003dvalue) so that only the value part gets normalized - which would still technically be a breaking change\n* disabling the path normalization if some environment variable is set (let\u0027s say, GYP_MSVS_DISABLE_PATH_NORMALIZATION)",
+      "parentUuid": "da69d1d8_acdce5e8",
+      "revId": "6182fee9f6fb611ea7a341b79f6dd411d0514273",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
