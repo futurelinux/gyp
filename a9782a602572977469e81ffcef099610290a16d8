@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf57a43_f4905320",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1386083
+      },
+      "writtenOn": "2022-03-30T17:32:06Z",
+      "side": 1,
+      "message": "That\u0027s even better then :D Thanks!",
+      "parentUuid": "45049dc6_d321cf85",
+      "revId": "a9782a602572977469e81ffcef099610290a16d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d498cdd_ee19a03e",
