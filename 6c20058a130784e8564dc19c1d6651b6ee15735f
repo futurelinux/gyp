@@ -16,6 +16,24 @@
       "message": "Can you do something better than a lexicographical comparison here too?",
       "revId": "6c20058a130784e8564dc19c1d6651b6ee15735f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2363c7b7_473d4471",
+        "filename": "pylib/gyp/MSVSVersion.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1386083
+      },
+      "writtenOn": "2022-03-31T13:20:47Z",
+      "side": 1,
+      "message": "Missed that one, thanks for your patience.",
+      "parentUuid": "48d6cf52_9a3c15e9",
+      "revId": "6c20058a130784e8564dc19c1d6651b6ee15735f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
