@@ -5,4 +5,9 @@
 
 set -e
 base=$(dirname "$0")
-exec python "${base}/gyp_main.py" "$@"
+if type python3 >& /dev/null; then
+  python=python3
+else
+  python=python
+fi
+exec "${python}" "${base}/gyp_main.py" "$@"
