@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5516716f_fbb9dc2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-04-04T16:23:16Z",
+      "side": 1,
+      "message": "LGTM otherwise.",
+      "revId": "2b5c317b8a399028dd5d09e6b362d6795217ed2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ba7db9_67cb5e40",
+        "filename": "gyp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-04-04T16:23:16Z",
+      "side": 1,
+      "message": "You can make this `set -eu` now to trap undefined variable references, since we’re doing a little more with variables here.",
+      "revId": "2b5c317b8a399028dd5d09e6b362d6795217ed2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
