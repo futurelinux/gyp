@@ -33,6 +33,24 @@
       "message": "You can make this `set -eu` now to trap undefined variable references, since we’re doing a little more with variables here.",
       "revId": "2b5c317b8a399028dd5d09e6b362d6795217ed2b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56408dfa_2a5e45c7",
+        "filename": "gyp",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1386083
+      },
+      "writtenOn": "2022-04-04T16:51:10Z",
+      "side": 1,
+      "message": "Thanks, done.",
+      "parentUuid": "f0ba7db9_67cb5e40",
+      "revId": "2b5c317b8a399028dd5d09e6b362d6795217ed2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
