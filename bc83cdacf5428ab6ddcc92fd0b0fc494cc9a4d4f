@@ -16,6 +16,24 @@
       "message": "There’s a comment at https://github.com/chromium/gyp/commit/bc83cdacf5428ab6ddcc92fd0b0fc494cc9a4d4f#commitcomment-75762564 saying that this change broke some things.\n\nIt does seem that `collections_abc.OrderedDict` is not actually a thing. This should go back to just being `collections.OrderedDict`.",
       "revId": "bc83cdacf5428ab6ddcc92fd0b0fc494cc9a4d4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d38ee8_c905e0af",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1386083
+      },
+      "writtenOn": "2022-06-15T21:04:44Z",
+      "side": 1,
+      "message": "I reproduced this on Windows, posting the fix for review in https://chromium-review.googlesource.com/c/external/gyp/+/3706740. Apologies for the break.",
+      "parentUuid": "2103fb27_7b8e646e",
+      "revId": "bc83cdacf5428ab6ddcc92fd0b0fc494cc9a4d4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
