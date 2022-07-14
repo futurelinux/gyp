@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74fbb8ba_080ae3ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-07-14T14:12:41Z",
+      "side": 1,
+      "message": "This does not link well, as it’s assumed to be a crbug. I think you want `b/217559564` here.",
+      "revId": "103bf6a14e901b0ba237d50b5ff4ec3d890374a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "740cad89_bcddf7c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2022-07-14T14:12:41Z",
+      "side": 1,
+      "message": "LGTM, but please fix the commit message.",
+      "revId": "103bf6a14e901b0ba237d50b5ff4ec3d890374a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
