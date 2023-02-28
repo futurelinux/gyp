@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f189eaa3_33711aa7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1571752
+      },
+      "writtenOn": "2023-02-28T23:12:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8d451288_4eb0b33c",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c308d51_648fd160",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-02-28T13:39:25Z",
       "side": 1,
       "message": "git commit messages should remain within 72 columns.",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c72be7e_71cace0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1571752
+      },
+      "writtenOn": "2023-02-28T23:12:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0c308d51_648fd160",
       "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b3e402b_d706c47d",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1571752
+      },
+      "writtenOn": "2023-02-28T23:12:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5e92fdd1_19eef4e8",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d685658_1b077a39",
@@ -82,6 +136,24 @@
       "writtenOn": "2023-02-28T13:39:25Z",
       "side": 1,
       "message": "It’s 2023. (New files get the year at the time of their creation.)",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "375ab220_a8a330af",
+        "filename": "test/win/compiler-flags/spectre-mitigation.gyp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1571752
+      },
+      "writtenOn": "2023-02-28T23:12:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9d685658_1b077a39",
       "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
