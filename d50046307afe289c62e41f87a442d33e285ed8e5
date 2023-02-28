@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d451288_4eb0b33c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-02-28T13:39:25Z",
+      "side": 1,
+      "message": "Change-Id: should be in the footer, following your description.",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c308d51_648fd160",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-02-28T13:39:25Z",
+      "side": 1,
+      "message": "git commit messages should remain within 72 columns.",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1a7aa901_fa666068",
@@ -14,6 +48,40 @@
       "writtenOn": "2023-02-27T23:41:43Z",
       "side": 1,
       "message": "I noticed the file I modified as part of my CL hasn\u0027t changed in a while. I\u0027m adding Marcin as a reviewer because he last updated it, though feel free to swap/add in reviewers as needed.",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e92fdd1_19eef4e8",
+        "filename": "pylib/gyp/generator/msvs.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2743,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-02-28T13:39:25Z",
+      "side": 1,
+      "message": "Consistency with surroundings: use the single-quoted form, `\u0027SpectreMitigation\u0027`.\n\nLine 2745 and 2828 too.",
+      "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d685658_1b077a39",
+        "filename": "test/win/compiler-flags/spectre-mitigation.gyp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2023-02-28T13:39:25Z",
+      "side": 1,
+      "message": "It’s 2023. (New files get the year at the time of their creation.)",
       "revId": "d50046307afe289c62e41f87a442d33e285ed8e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
