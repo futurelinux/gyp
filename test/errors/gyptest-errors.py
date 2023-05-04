@@ -43,7 +43,8 @@ stderr = (".*target0.*target1.*target2.*target0.*")
 test.run_gyp('dependency_cycle.gyp', status=1, stderr=stderr,
              match=TestCmd.match_re_dotall)
 
-stderr = (".*file_cycle0.*file_cycle1.*file_cycle0.*")
+stderr = ("gyp: Cycles in .gyp file dependency graph detected:\n"
+          "Cycle: file_cycle0.gyp -> file_cycle1.gyp -> file_cycle0.gyp")
 test.run_gyp('file_cycle0.gyp', status=1, stderr=stderr,
              match=TestCmd.match_re_dotall)
 
