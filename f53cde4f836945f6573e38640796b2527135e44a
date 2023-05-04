@@ -16,6 +16,23 @@
       "message": "Resyncing expected test output against input.py\u0027s new output allows more tests to pass.",
       "revId": "f53cde4f836945f6573e38640796b2527135e44a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ccda47_5303a87f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1580342
+      },
+      "writtenOn": "2023-05-04T03:26:41Z",
+      "side": 1,
+      "message": "I also wanted to add that I\u0027m submitting changes on behalf of Theo Buehler for pylib/gyp/input.py and test/lib/TestCmd.py regarding \u003d\u003d and !\u003d for literals.\n\nI authored the rest of the changes. Theo Buehler should have a CLA from here: https://boringssl.googlesource.com/boringssl.git/+/3a7dfdb984434a4b4beef947b2e49602c557c0de",
+      "revId": "f53cde4f836945f6573e38640796b2527135e44a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
