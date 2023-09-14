@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "149d8051_b05f17dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001077
+      },
+      "writtenOn": "2023-09-14T03:55:13Z",
+      "side": 1,
+      "message": "LGTM, but I don\u0027t have permission to vote.\n\nMark, would you review this change?",
+      "revId": "7a7f3cb15ed4dea3c9e50d8c55237e5e47a7d71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
