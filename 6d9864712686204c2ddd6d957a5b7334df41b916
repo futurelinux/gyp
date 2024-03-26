@@ -16,6 +16,23 @@
       "message": "Ran into this trying to build https://github.com/google/mozc.\n\nI can\u0027t get the tests to run on my dev machine because it can\u0027t link the deprecated `i386` archiecture on my arm64 Mac. What arguments do I need to give to `gyptest.py` to fix this, if there is a practical way to do so?",
       "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7fb66bf_49504263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2024-03-26T17:34:24Z",
+      "side": 1,
+      "message": "This is, by and large, a Python 2 project, that never grew up to Python 3 because Chrome stopped using it before we made the transition.\n\nThere have been changes to implement some form of Python 3 support over the years, but I don’t think anything has broken Python 2 support, and given that mac_tool would only have worked in Python 2 until now (as you point out), I’d be reluctant to suddenly break it.\n\nIt does appear that this proposed patch would break mac_tool under Python 2.\n\nGiven all of the above, I’m also curious about what’s using this or prompting this that the patch is suddenly being proposed.",
+      "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
