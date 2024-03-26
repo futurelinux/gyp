@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec5484f_15b7082e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373732
+      },
+      "writtenOn": "2024-03-26T01:24:51Z",
+      "side": 1,
+      "message": "Ran into this trying to build https://github.com/google/mozc.\n\nI can\u0027t get the tests to run on my dev machine because it can\u0027t link the deprecated `i386` archiecture on my arm64 Mac. What arguments do I need to give to `gyptest.py` to fix this, if there is a practical way to do so?",
+      "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
