@@ -51,6 +51,24 @@
       "parentUuid": "a7fb66bf_49504263",
       "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7b46f5_bcab96ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001077
+      },
+      "writtenOn": "2024-03-27T10:11:34Z",
+      "side": 1,
+      "message": "The Mozc project applies a patch to GYP for Python3.\n\nhttps://github.com/google/mozc/blob/master/src/gyp/gyp.patch\n\nFor the projects that keep using Python2, I guess they would keep using the previous version of GYP.\n\nThat said, is it preferred to use `six` for supporting both Python2 and Python3?",
+      "parentUuid": "00d0ca74_0a12457f",
+      "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
