@@ -137,26 +137,24 @@ class MacTool(object):
     #     semicolon in dictionary.
     # on invalid files. Do the same kind of validation.
     import CoreFoundation
-    s = open(source, 'rb').read()
+    with open(source, 'rb') as f:
+      s = f.read()
     d = CoreFoundation.CFDataCreate(None, s, len(s))
     _, error = CoreFoundation.CFPropertyListCreateFromXMLData(None, d, 0, None)
     if error:
       return
 
-    fp = open(dest, 'wb')
-    fp.write(s.decode(input_code).encode('UTF-16'))
-    fp.close()
+    with open(dest, 'wb') as fp:
+      fp.write(s.decode(input_code).encode('UTF-16'))
 
   def _DetectInputEncoding(self, file_name):
     """Reads the first few bytes from file_name and tries to guess the text
     encoding. Returns None as a guess if it can't detect it."""
-    fp = open(file_name, 'rb')
-    try:
-      header = fp.read(3)
-    except:
-      fp.close()
-      return None
-    fp.close()
+    with open(file_name, 'rb') as fp:
+      try:
+        header = fp.read(3)
+      except:
+        return None
     if header.startswith(b"\xFE\xFF"):
       return "UTF-16"
     elif header.startswith(b"\xFF\xFE"):
@@ -169,15 +167,13 @@ class MacTool(object):
   def ExecCopyInfoPlist(self, source, dest, convert_to_binary, *keys):
     """Copies the |source| Info.plist to the destination directory |dest|."""
     # Read the source Info.plist into memory.
-    fd = open(source, 'r')
-    lines = fd.read()
-    fd.close()
-
+    with open(source, 'rb') as f:
+      plist = _LoadPlist(f)
     # Insert synthesized key/value pairs (e.g. BuildMachineOSBuild).
-    plist = plistlib.readPlistFromString(lines)
     if keys:
       plist.update(json.loads(keys[0]))
-    lines = plistlib.writePlistToString(plist)
+    lines_bytes = _DumpPlistBytes(plist)
+    lines = lines_bytes.decode()
 
     # Go through all the environment variables and replace them as variables in
     # the file.
@@ -212,9 +208,8 @@ class MacTool(object):
     lines = '\n'.join(filter(lambda x: x is not None, lines))
 
     # Write out the file with variables replaced.
-    fd = open(dest, 'w')
-    fd.write(lines)
-    fd.close()
+    with open(dest, 'w') as fd:
+      fd.write(lines)
 
     # Now write out PkgInfo file now that the Info.plist file has been
     # "compiled".
@@ -223,9 +218,10 @@ class MacTool(object):
     if convert_to_binary == 'True':
       self._ConvertToBinary(dest)
 
-  def _WritePkgInfo(self, info_plist):
+  def _WritePkgInfo(self, info_plist_path):
     """This writes the PkgInfo file from the data stored in Info.plist."""
-    plist = plistlib.readPlist(info_plist)
+    with open(info_plist_path, 'rb') as info_plist_file:
+      plist = _LoadPlist(info_plist_file)
     if not plist:
       return
 
@@ -241,10 +237,9 @@ class MacTool(object):
     if len(signature_code) != 4:  # Wrong length resets everything, too.
       signature_code = '?' * 4
 
-    dest = os.path.join(os.path.dirname(info_plist), 'PkgInfo')
-    fp = open(dest, 'w')
-    fp.write('%s%s' % (package_type, signature_code))
-    fp.close()
+    dest = os.path.join(os.path.dirname(info_plist_path), 'PkgInfo')
+    with open(dest, 'wb') as fp:
+      fp.write(('%s%s' % (package_type, signature_code)).encode())
 
   def ExecFlock(self, lockfile, *cmd_list):
     """Emulates the most basic behavior of Linux's flock(1)."""
@@ -270,10 +265,10 @@ class MacTool(object):
     env['ZERO_AR_DATE'] = '1'
     libtoolout = subprocess.Popen(cmd_list, stderr=subprocess.PIPE, env=env)
     _, err = libtoolout.communicate()
-    for line in err.splitlines():
-      line_decoded = line.decode('utf-8')
-      if not libtool_re.match(line_decoded) and not libtool_re5.match(line_decoded):
-        print(line_decoded, file=sys.stderr)
+    for line_bytes in err.splitlines():
+      line = line_bytes.decode('utf-8')
+      if not libtool_re.match(line) and not libtool_re5.match(line):
+        print(line, file=sys.stderr)
     # Unconditionally touch the output .a file on the command line if present
     # and the command succeeded. A bit hacky.
     if not libtoolout.returncode:
@@ -296,9 +291,8 @@ class MacTool(object):
                       '  module * { export * }\n' \
                       '}\n' % (binary, binary)
 
-    module_file = open(os.path.join(module_path, 'module.modulemap'), "w")
-    module_file.write(module_template)
-    module_file.close()
+    with open(os.path.join(module_path, 'module.modulemap'), 'w') as mod_file:
+      mod_file.write(module_template)
 
   def ExecPackageFramework(self, framework, version):
     """Takes a path to Something.framework and the Current version of that and
@@ -409,9 +403,19 @@ class MacTool(object):
     """Merge multiple .plist files into a single .plist file."""
     merged_plist = {}
     for path in inputs:
-      plist = self._LoadPlistMaybeBinary(path)
-      self._MergePlist(merged_plist, plist)
-    plistlib.writePlist(merged_plist, output)
+      with open(path, 'rb') as in_file:
+        plist = _LoadPlist(in_file)
+        self._MergePlist(merged_plist, plist)
+
+    # plistlib's old writePlist API accepted both file handles and file paths.
+    # Its new API, dump, accepts only file handles. This exported method passed
+    # its argument directly to plistlib, so it first tries to interpret it
+    # as a path, and if that fails, guesses that it was already a file handle.
+    try:
+      with open(output, 'wb') as f:
+        _DumpPlist(merged_plist, f)
+    except TypeError:
+      _DumpPlist(merged_plist, output)
 
   def ExecCodeSignBundle(self, key, entitlements, provisioning, path, preserve):
     """Code sign a bundle.
@@ -525,10 +529,12 @@ class MacTool(object):
     Returns:
       Content of the plist embedded in the provisioning profile as a dictionary.
     """
-    with tempfile.NamedTemporaryFile() as temp:
+    with tempfile.NamedTemporaryFile(delete_on_close=False) as temp:
+      temp.close()
       subprocess.check_call([
           'security', 'cms', '-D', '-i', profile_path, '-o', temp.name])
-      return self._LoadPlistMaybeBinary(temp.name)
+      with open(temp.name, 'rb') as reopened_temp:
+        return _LoadPlist(reopened_temp)
 
   def _MergePlist(self, merged_plist, plist):
     """Merge |plist| into |merged_plist|."""
@@ -542,31 +548,6 @@ class MacTool(object):
           merged_plist[key] = value
       else:
         merged_plist[key] = value
-
-  def _LoadPlistMaybeBinary(self, plist_path):
-    """Loads into a memory a plist possibly encoded in binary format.
-
-    This is a wrapper around plistlib.readPlist that tries to convert the
-    plist to the XML format if it can't be parsed (assuming that it is in
-    the binary format).
-
-    Args:
-      plist_path: string, path to a plist file, in XML or binary format
-
-    Returns:
-      Content of the plist as a dictionary.
-    """
-    try:
-      # First, try to read the file using plistlib that only supports XML,
-      # and if an exception is raised, convert a temporary copy to XML and
-      # load that copy.
-      return plistlib.readPlist(plist_path)
-    except:
-      pass
-    with tempfile.NamedTemporaryFile() as temp:
-      shutil.copy2(plist_path, temp.name)
-      subprocess.check_call(['plutil', '-convert', 'xml1', temp.name])
-      return plistlib.readPlist(temp.name)
 
   def _GetSubstitutions(self, bundle_identifier, app_identifier_prefix):
     """Constructs a dictionary of variable substitutions for Entitlements.plist.
@@ -592,8 +573,9 @@ class MacTool(object):
     info_plist_path = os.path.join(
         os.environ['TARGET_BUILD_DIR'],
         os.environ['INFOPLIST_PATH'])
-    info_plist_data = self._LoadPlistMaybeBinary(info_plist_path)
-    return info_plist_data['CFBundleIdentifier']
+    with open(info_plist_path, 'rb') as info_plist_file:
+      info_plist_data = _LoadPlist(info_plist_file)
+      return info_plist_data['CFBundleIdentifier']
 
   def _InstallEntitlements(self, entitlements, substitutions, overrides):
     """Generates and install the ${BundleName}.xcent entitlements file.
@@ -620,14 +602,18 @@ class MacTool(object):
           os.environ['SDKROOT'],
           'Entitlements.plist')
     shutil.copy2(source_path, target_path)
-    data = self._LoadPlistMaybeBinary(target_path)
-    data = self._ExpandVariables(data, substitutions)
+    data = {}
+    with open(target_path, 'rb') as in_file:
+      data = _LoadPlist(in_file)
+      data = self._ExpandVariables(data, substitutions)
     if overrides:
       for key in overrides:
         if key not in data:
           data[key] = overrides[key]
-    plistlib.writePlist(data, target_path)
+    with open(target_path, 'wb') as out_file:
+      _DumpPlist(data, out_file)
     return target_path
+
 
   def _ExpandVariables(self, data, substitutions):
     """Expands variables "$(variable)" in data.
@@ -650,6 +636,70 @@ class MacTool(object):
     if isinstance(data, dict):
       return {k: self._ExpandVariables(data[k], substitutions) for k in data}
     return data
+
+def _LoadPlist(fh):
+  """Loads a macOS plist file into a dict.
+
+  Args:
+    fh: file-like object, readable. This file must contain a plist in XML or
+      binary format. It will be advanced to the end of the file. If the file
+      is in binary format and the Python 2 version of plistlib is in use,
+      this file-like object must have a valid "name" property representing
+      its file system location.
+
+  Returns:
+    dict representation of the plist in the file, if a plist can be parsed.
+  """
+
+  # First choice: Python 3 plistlib. This API is not available in Python 2
+  # plistlib, which only has APIs that are not available in Python 3.
+  try:
+    return plistlib.load(fh)
+  except AttributeError:
+    # Python 2.7 plistlib can't read binary-format plists. If loading
+    # the plist fails, try converting it to XML.
+    try:
+      return plistlib.readPlist(fh)
+    except:
+      pass
+    with tempfile.NamedTemporaryFile() as temp:
+      shutil.copy2(os.path.realpath(fh.name), temp.name)
+      subprocess.check_call(['plutil', '-convert', 'xml1', temp.name])
+      return plistlib.readPlist(temp.name)
+
+def _DumpPlist(plist, fh):
+  """Writes a macOS plist representation of a dict into a file.
+
+  Args:
+    plist: dict containing plist-compatible data.
+    fh: file-like object, writeable. The XML plist representation of the
+      provided data will be written into this file.
+  """
+
+  # First choice: Python 3 plistlib. This API is not available in Python 2
+  # plistlib, which only has APIs that are not available in Python 3.
+  try:
+    return plistlib.dump(plist, fh, fmt=plistlib.FMT_XML)
+  except AttributeError:
+    return plistlib.writePlist(plist, fh)
+
+def _DumpPlistBytes(plist):
+  """Creates an XML plist representation of a dict and returns it as bytes.
+
+  Args:
+    plist: dict containing plist-compatible data.
+
+  Returns:
+    A byte string (str in python 2, bytes in python 3) containing an XML
+    representation of the data in the dictionary.
+  """
+
+  # First choice: Python 3 plistlib. This API is not available in Python 2
+  # plistlib, which only has APIs that are not available in Python 3.
+  try:
+    return plistlib.dumps(plist, fmt=plistlib.FMT_XML)
+  except AttributeError:
+    return plistlib.writePlistToString(plist)
 
 def NextGreaterPowerOf2(x):
   return 2**(x).bit_length()
@@ -674,48 +724,48 @@ def WriteHmap(output_name, filelist):
   strings_offset = 24 + (12 * capacity)
   max_value_length = len(max(filelist.items(), key=lambda t: len(t[1]))[1])
 
-  out = open(output_name, "wb")
-  out.write(struct.pack('<LHHLLLL', magic, version, _reserved, strings_offset,
-                        count, capacity, max_value_length))
+  with open(output_name, 'wb') as out:
+    out.write(struct.pack('<LHHLLLL', magic, version, _reserved, strings_offset,
+                          count, capacity, max_value_length))
 
-  # Create empty hashmap buckets.
-  buckets = [None] * capacity
-  for file, path in filelist.items():
-    key = 0
-    for c in file:
-      key += ord(c.lower()) * 13
+    # Create empty hashmap buckets.
+    buckets = [None] * capacity
+    for file, path in filelist.items():
+      key = 0
+      for c in file:
+        key += ord(c.lower()) * 13
 
-    # Fill next empty bucket.
-    while buckets[key & capacity - 1] is not None:
-      key = key + 1
-    buckets[key & capacity - 1] = (file, path)
+      # Fill next empty bucket.
+      while buckets[key & capacity - 1] is not None:
+        key = key + 1
+      buckets[key & capacity - 1] = (file, path)
 
-  next_offset = 1
-  for bucket in buckets:
-    if bucket is None:
-      out.write(struct.pack('<LLL', 0, 0, 0))
-    else:
-      (file, path) = bucket
-      key_offset = next_offset
-      prefix_offset = key_offset + len(file) + 1
-      suffix_offset = prefix_offset + len(os.path.dirname(path) + os.sep) + 1
-      next_offset = suffix_offset + len(os.path.basename(path)) + 1
-      out.write(struct.pack('<LLL', key_offset, prefix_offset, suffix_offset))
+    next_offset = 1
+    for bucket in buckets:
+      if bucket is None:
+        out.write(struct.pack('<LLL', 0, 0, 0))
+      else:
+        (file, path) = bucket
+        key_offset = next_offset
+        prefix_offset = key_offset + len(file) + 1
+        suffix_offset = prefix_offset + len(os.path.dirname(path) + os.sep) + 1
+        next_offset = suffix_offset + len(os.path.basename(path)) + 1
+        out.write(struct.pack('<LLL', key_offset, prefix_offset, suffix_offset))
 
-  # Pad byte since next offset starts at 1.
-  out.write(struct.pack('<x'))
+    # Pad byte since next offset starts at 1.
+    out.write(struct.pack('<x'))
 
-  for bucket in buckets:
-    if bucket is not None:
-      (file, path) = bucket
-      out.write(struct.pack('<%ds' % len(file), file))
-      out.write(struct.pack('<s', '\0'))
-      base = os.path.dirname(path) + os.sep
-      out.write(struct.pack('<%ds' % len(base), base))
-      out.write(struct.pack('<s', '\0'))
-      path = os.path.basename(path)
-      out.write(struct.pack('<%ds' % len(path), path))
-      out.write(struct.pack('<s', '\0'))
+    for bucket in buckets:
+      if bucket is not None:
+        (file, path) = bucket
+        out.write(struct.pack('<%ds' % len(file), file))
+        out.write(struct.pack('<s', '\0'))
+        base = os.path.dirname(path) + os.sep
+        out.write(struct.pack('<%ds' % len(base), base))
+        out.write(struct.pack('<s', '\0'))
+        path = os.path.basename(path)
+        out.write(struct.pack('<%ds' % len(path), path))
+        out.write(struct.pack('<s', '\0'))
 
 if __name__ == '__main__':
   sys.exit(main(sys.argv[1:]))
