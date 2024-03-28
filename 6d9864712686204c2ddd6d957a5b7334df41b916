@@ -87,6 +87,24 @@
       "parentUuid": "0f7b46f5_bcab96ad",
       "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f44dfa2a_7c65bdc9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373732
+      },
+      "writtenOn": "2024-03-28T02:13:17Z",
+      "side": 1,
+      "message": "I need to review the way I\u0027m using `.encode` and `.decode` now, I think, but is the new approach I\u0027ve implemented here on the right track? This _should_ work in both Python 2 and Python 3, using whichever plistlib is available -- once I hammer the bugs out of it, at least. If this approach wouldn\u0027t be acceptable even if I did stabilize it I won\u0027t sink more time into it.",
+      "parentUuid": "b7e0c814_26c9cd1a",
+      "revId": "6d9864712686204c2ddd6d957a5b7334df41b916",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
