@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "329e20f5_4d69479b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001077
+      },
+      "writtenOn": "2024-04-02T06:32:44Z",
+      "side": 1,
+      "message": "LGTM. Thank you for supporting Python3.",
+      "revId": "38e00c6af09f6919319631d4f3924b15ceccbff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
