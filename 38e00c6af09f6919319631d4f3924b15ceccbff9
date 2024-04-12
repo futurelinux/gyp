@@ -68,6 +68,24 @@
       "message": "flipping resolved bits, oops.",
       "revId": "38e00c6af09f6919319631d4f3924b15ceccbff9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2671e23_e9fab858",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1174099
+      },
+      "writtenOn": "2024-04-12T20:34:04Z",
+      "side": 1,
+      "message": "It’s a testament to the fact that this is old and largely unmaintained software.\n\nThe easiest path forward would be to find an old system (or VM) capable of building and I suppose running 32-bit x86 code. That’d be 10.14. If you wanted to go down that path, you could look to the litterbox.\n\nOtherwise, again owing to the old and largely unmaintained status, if you can say that it fixes the problem for you and we can also demonstrate that it still works under Python 2 and so probably won’t break things for anyone else, I’d say we could just commit it after a careful review.",
+      "parentUuid": "ab7e5ad5_c545b7ff",
+      "revId": "38e00c6af09f6919319631d4f3924b15ceccbff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
