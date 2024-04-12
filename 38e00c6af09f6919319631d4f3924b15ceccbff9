@@ -33,6 +33,41 @@
       "message": "I\u0027ve run into a series of roadblocks trying to test this properly -- the automated tests seem to expect i386 to be a target that works on macOS and produces binaries that a Mac is willing to run, neither of which appears to be true; I successfully configured an old Mac SDK in my build (thanks for the help, Mark!) but then the tests fail with various \"bad CPU architecture\" errors and also report unexpectedly non-empty `stderr` from various build processes that (correctly) report warnings that antequated Xcode features are being ignored.\n\nIs there some set of flags that trims the tests down to something that can wort of work on an M1 Mac, is there some other test system I can reasonably engage other than my manually poking at it, or would this need massive rewriting and I have to either drop the CL or just hope that my small-scale manual poking at it (without a strong background in `gyp`) was good enough?",
       "revId": "38e00c6af09f6919319631d4f3924b15ceccbff9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab7e5ad5_c545b7ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373732
+      },
+      "writtenOn": "2024-04-12T19:33:20Z",
+      "side": 1,
+      "message": "oops, meant to mark this as unresolved.",
+      "parentUuid": "8aff021c_5b014bfc",
+      "revId": "38e00c6af09f6919319631d4f3924b15ceccbff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07672d0c_a6741e1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373732
+      },
+      "writtenOn": "2024-04-12T19:33:20Z",
+      "side": 1,
+      "message": "flipping resolved bits, oops.",
+      "revId": "38e00c6af09f6919319631d4f3924b15ceccbff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
